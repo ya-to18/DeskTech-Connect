@@ -64,3 +64,5 @@ Youtubeやガジェット紹介サイトは、単一の商品を紹介してい�
     - 簡単なレビュー機能を追加する。（例：コストパフォーマンスや機能性などを1〜5段階評価など）
 ## 画面遷移図
 Figma：https://www.figma.com/file/1ykhFs9VneuzQD1Nb06XT3/Web%E3%82%A2%E3%83%97%E3%83%AA_%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?type=design&node-id=0%3A1&mode=design&t=sCeXxhnOsxsjeQ4d-1
+## ER図
+URL:https://gyazo.com/dae1b4ca88906fc24af9ddc3f08f9566
