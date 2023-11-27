@@ -72,3 +72,5 @@ group :test do
 end
 
 gem 'sorcery'
+gem 'cssbundling-rails'
+gem 'cssbundling-rails'
