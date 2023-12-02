@@ -77,3 +77,4 @@ end
 gem 'sorcery'
 gem 'cssbundling-rails'
 gem 'jsbundling-rails'
+gem 'font-awesome-rails'
