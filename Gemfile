@@ -76,4 +76,4 @@ end
 
 gem 'sorcery'
 gem 'cssbundling-rails'
-gem 'cssbundling-rails'
+gem 'jsbundling-rails'
