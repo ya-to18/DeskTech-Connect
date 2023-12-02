@@ -1977,3 +1977,15 @@ Processing by TopsController#index as HTML
 Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.0ms | Allocations: 4817)
 
 
+Started GET "/" for 172.31.0.1 at 2023-12-02 09:18:46 +0000
+Cannot render console from 172.31.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TopsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tops/index.html.erb within layouts/application
+  Rendered tops/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 338)
+  Rendered layouts/_header.erb (Duration: 0.9ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 377.8ms | Allocations: 50170)
+Completed 200 OK in 393ms (Views: 381.4ms | ActiveRecord: 0.0ms | Allocations: 54293)
+
+
