@@ -73,3 +73,7 @@ group :test do
   gem "selenium-webdriver"
 
 end
+
+gem 'sorcery'
+gem 'cssbundling-rails'
+gem 'jsbundling-rails'
