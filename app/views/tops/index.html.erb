@@ -1,7 +1,16 @@
-<h1 class="text-3xl font-bold underline">
-    Hello world!
-</h1>
-
-<button class="bg-gray-900 hover:bg-gray-800 text-white rounded px-4 py-2">tailwind</button>
-
-<button class="btn btn-outline">daisyUI</button>
+<div class="text-center mx-auto my-32">
+  <div class="font-bold">
+    <h1 class="text-2xl p-10">あなたはどのようなデスク環境で、<br>仕事・勉強・作業をしていますか？</h1>
+    <div class="flex items-center justify-center p-10">
+      <%= image_tag 'toppage_image', class: 'rounded-full max-w-xs mr-4' %>
+      <div class="flex-col text-xl">
+        <h2 class="p-3">あなたのデスクをみんなに共有しよう！</h2>
+        <h2 class="p-3">新たなアイテムに出会えるかも・・・？</h2>
+      </div>
+    </div>
+      <%= link_to 'みんなの投稿を見る', "#", class: 'btn m-2' %>
+      <%= link_to 'アカウント登録', "#", class: 'btn m-2' %>
+    <div class="flex m-4">
+    </div>
+  </div>
+</div>
