@@ -1,0 +1,12 @@
+<div tabindex="0" role="button" class="btn">
+  <i  class="fa-solid fa-bars fa-2xl"></i>
+</div>
+  <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+    <% if current_user %>
+      <li><%= link_to 'Logout', logout_path, data: { turbo_method: :delete } %></li>
+    <% else %>
+      <li><%= link_to 'Login', login_path %></li>
+      <li><%= link_to 'Sign Up', new_user_path %></li>
+    <% end %>
+  </ul>
+</div>
