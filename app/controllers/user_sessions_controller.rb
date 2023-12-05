@@ -6,16 +6,15 @@ class UserSessionsController < ApplicationController
   def create
     @user = login(params[:email], params[:password])
     if @user
-      flash[:notice] = "ログインしました"
-      redirect_to root_path
+      redirect_to root_path, flash: { success: 'ログインしました' }
     else
+      flash.now[:error] = 'ログインに失敗しました。'
       render :new
     end
   end
 
   def destroy
     logout
-    flash[:notice] = "ログアウトしました"
-    redirect_to root_path
+    redirect_to root_path, flash: { success: 'ログアウトしました' }
   end
 end
