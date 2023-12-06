@@ -33,3 +33,4 @@ tmp/cache/bootsnap/
 /config/master.key
 
 ../../assets/builds/application.css
+/db/postgres/*
