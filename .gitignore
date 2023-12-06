@@ -34,3 +34,5 @@ tmp/cache/bootsnap/
 
 ../../assets/builds/application.css
 /db/postgres/*
+
+/public/uploads
