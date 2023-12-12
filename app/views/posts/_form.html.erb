@@ -1,0 +1,5 @@
+<%= form_with model: @post_form, url: posts_path, local: true do |form| %>
+  <%= form.label :image %>
+  <%= form.file_field :image, accept: "image/png, image/jpeg", class: 'file-input file-input-bordered w-full max-w-xs' %>
+  <%= form.submit '投稿する', class: 'btn' %>
+<% end %>
