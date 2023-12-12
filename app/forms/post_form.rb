@@ -2,34 +2,43 @@ class PostForm
   include ActiveModel::Model
   extend CarrierWave::Mount
 
-  attr_accessor :user_id, :image
+  attr_accessor :user_id, :image, :name, :brand, :price, :image_url, :genre
+
+  validates :name, :brand, :price, :image_url, :genre, presence: true
 
   mount_uploader :image, PostImageUploader
 
   delegate :persisted, to: :post
 
-  def initialize(arttributes = nil, post: Post.new)
+  def initialize(attributes = nil, post: Post.new, gadget: Gadget.new)
     @post = post
+    @gadget = gadget
     attributes ||= default_attributes
     super(attributes)
   end
 
   def save
-    Activerecord::Base.transaction do
-      Post.create(user_id:, image:)
+    ActiveRecord::Base.transaction do
+      post = Post.create(user_id:, image:)
+      Gadget.create(post_id: post.id, name:, brand:, price:, image_url:, genre:)
     end
-  rescue Activerecord::RecordInvalid
+  rescue ActiveRecord::RecordInvalid
     false
   end
 
   private
 
-  attr_reader :post
+  attr_reader :post, :gadget
 
   def default_attributes
     {
       user_id: post.user_id,
-      image: post.image
+      image: post.image,
+      name: gadget.name,
+      brand: gadget.brand,
+      price: gadget.price,
+      image_url: gadget.image_url,
+      genre: gadget.genre
     }
   end
 end
