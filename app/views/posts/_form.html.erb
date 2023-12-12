@@ -16,7 +16,10 @@
 
   <div>
     <%= form.label :image_url %>
-    <%= form.number_field :image_url, class: 'input input-bordered w-full max-w-xs' %>
+    <%= form.url_field :image_url, class: 'input input-bordered w-full max-w-xs' %>
+
+    <%= form.label :genre %>
+    <%= form.select :genre, Gadget.genres_i18n.invert %>
   </div>
   <%= form.submit '投稿する', class: 'btn' %>
 <% end %>

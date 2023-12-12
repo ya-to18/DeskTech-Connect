@@ -1,0 +1,6 @@
+ja:
+  enums:
+    gadget:
+      genre:
+        monitor: 'モニター'
+        keyboard: 'キーボード'
