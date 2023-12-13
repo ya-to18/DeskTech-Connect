@@ -1,0 +1,25 @@
+<%= form_with model: @post_form, url: posts_path, local: true do |form| %>
+  <%= render 'shared/error_message', object: form.object %>
+  <%= form.label :image %>
+  <%= form.file_field :image, accept: "image/png, image/jpeg", class: 'file-input file-input-bordered w-full max-w-xs' %>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'input input-bordered w-full max-w-xs' %>
+
+    <%= form.label :brand %>
+    <%= form.text_field :brand, class: 'input input-bordered w-full max-w-xs' %>
+
+    <%= form.label :price %>
+    <%= form.number_field :price, class: 'input input-bordered w-full max-w-xs' %>
+  </div>
+
+  <div>
+    <%= form.label :image_url %>
+    <%= form.url_field :image_url, class: 'input input-bordered w-full max-w-xs' %>
+
+    <%= form.label :genre %>
+    <%= form.select :genre, Gadget.genres_i18n.invert %>
+  </div>
+  <%= form.submit '投稿する', class: 'btn' %>
+<% end %>
