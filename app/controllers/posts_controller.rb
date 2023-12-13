@@ -14,7 +14,7 @@ class PostsController < ApplicationController
       @post_form.save
       redirect_to posts_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

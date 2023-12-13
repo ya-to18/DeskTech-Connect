@@ -18,6 +18,8 @@ class PostForm
   end
 
   def save
+    return false unless valid?
+
     ActiveRecord::Base.transaction do
       post = Post.create!(user_id:, image:)
       gadget = Gadget.create!(name:, brand:, price:, image_url:, genre:)
