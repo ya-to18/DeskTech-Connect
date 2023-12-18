@@ -1,25 +1,27 @@
 <%= form_with model: @post_form, url: posts_path, local: true do |form| %>
-  <%= render 'shared/error_message', object: form.object %>
-  <%= form.label :image %>
-  <%= form.file_field :image, accept: "image/png, image/jpeg", class: 'file-input file-input-bordered w-full max-w-xs' %>
+  <div class="flex flex-col items-center">
+    <%= render 'shared/error_message', object: form.object %>
+    <%= form.label :image %>
+    <%= form.file_field :image, accept: "image/png, image/jpeg", class: 'file-input file-input-bordered w-full max-w-xs' %>
 
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name, class: 'input input-bordered w-full max-w-xs' %>
+    <%= render 'posts/modal_gadget', form: form %>
 
-    <%= form.label :brand %>
-    <%= form.text_field :brand, class: 'input input-bordered w-full max-w-xs' %>
+    <div class="hidden">
+      <%= form.text_field :name, id: 'main_form_name', class: 'input input-bordered w-full max-w-xs' %>
+      <%= form.text_field :brand, id: 'main_form_brand', class: 'input input-bordered w-full max-w-xs' %>
+      <%= form.number_field :price, id: 'main_form_price', class: 'input input-bordered w-full max-w-xs' %>
+      <%= form.url_field :image_url, id: 'main_form_imageUrl', class: 'input input-bordered w-full max-w-xs' %>
+      <%= form.select :genre, Gadget.genres_i18n.invert, {include_blank: '未選択'}, { id: 'main_form_genre', readonly: true } %>
+    </div>
 
-    <%= form.label :price %>
-    <%= form.number_field :price, class: 'input input-bordered w-full max-w-xs' %>
+    <div id="subitems" class="hidden border border-gray-200 rounded-lg p-6 shadow">
+      <p id="main_form_genre_display" class="text-xl font-bold"></p>
+      <p id="main_form_imageUrl_display"></p>
+      <p id="main_form_name_display"></p>
+      <p id="main_form_brand_display"></p>
+      <p id="main_form_price_display"></p>
+    </div>
+
+    <%= form.submit '投稿する', class: 'btn m-6' %>
   </div>
-
-  <div>
-    <%= form.label :image_url %>
-    <%= form.url_field :image_url, class: 'input input-bordered w-full max-w-xs' %>
-
-    <%= form.label :genre %>
-    <%= form.select :genre, Gadget.genres_i18n.invert %>
-  </div>
-  <%= form.submit '投稿する', class: 'btn' %>
 <% end %>
