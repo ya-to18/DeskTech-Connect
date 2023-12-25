@@ -11,7 +11,6 @@ export default class extends Controller {
     const imageUrl = this.imageUrlTarget.value;
     const genre = this.genreTarget.value;
 
-    console.log(genre)
     // 非表示
     document.querySelector('#main_form_name').value = name;
     document.querySelector('#main_form_brand').value = brand;

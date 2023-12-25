@@ -23,8 +23,6 @@ class PostForm
     ActiveRecord::Base.transaction do
       post = Post.create!(user_id:, image:)
       gadget = Gadget.create!(name:, brand:, price:, image_url:, genre:)
-
-      PostGadget.create!(post_id: post.id, gadget_id: gadget.id)
     end
   rescue ActiveRecord::RecordInvalid
     false
