@@ -6,23 +6,30 @@
 
     <%= render 'posts/modal_gadget', form: form %>
 
-    <div class="">
-      <%= form.fields_for :gadgets do |gadget_form| %>
-        <%= gadget_form.select :genre, Gadget.genres_i18n.invert, {include_blank: '未選択'}, { id: 'main_form_genre', readonly: true } %>
-        <%= gadget_form.url_field :image_url, id: 'main_form_imageUrl', class: 'input input-bordered w-full max-w-xs' %>
-        <%= gadget_form.text_field :name, id: 'main_form_name', class: 'input input-bordered w-full max-w-xs' %>
-        <%= gadget_form.text_field :brand, id: 'main_form_brand', class: 'input input-bordered w-full max-w-xs' %>
-        <%= gadget_form.number_field :price, id: 'main_form_price', class: 'input input-bordered w-full max-w-xs' %>
+    <template id="gadget-form-template">
+      <%= form.fields_for :gadgets, Gadget.new, child_index: "NEW_RECORD" do |gadget_form| %>
+        <div id="gadget-fields" class="hidden">
+          <%= gadget_form.select :genre, Gadget.genres_i18n.invert, {include_blank: '未選択'}, { id: 'main_form_genre_NEW_RECORD', readonly: true } %>
+          <%= gadget_form.url_field :image_url, id: 'main_form_imageUrl_NEW_RECORD', class: 'input input-bordered w-full max-w-xs' %>
+          <%= gadget_form.text_field :name, id: 'main_form_name_NEW_RECORD', class: 'input input-bordered w-full max-w-xs' %>
+          <%= gadget_form.text_field :brand, id: 'main_form_brand_NEW_RECORD', class: 'input input-bordered w-full max-w-xs' %>
+          <%= gadget_form.number_field :price, id: 'main_form_price_NEW_RECORD', class: 'input input-bordered w-full max-w-xs' %>
+        </div>
       <% end %>
-    </div>
+    </template>
 
-    <div id="subitems" class="hidden border border-gray-200 rounded-lg p-6 shadow">
-      <p id="main_form_genre_display" class="text-xl font-bold"></p>
-      <p id="main_form_imageUrl_display"></p>
-      <p id="main_form_name_display"></p>
-      <p id="main_form_brand_display"></p>
-      <p id="main_form_price_display"></p>
-    </div>
+    <template id="gadget-display-template">
+      <div id="subitem" class="hidden border border-gray-200 rounded-lg p-6 shadow">
+        <p id="main_form_genre_display" class="text-xl font-bold"></p>
+        <p id="main_form_imageUrl_display"></p>
+        <p id="main_form_name_display"></p>
+        <p id="main_form_brand_display"></p>
+        <p id="main_form_price_display"></p>
+      </div>
+    </template>
+
+    <div id="gadget-display-item-container" class="flex"></div>
+    <div id="gadget-container"></div>
 
     <%= form.submit '投稿する', class: 'btn m-6' %>
   </div>
