@@ -5,13 +5,13 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post_form = PostForm.new
+    @post = Post.new
+    @post.gadgets.build
   end
 
   def create
-    @post_form = PostForm.new(post_params)
-    if @post_form.valid?
-      @post_form.save
+    @post = Post.new(post_params)
+    if @post.save
       redirect_to posts_path
     else
       render :new, status: :unprocessable_entity
@@ -30,6 +30,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post_form).permit(:image, :name, :brand, :price, :image_url, :genre).merge(user_id: current_user.id)
+    params.require(:post).permit(:image, gadgets_attributes: [:id, :name, :brand, :price, :image_url, :genre]).merge(user_id: current_user.id)
   end
 end
