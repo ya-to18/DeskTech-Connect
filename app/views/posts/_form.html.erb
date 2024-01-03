@@ -8,7 +8,7 @@
 
     <template id="gadget-form-template">
       <%= form.fields_for :gadgets, Gadget.new, child_index: "NEW_RECORD" do |gadget_form| %>
-        <div id="gadget-fields" class="hidden">
+        <div id="gadget-fields_NEW_RECORD" class="hidden">
           <%= gadget_form.select :genre, Gadget.genres_i18n.invert, {include_blank: '未選択'}, { id: 'main_form_genre_NEW_RECORD', readonly: true } %>
           <%= gadget_form.url_field :image_url, id: 'main_form_imageUrl_NEW_RECORD', class: 'input input-bordered w-full max-w-xs' %>
           <%= gadget_form.text_field :name, id: 'main_form_name_NEW_RECORD', class: 'input input-bordered w-full max-w-xs' %>
@@ -25,6 +25,7 @@
         <p id="main_form_name_display"></p>
         <p id="main_form_brand_display"></p>
         <p id="main_form_price_display"></p>
+        <button type="button" id="main_form_delete_btn" class="btn" data-controller="form-btn" data-action="click->form-btn#delete" data-form-btn-target="deleteBtn">削除</button>
       </div>
     </template>
 

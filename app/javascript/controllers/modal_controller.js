@@ -28,9 +28,10 @@ export default class extends Controller {
     displayItem.querySelector('#main_form_name_display').id += `_${this.gadgetIndex}`;
     displayItem.querySelector('#main_form_brand_display').id += `_${this.gadgetIndex}`;
     displayItem.querySelector('#main_form_price_display').id += `_${this.gadgetIndex}`;
+    displayItem.querySelector('#main_form_delete_btn').id += `_${this.gadgetIndex}`;
     displayItem.querySelector('#subitem').id += `_${this.gadgetIndex}`;
-    const displayItemHtml = displayItem.querySelector('div').outerHTML;
 
+    const displayItemHtml = displayItem.querySelector('div').outerHTML;
     document.getElementById('gadget-display-item-container').insertAdjacentHTML('beforeend', displayItemHtml);
 
     // 非表示用のフォームに代入
