@@ -100,6 +100,10 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     enum_help (0.0.19)
       activesupport (>= 3.0.0)
     erubi (1.12.0)
@@ -132,6 +136,7 @@ GEM
       activesupport (>= 5.0.0)
     jsbundling-rails (1.2.1)
       railties (>= 6.0.0)
+    json (2.7.1)
     jwt (2.7.1)
     loofah (2.22.0)
       crass (~> 1.0.2)
@@ -223,6 +228,8 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.1.0)
+    rakuten_web_service (1.13.2)
+      json (~> 2.3)
     rdoc (6.6.0)
       psych (>= 4.0.0)
     regexp_parser (2.8.2)
@@ -291,6 +298,7 @@ DEPENDENCIES
   carrierwave (~> 2.0)
   cssbundling-rails
   debug
+  dotenv-rails
   enum_help
   font-awesome-rails
   importmap-rails
@@ -302,6 +310,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.8)
   rails-i18n (~> 7.0.8)
+  rakuten_web_service
   selenium-webdriver
   sorcery
   sprockets-rails

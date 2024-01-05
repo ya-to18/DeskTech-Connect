@@ -1,0 +1,13 @@
+<!-- grid-cols-3 で3列のグリッドを作成 -->
+<div class="grid grid-cols-3 gap-4">
+  <% @products.first(100).each do |product| %>
+    <!-- gridコンテナ内の各アイテムをdivで囲む -->
+    <div class="p-4 border rounded shadow"> <!-- 各製品のカードスタイル -->
+      <ul class="list-none">
+        <li><%= image_tag(product['mediumImageUrl']) %></li>
+        <li class="text-lg font-bold"><%= link_to product['productName'], product['productUrlPC'] %></li>
+        <li class="text-sm"><%= number_with_delimiter(product['averagePrice']) %>円</li>
+      </ul>
+    </div>
+  <% end %>
+</div>
