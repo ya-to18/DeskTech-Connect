@@ -1,15 +1,17 @@
 <h1>製品名を入力して検索</h1>
 <div class="search-box">
-    <%= form_with url: post_path, method: :get, local: true do |f| %>
-    <div class="form-group">
+  <%= form_with url: post_path, method: :get, local: false, html: {data: { turbo_frame: 'search_results' }} do |f| %>
+    <div class="form-group flex mb-4">
         <%= f.text_field :keyword, value: params[:keyword], class: "form-control input input-bordered w-full max-w-xs" %>
-        <%= f.submit '製品名を検索', class: "form-control btn" %>
+        <%= f.submit '製品名を検索', class: "form-control btn ml-3" %>
     </div>
-    <% end %>
-
-  <% if @products.present? %>
-    <%= render 'posts/product' %>
-  <% else %>
-    <div>検索結果がありません</div>
   <% end %>
 </div>
+
+<%= turbo_frame_tag "search_results" do %>
+    <% if @products.present? %>
+      <%= render 'posts/product', products: @products %>
+    <% else %>
+      <div>検索結果がありません</div>
+    <% end %>
+<% end %>

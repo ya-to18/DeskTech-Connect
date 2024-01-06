@@ -33,6 +33,12 @@ class PostsController < ApplicationController
   def destroy
   end
 
+  def search
+    if params[:keyword]
+      @products = RakutenWebService::Ichiba::Product.search(keyword: params[:keyword])
+    end
+  end
+
   private
 
   def post_params

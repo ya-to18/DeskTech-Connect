@@ -1,24 +1,24 @@
 <div data-controller="modal">
   <a href="#" data-action="click->modal#toggleModal" class="btn m-6" >アイテムを追加する</a>
+
   <div class="hidden fixed m-auto w-screen h-screen top-0 left-0 bg-gray-700/50 z-10" data-modal-target="modal">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-max h-max bg-white p-10">
-      <div class="flex flex-col">
-        <%= form.label :genre %>
-        <%= form.select :genre, Gadget.genres_i18n.invert, {include_blank: '未選択'}, { data: { modal_target: 'genre' } } %>
-
-        <%= form.label :name %>
-        <%= form.text_field :name, class: 'input input-bordered w-full max-w-xs', data: { modal_target: 'name' } %>
-
-        <%= form.label :brand %>
-        <%= form.text_field :brand, class: 'input input-bordered w-full max-w-xs', data: { modal_target: 'brand' } %>
-
-        <%= form.label :price %>
-        <%= form.number_field :price, class: 'input input-bordered w-full max-w-xs', data: { modal_target: 'price' } %>
-
-        <%= form.label :image_url %>
-        <%= form.url_field :image_url, class: 'input input-bordered w-full max-w-xs', data: { modal_target: 'imageUrl' } %>
-
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-max h-max bg-white p-10 rounded">
+      <h1>製品名を入力して検索</h1>
+      <div class="search-box">
+        <%= form_with url: search_path, method: :get, local: false, html: { data: { turbo_frame: "search_results" } } do |f| %>
+        <div class="form-group flex mb-4">
+            <%= f.text_field :keyword, value: params[:keyword], class: "form-control input input-bordered w-full max-w-xs" %>
+            <%= f.submit '製品名を検索', class: "form-control btn ml-3" %>
+        </div>
+        <% end %>
       </div>
+      <%= turbo_frame_tag "search_results" do %>
+        <% if @products.present? %>
+          <%= render 'posts/product', products: @products %>
+        <% else %>
+          <div>検索結果がありません</div>
+        <% end %>
+      <% end %>
       <span class="btn" data-action="click->modal#toggleModal">キャンセル</span>
       <span class="btn" data-action="click->modal#updateMainForm">選択</span>
     </div>

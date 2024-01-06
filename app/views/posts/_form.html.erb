@@ -4,8 +4,6 @@
     <%= form.label :image %>
     <%= form.file_field :image, accept: "image/png, image/jpeg", class: 'file-input file-input-bordered w-full max-w-xs' %>
 
-    <%= render 'posts/modal_gadget', form: form %>
-
     <template id="gadget-form-template">
       <%= form.fields_for :gadgets, Gadget.new, child_index: "NEW_RECORD" do |gadget_form| %>
         <div id="gadget-fields_NEW_RECORD" class="hidden">
@@ -35,3 +33,5 @@
     <%= form.submit '投稿する', class: 'btn m-6' %>
   </div>
 <% end %>
+
+<%= render 'posts/modal_gadget' %>

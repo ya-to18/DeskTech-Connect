@@ -1,0 +1,8 @@
+<!-- _search_results.html.erb -->
+<%= turbo_frame_tag 'search_results' do %>
+  <% if @products.present? %>
+    <%= render 'posts/product', products: @products %>
+  <% else %>
+    <div>検索結果がありません</div>
+  <% end %>
+<% end %>
