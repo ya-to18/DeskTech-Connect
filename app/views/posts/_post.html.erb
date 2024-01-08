@@ -1,0 +1,8 @@
+<%= post.user.name %>
+<%= post.created_at %>
+<%= image_tag post.image.url if post.image.present? %>
+<div class="flex">
+  <% post.gadgets.each do |gadget| %>
+      <%= image_tag gadget.image_url %>
+  <% end %>
+</div>
