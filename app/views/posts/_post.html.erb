@@ -1,6 +1,6 @@
 <div class="border rounded-lg shadow-lg">
   <div class="bg-gray-300 font-bold rounded-t-lg">
-    <div class="flex justify-between ml-1 mr-1">
+    <div class="flex justify-between p-2">
       <p><%= post.user.name %>の投稿</p>
       <p><%= post.created_at.strftime('%Y/%m/%d') %></p>
     </div>
@@ -8,7 +8,7 @@
     <%= image_tag post.image.url if post.image.present? %>
   <div class="p-3">
     <% post.gadgets.each do |gadget| %>
-      <p class="badge bg-indigo-900 text-white"><%= gadget.brand %></p>
+      <p class="badge bg-neutral text-white"><%= gadget.brand %></p>
     <% end %>
     <div class="flex">
       <% post.gadgets.each do |gadget| %>
