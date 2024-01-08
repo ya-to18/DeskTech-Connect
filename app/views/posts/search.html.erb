@@ -1,0 +1,7 @@
+<turbo-frame id='search_results'>
+  <% if @products.present? %>
+    <%= render 'posts/product', products: @products %>
+  <% else %>
+    <div>検索結果がありません</div>
+  <% end %>
+</turbo-frame>

@@ -4,6 +4,12 @@ class PostsController < ApplicationController
   def index
   end
 
+  def show
+    if params[:keyword]
+      @products = RakutenWebService::Ichiba::Product.search(keyword: params[:keyword])
+    end
+  end
+
   def new
     @post = Post.new
     @post.gadgets.build
@@ -25,6 +31,12 @@ class PostsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def search
+    if params[:keyword]
+      @products = RakutenWebService::Ichiba::Product.search(keyword: params[:keyword])
+    end
   end
 
   private

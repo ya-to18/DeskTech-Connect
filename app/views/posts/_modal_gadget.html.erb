@@ -1,26 +1,45 @@
 <div data-controller="modal">
-  <a href="#" data-action="click->modal#toggleModal" class="btn m-6" >アイテムを追加する</a>
-  <div class="hidden fixed m-auto w-screen h-screen top-0 left-0 bg-gray-700/50 z-10" data-modal-target="modal">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-max h-max bg-white p-10">
-      <div class="flex flex-col">
-        <%= form.label :genre %>
-        <%= form.select :genre, Gadget.genres_i18n.invert, {include_blank: '未選択'}, { data: { modal_target: 'genre' } } %>
+  <a href="#" data-action="click->modal#showModal" class="btn m-6" >アイテムを追加する</a>
 
-        <%= form.label :name %>
-        <%= form.text_field :name, class: 'input input-bordered w-full max-w-xs', data: { modal_target: 'name' } %>
-
-        <%= form.label :brand %>
-        <%= form.text_field :brand, class: 'input input-bordered w-full max-w-xs', data: { modal_target: 'brand' } %>
-
-        <%= form.label :price %>
-        <%= form.number_field :price, class: 'input input-bordered w-full max-w-xs', data: { modal_target: 'price' } %>
-
-        <%= form.label :image_url %>
-        <%= form.url_field :image_url, class: 'input input-bordered w-full max-w-xs', data: { modal_target: 'imageUrl' } %>
-
+  <dialog id="favDialog" data-modal-target="dialog" class="bg-white p-10 rounded shadow ">
+    <form>
+      <h2>
+        最初に下記の選択リストから登録するアイテムのジャンルを選択してください。
+      </h2>
+      <div class="dropdown dropdown-right pt-5 pb-5" data-modal-target="genreSelectBox">
+        <div tabindex="0" role="button" class="btn m-1">ジャンルを選択する</div>
+        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+          <% Gadget.genres.each do |key, value| %>
+            <li><a data-action="click->modal#selectedGenre"><%= key %></a></li>
+          <% end %>
+        </ul>
       </div>
-      <span class="btn" data-action="click->modal#toggleModal">キャンセル</span>
-      <span class="btn" data-action="click->modal#updateMainForm">選択</span>
-    </div>
+      <div>
+        <button value="cancel" formmethod="dialog" class="btn" data-action="click->modal#dialogClose">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="hidden fixed m-auto w-screen h-screen top-0 left-0 bg-gray-700/50 z-10" data-modal-target="modal">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-10 rounded shadow w-11/12 h-5/6 overflow-auto">
+        <h1>製品名を入力して検索</h1>
+        <div class="search-box flex">
+          <%= form_with url: search_path, method: :get, local: false, html: { data: { turbo_frame: "search_results" } } do |f| %>
+          <div class="form-group flex mb-4">
+              <%= f.text_field :keyword, value: params[:keyword], class: "form-control input input-bordered w-full max-w-xs" %>
+              <%= f.submit '製品名を検索', class: "form-control btn ml-3" %>
+          </div>
+          <% end %>
+          <span class="btn ml-2 mr-2" data-action="click->modal#closeModal">キャンセル</span>
+          <p class="font-bold">選択中のジャンル：<p id="selectedGenreText" calss="font-bold"></p></p>
+        </div>
+        <%= turbo_frame_tag "search_results" do %>
+          <% if @products.present? %>
+            <%= render 'posts/product', products: @products %>
+          <% else %>
+            <div>検索結果がありません</div>
+          <% end %>
+        <% end %>
+      </div>
   </div>
 </div>

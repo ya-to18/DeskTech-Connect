@@ -36,3 +36,4 @@ tmp/cache/bootsnap/
 /db/postgres/*
 
 /public/uploads
+/.env

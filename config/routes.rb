@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :posts do
     resources :gadgets
   end
+
+  get 'search', to: 'posts#search'
 end
