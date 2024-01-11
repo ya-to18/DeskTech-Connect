@@ -46,7 +46,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -85,3 +85,4 @@ gem 'enum_help'
 gem 'rails-i18n', '~> 7.0.8'
 gem 'rakuten_web_service'
 gem 'dotenv-rails'
+gem 'sassc', '~> 2.0'

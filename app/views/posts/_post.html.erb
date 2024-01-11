@@ -1,5 +1,5 @@
 <div class="border rounded-lg shadow-lg">
-  <div class="bg-gray-300 font-bold rounded-t-lg">
+  <div class="bg-green-100 font-bold rounded-t-lg">
     <div class="flex justify-between p-2">
       <p><%= post.user.name %>の投稿</p>
       <p><%= post.created_at.strftime('%Y/%m/%d') %></p>
@@ -10,10 +10,19 @@
     <% post.gadgets.each do |gadget| %>
       <p class="badge bg-neutral text-white"><%= gadget.brand %></p>
     <% end %>
-    <div class="flex">
-      <% post.gadgets.each do |gadget| %>
-          <%= image_tag gadget.image_url, class: "border rounded-md mr-2" %>
-      <% end %>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+          <% post.gadgets.each do |gadget| %>
+              <%= image_tag gadget.image_url, class: "swiper-slide border rounded-md mr-2" %>
+          <% end %>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
     </div>
   </div>
 </div>

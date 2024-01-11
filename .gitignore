@@ -37,3 +37,4 @@ tmp/cache/bootsnap/
 
 /public/uploads
 /.env
+/node_modules

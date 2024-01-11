@@ -1,3 +1,16 @@
+@import "swiper/swiper-bundle.min.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.swiper {
+  height: 200px;
+}
+
+.swiper-wrapper {
+  height: auto;
+}
+
+.swiper-slide  {
+  object-fit: contain;
+}
