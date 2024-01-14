@@ -18,14 +18,16 @@
                 <%= image_tag gadget.image_url, class: "swiper-slide shadow mr-2 h-28 w-9 object-contain" %>
             <% end %>
         </div>
-        <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
     </div>
-    <div id="tag" class="p-1">
-      <% post.gadgets.each do |gadget| %>
-        <p class="badge bg-neutral text-white"><%= gadget.brand %></p>
+    <div id="brand" class="p-1">
+      <% brand_remove_duplicate(post.id) %>
+      <% unless @brand.empty? %>
+        <% @brand.each do |brand| %>
+          <p class="badge bg-green-100"><%= brand %></p>
+        <% end %>
       <% end %>
     </div>
   </div>
