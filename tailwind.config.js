@@ -7,5 +7,12 @@ module.exports = {
   ],
   plugins: [
     require('daisyui')
-  ]
+  ],
+  theme: {
+    extend: {
+      height: {
+        '576': '36rem',
+      }
+    }
+  }
 }

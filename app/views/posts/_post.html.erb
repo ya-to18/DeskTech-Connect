@@ -1,0 +1,38 @@
+<div id="card" class="border rounded-lg shadow-lg h-576 relative" >
+  <div id="header" class="flex justify-between p-2 bg-green-100 font-bold rounded-t-lg">
+    <p><%= post.user.name %>の投稿</p>
+    <p><%= post.created_at.strftime('%Y/%m/%d') %></p>
+  </div>
+  <div id="contents" class="flex flex-col h-5/6">
+    <div id="main-image" class="flex-none h-1/2">
+      <% if post.image.present? %>
+        <%= image_tag post.image.url, class: 'h-full w-full object-cover' %>
+      <% else %>
+        <%= image_tag 'no_image.png', class: 'h-full w-full object-cover' %>
+      <% end %>
+    </div>
+    <div id="item-image" class="p-3">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+            <% post.gadgets.each do |gadget| %>
+                <%= image_tag gadget.image_url, class: "swiper-slide shadow mr-2 h-28 w-9 object-contain" %>
+            <% end %>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+    <div id="brand" class="p-1">
+      <% brand_remove_duplicate(post.id) %>
+      <% unless @brand.empty? %>
+        <% @brand.each do |brand| %>
+          <p class="badge bg-green-100"><%= brand %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+    <div id="footer" class="p-2">
+      <a href="#">Likes</a>
+      <a href="#">Comments</a>
+    </div>
+</div>

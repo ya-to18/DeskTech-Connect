@@ -6,12 +6,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
     <%= stylesheet_link_tag "application", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
   </head>
 
-  <body class="flex flex-col min-h-screen">
+  <body class="flex flex-col min-h-screen bg-green-50">
     <%= render "shared/header" %>
     <%= render 'shared/flash_message' %>
     <div class="container mx-auto flex-grow justify-center">
