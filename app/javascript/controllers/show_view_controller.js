@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="show-modal"
 export default class extends Controller {
-  static targets = ['detailNav', 'modal']
+  static targets = ['detailNav']
   connect() {
   }
 
@@ -12,14 +12,5 @@ export default class extends Controller {
 
   textHidden() {
     this.detailNavTarget.classList.toggle("hidden");
-  }
-
-  showModal() {
-    event.preventDefault();
-    this.modalTarget.classList.toggle("hidden");
-  }
-
-  closeModal() {
-    this.modalTarget.classList.toggle("hidden")
   }
 }
