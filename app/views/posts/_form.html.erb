@@ -3,6 +3,8 @@
     <%= render 'shared/error_message', object: form.object %>
     <%= form.label :image %>
     <%= form.file_field :image, accept: "image/png, image/jpeg", class: 'file-input file-input-bordered w-full max-w-xs' %>
+    <%= form.label :content %>
+    <%= form.text_area :content, class: "textarea textarea-bordered" %>
 
     <template id="gadget-form-template">
       <%= form.fields_for :gadgets, Gadget.new, child_index: "NEW_RECORD" do |gadget_form| %>
@@ -20,7 +22,10 @@
       <div id="subitem" class="hidden border border-gray-200 rounded-lg p-6 shadow">
         <p id="main_form_genre_display" class="badge badge-ghost text-lg"></p>
         <img id="main_form_imageUrl_display">
-        <p id="main_form_maker_display"></p>
+        <div class="flex">
+          <p>メーカー：</p>
+          <p id="main_form_maker_display"></p>
+        </div>
         <p id="main_form_name_display"></p>
         <p id="main_form_price_display"></p>
         <button type="button" id="main_form_delete_btn" class="btn" data-controller="form-btn" data-action="click->form-btn#delete" data-form-btn-target="deleteBtn">削除</button>
