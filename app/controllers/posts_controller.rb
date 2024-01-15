@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :require_login
-  before_action :set_post, only: %i[ show destroy ]
+  before_action :set_post, only: %i[ show edit destroy ]
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -26,8 +26,7 @@ class PostsController < ApplicationController
   def update
   end
 
-  def edit
-  end
+  def edit; end
 
   def destroy
     if @post.destroy!
