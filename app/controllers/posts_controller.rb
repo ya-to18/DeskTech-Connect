@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :require_login
-  before_action :set_post, only: %i[ show ]
+  before_action :set_post, only: %i[ show destroy ]
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -29,6 +29,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    if @post.destroy
+      redirect_to posts_path, status: :see_other
+    end
   end
 
   def search
