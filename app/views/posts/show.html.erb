@@ -1,4 +1,2 @@
-<h1>test</h1>
-<%= @post.id %>
-<%= @post.user.name %>
-<%= image_tag main_image_existence(@post) %>
+<p class="text-3xl text-center"><%= @post.user.name %>さんの投稿</p>
+<%= image_tag main_image_existence(@post), class: "h-96" %>

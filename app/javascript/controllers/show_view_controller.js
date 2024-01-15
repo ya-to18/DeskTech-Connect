@@ -4,13 +4,14 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ['detailNav']
   connect() {
+    this.detailNavTarget.classList.add("hidden");
   }
 
   textDisplay() {
-    this.detailNavTarget.classList.toggle("hidden");
+    this.detailNavTarget.classList.remove("hidden");
   }
 
   textHidden() {
-    this.detailNavTarget.classList.toggle("hidden");
+    this.detailNavTarget.classList.add("hidden");
   }
 }
