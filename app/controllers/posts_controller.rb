@@ -16,8 +16,9 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to posts_path
+      redirect_to posts_path, flash: { success: '投稿しました。' }
     else
+      flash.now[:error] = '投稿に失敗しました。'
       render :new, status: :unprocessable_entity
     end
   end
@@ -29,8 +30,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    if @post.destroy
-      redirect_to posts_path, status: :see_other
+    if @post.destroy!
+      redirect_to posts_path, status: :see_other, flash: { success: '投稿を削除しました。' }
     end
   end
 
