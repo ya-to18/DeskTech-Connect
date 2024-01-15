@@ -1,15 +1,11 @@
-<div id="card" class="border rounded-lg shadow-lg h-576 relative" >
+<div id="card" class="border rounded-lg shadow-lg h-576 relative hover:border-blue-900" >
   <div id="header" class="flex justify-between p-2 bg-green-100 font-bold rounded-t-lg">
-    <p><%= post.user.name %>の投稿</p>
+    <%= link_to post.user.name, post_path(post.id), class: 'link' %>
     <p><%= post.created_at.strftime('%Y/%m/%d') %></p>
   </div>
   <div id="contents" class="flex flex-col h-5/6">
     <div id="main-image" class="flex-none h-1/2">
-      <% if post.image.present? %>
-        <%= image_tag post.image.url, class: 'h-full w-full object-cover' %>
-      <% else %>
-        <%= image_tag 'no_image.png', class: 'h-full w-full object-cover' %>
-      <% end %>
+      <%= link_to image_tag( main_image_existence(post), { class: 'h-full w-full object-cover'}), post_path(post) %>
     </div>
     <div id="item-image" class="p-3">
       <div class="swiper">
