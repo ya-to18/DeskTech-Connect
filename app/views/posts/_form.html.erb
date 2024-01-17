@@ -1,42 +1,58 @@
-<%= form_with model: @post, url: posts_path, local: true do |form| %>
-  <div class="flex flex-col items-center">
-    <%= render 'shared/error_message', object: form.object %>
-    <%= form.label :image %>
-    <%= form.file_field :image, accept: "image/png, image/jpeg", class: 'file-input file-input-bordered w-full max-w-xs' %>
-    <%= form.label :content %>
-    <%= form.text_area :content, class: "textarea textarea-bordered" %>
+<%= form_with model: @post, local: true do |form| %>
+  <%= render 'shared/error_message', object: form.object %>
+  <div id="postContent" class="flex justify-center mt-4">
+    <div class="flex-col w-96">
+      <p class="text-lg font-bold text-center">現在のデスク画像</p>
+      <%= image_tag main_image_existence(@post), class: "w-auto h-72 object-contain" %>
+      <div class="border p-2">
+        <p class="break-words mb-3">新しくデスク画像を登録する場合は、下記からファイルを選択してください。</p>
+        <%= form.label :image %>
+        <%= form.file_field :image, accept: "image/png, image/jpeg", class: 'file-input file-input-bordered max-w-xs' %>
+      </div>
+    </div>
+    <div class="flex-col ml-4">
+      <p class="text-center font-bold"><%= form.label :content %></p>
+      <%= form.text_area :content, class: "textarea textarea-bordered w-96 h-72 " %>
+    </div>
+  </div>
 
-    <template id="gadget-form-template">
-      <%= form.fields_for :gadgets, Gadget.new, child_index: "NEW_RECORD" do |gadget_form| %>
-        <div id="gadget-fields_NEW_RECORD" class="hidden">
-          <%= gadget_form.text_field :genre, { id: 'main_form_genre_NEW_RECORD', readonly: true } %>
-          <%= gadget_form.url_field :image_url, id: 'main_form_imageUrl_NEW_RECORD' %>
-          <%= gadget_form.text_field :name, id: 'main_form_name_NEW_RECORD' %>
-          <%= gadget_form.text_field :brand, id: 'main_form_maker_NEW_RECORD' %>
-          <%= gadget_form.number_field :price, id: 'main_form_price_NEW_RECORD' %>
+  <%= render 'posts/template/form_template', form: form %>
+
+  <div id="gadget-display-item-container" class="grid grid-cols-4 gap-3 grid-flow-row">
+    <% if @post.gadgets.ids.present? %>
+      <% @post.gadgets.each_with_index do |gadget, index| %>
+        <div id="subitem_<%= index + 10000 %>" class="border border-gray-200 rounded-lg p-6 shadow">
+          <p id="main_form_genre_display" class="badge badge-ghost text-lg"><%= gadget.genre %></p>
+          <img id="main_form_imageUrl_display">
+          <%= image_tag gadget.image_url %>
+          <div class="flex">
+            <p>メーカー：</p>
+            <p id="main_form_maker_display"><%= gadget.brand %></p>
+          </div>
+          <p id="main_form_name_display"><%= gadget.name %></p>
+          <p id="main_form_price_display"><%= gadget.price %></p>
+          <button type="button" id="main_form_delete_btn_<%= index + 10000 %>" class="btn" data-controller="form-btn" data-action="click->form-btn#delete" data-form-btn-target="deleteBtn">削除</button>
         </div>
       <% end %>
-    </template>
-
-    <template id="gadget-display-template">
-      <div id="subitem" class="hidden border border-gray-200 rounded-lg p-6 shadow">
-        <p id="main_form_genre_display" class="badge badge-ghost text-lg"></p>
-        <img id="main_form_imageUrl_display">
-        <div class="flex">
-          <p>メーカー：</p>
-          <p id="main_form_maker_display"></p>
-        </div>
-        <p id="main_form_name_display"></p>
-        <p id="main_form_price_display"></p>
-        <button type="button" id="main_form_delete_btn" class="btn" data-controller="form-btn" data-action="click->form-btn#delete" data-form-btn-target="deleteBtn">削除</button>
-      </div>
-    </template>
-
-    <div id="gadget-display-item-container" class="grid grid-cols-4 gap-3 grid-flow-row"></div>
-    <div id="gadget-hidden-display-item-container"></div>
-
-    <%= form.submit '投稿する', class: 'btn m-6' %>
+    <% end %>
   </div>
-<% end %>
+  <div id="gadget-hidden-display-item-container">
+    <% if @post.gadgets.ids.present? %>
+      <% @post.gadgets.each_with_index do |gadget, index| %>
+        <%= form.fields_for :gadgets, gadget, child_index: index do |gadget_form| %>
+          <div id="gadget-fields_<%= index + 10000 %>" class="hidden">
+            <%= gadget_form.text_field :genre %>
+            <%= gadget_form.url_field :image_url %>
+            <%= gadget_form.text_field :name %>
+            <%= gadget_form.text_field :brand %>
+            <%= gadget_form.number_field :price, value: number_with_delimiter(gadget.price, delimiter: ',') %>
+            <%= gadget_form.number_field :_destroy, id: "delete_flag_#{index + 10000}" %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
 
+  <%= form.submit '投稿する', class: 'btn m-6' %>
+<% end %>
 <%= render 'posts/modal_gadget' %>

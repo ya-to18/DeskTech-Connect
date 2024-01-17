@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :require_login
-  before_action :set_post, only: %i[ show edit destroy ]
+  before_action :set_post, only: %i[ show edit update destroy ]
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -24,9 +24,16 @@ class PostsController < ApplicationController
   end
 
   def update
+    if @post.update(post_params)
+      redirect_to post_path(@post.id), flash: { success: '更新が完了しました。' }
+    else
+      flash.now[:error] = '更新に失敗しました。'
+      render :edit, status: :unprocessable_entity
+    end
   end
 
-  def edit; end
+  def edit
+  end
 
   def destroy
     if @post.destroy!
@@ -43,7 +50,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :content, gadgets_attributes: [:id, :name, :brand, :price, :image_url, :genre]).merge(user_id: current_user.id)
+    params.require(:post).permit(:image, :content, gadgets_attributes: [:id, :name, :brand, :price, :image_url, :genre, :_destroy]).merge(user_id: current_user.id)
   end
 
   def set_post
