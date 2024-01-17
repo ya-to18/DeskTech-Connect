@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :posts do
     resources :gadgets
+    resource :likes, only: %i[ create destroy ]
   end
 
   get 'search', to: 'posts#search'
