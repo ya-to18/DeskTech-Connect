@@ -1,25 +1,22 @@
-<p class="text-3xl text-center font-bold pt-3"><%= @post.user.name %>さんの投稿</p>
-<p class="text-right">投稿日 <%= @post.created_at.strftime('%Y/%m/%d') %></p>
-<div class="text-right mt-3">
-  <%= link_to "編集", edit_post_path(@post.id), class: "btn btn-outline" %>
-  <%= link_to "削除", post_path(@post.id), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: "btn btn-outline btn-error" %>
-</div>
-<div id="main-content" class="mt-5 justify-center md:flex">
-  <%= image_tag main_image_existence(@post), class: "w-928 h-full object-contain" %>
-  <div class="flex-col mr-4 ml-4 mb-4">
-    <p class="text-lg font-bold">おすすめポイント！</p>
-    <div class="border p-4 bg-white h-full md:w-ful"><%= @post.content %></div>
+  <p class="text-3xl text-center font-bold pt-3"><%= @post.user.name %>さんの投稿</p>
+  <div class="text-right">
+    <p class="">投稿日 <%= @post.created_at.strftime('%Y/%m/%d') %></p>
+    <%= link_to "編集", edit_post_path(@post.id), class: "btn btn-outline" %>
+    <%= link_to "削除", post_path(@post.id), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: "btn btn-outline btn-error" %>
   </div>
-</div>
-<p class="text-2xl text-center font-bold mt-20 mb-5">アイテム詳細</p>
-<div id="gadget-content" class="grid grid-cols-1 gap-4 mr-20 ml-20 mb-20 md:grid-cols-2">
-  <% @post.gadgets.each do |gadget| %>
-    <div id="gadget-card" class="bg-white shadow rounded-lg text-lg p-4">
-      <%= image_tag gadget.image_url, class: "shadow place-items-center" %>
-      <p class="text-xl p-2"><%= gadget.name %></p>
-      <p class="text-xl text-right font-bold p-2">¥<%= number_with_delimiter(gadget.price) %></p>
-      <p>ブランド名：<%= gadget.brand %></p>
-      <p>ジャンル：<%= gadget.genre %></p>
-    </div>
-  <% end %>
-</div>
+  <div class="flex">
+    <%= image_tag main_image_existence(@post), class: 'w-928' %>
+    <div class="border p-4 bg-white h-auto w-full ml-4"><%= @post.content %></div>
+  </div>
+  <p class="text-2xl text-center font-bold mt-20 mb-5">アイテム詳細</p>
+  <div id="gadget-content" class="grid grid-cols-1 gap-4 mb-20 md:grid-cols-3">
+    <% @post.gadgets.each do |gadget| %>
+      <div id="gadget-card" class="bg-white shadow rounded-lg text-lg p-4">
+        <%= image_tag gadget.image_url, class: "shadow place-items-center" %>
+        <p class="text-xl p-2"><%= gadget.name %></p>
+        <p class="text-xl text-right font-bold p-2">¥<%= number_with_delimiter(gadget.price) %></p>
+        <p>ブランド名：<%= gadget.brand %></p>
+        <p>ジャンル：<%= gadget.genre %></p>
+      </div>
+    <% end %>
+  </div>
