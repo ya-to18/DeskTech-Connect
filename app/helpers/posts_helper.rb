@@ -14,4 +14,8 @@ module PostsHelper
       'default.png'
     end
   end
+
+  def my_post?(post)
+    current_user.id == post.user.id
+  end
 end
