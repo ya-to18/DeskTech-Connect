@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'likes/new'
+  get 'likes/create'
+  get 'likes/destroy'
   root 'tops#index'
 
   get 'login', to: 'user_sessions#new'
