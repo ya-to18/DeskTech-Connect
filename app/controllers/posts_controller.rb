@@ -32,7 +32,8 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit: end
+  def edit
+  end
 
   def destroy
     if @post.destroy!
@@ -49,7 +50,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :content, gadgets_attributes: [:id, :name, :brand, :price, :image_url, :genre]).merge(user_id: current_user.id)
+    params.require(:post).permit(:image, :content, gadgets_attributes: [:id, :name, :brand, :price, :image_url, :genre, :_destroy]).merge(user_id: current_user.id)
   end
 
   def set_post
