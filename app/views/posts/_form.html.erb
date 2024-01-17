@@ -45,7 +45,7 @@
             <%= gadget_form.url_field :image_url %>
             <%= gadget_form.text_field :name %>
             <%= gadget_form.text_field :brand %>
-            <%= gadget_form.number_field :price, value: number_with_delimiter(gadget.price, delimiter: ',') %>
+            <%= gadget_form.number_field :price %>
             <%= gadget_form.number_field :_destroy, id: "delete_flag_#{index + 10000}" %>
           </div>
         <% end %>

@@ -12,6 +12,7 @@ export default class extends Controller {
     const delete_field = document.getElementById('delete_flag_' + index);
 
     if (index >= 10000) {
+      displayTemplate.remove();
       delete_field.value = '1'
     } else {
       template.remove();

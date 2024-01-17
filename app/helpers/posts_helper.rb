@@ -9,9 +9,9 @@ module PostsHelper
 
   def main_image_existence(post)
     if post.image.present?
-      post.image.url
+      post.image.url(:index_size)
     else
-      'no_image.png'
+      'default.png'
     end
   end
 end
