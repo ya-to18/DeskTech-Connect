@@ -29,9 +29,9 @@
         <% end %>
       </div>
     </div>
-      <div id="footer" class="p-2">
-        <%= link_to "", posts_path, class: "fa-regular fa-heart" %>
-        <%= link_to "", posts_path, class: "fa-regular fa-comment" %>
-      </div>
+    <div id="footer" class="p-2 text-right">
+      <%= render 'posts/likes/like', post: post %>
+      <%= link_to "", posts_path, class: "fa-regular fa-comment" %>
+    </div>
   </div>
 </div>
