@@ -5,7 +5,7 @@
     <%= link_to "削除", post_path(@post.id), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: "btn btn-outline btn-error" %>
   </div>
   <div class="flex">
-    <%= image_tag main_image_existence(@post), class: 'w-928' %>
+    <%= image_tag main_image_existence(@post), class: 'w-928 border' %>
     <div class="border p-4 bg-white h-auto w-full ml-4"><%= @post.content %></div>
   </div>
   <p class="text-2xl text-center font-bold mt-20 mb-5">アイテム詳細</p>
