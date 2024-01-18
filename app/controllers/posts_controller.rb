@@ -4,8 +4,8 @@ class PostsController < ApplicationController
   before_action :current_user_post, only: %i[ edit update destroy ]
 
   def index
-    @q = Post.ransack(params[:id])
-    @posts = @q.result(distinct: true).includes(:user).page(params[:page]).order("created_at desc")
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true).includes(:user).order("created_at desc")
   end
 
   def show; end

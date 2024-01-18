@@ -1,0 +1,9 @@
+<%= search_form_for @q, url: url do |f| %>
+  <%= f.label :genre %>
+  <%= f.select :gadgets_genre_eq, Gadget.genres_i18n.invert.map{ |key, value| [key, Gadget.genres[value]] } %>
+  <%= f.label :brand %>
+  <%= f.search_field :gadgets_brand_cont, class: 'form-controll input input-bordered w-full max-w-xs', placeholder: '検索ワード' %>
+  <%= f.label :name %>
+  <%= f.search_field :gadgets_name_cont, class: 'form-controll input input-bordered w-full max-w-xs', placeholder: '検索ワード' %>
+  <%= f.submit '検索', class: 'btn btn-primary' %>
+<% end %>
