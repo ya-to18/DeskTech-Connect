@@ -1,0 +1,11 @@
+<% if post.liked_by?(current_user) %>
+  <%= link_to post_likes_path(post.id), data: { turbo_method: :delete } do %>
+    <i class="fa-solid fa-heart" style="color: #fa0019"></i>
+  <% end %>
+  <%= post.likes.count %>
+<% else %>
+  <%= link_to post_likes_path(post.id), data: { turbo_method: :post } do %>
+    <i class="fa-regular fa-heart"></i>
+  <% end %>
+  <%= post.likes.count %>
+<% end %>

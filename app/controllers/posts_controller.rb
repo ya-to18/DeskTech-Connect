@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :require_login
   before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :current_user_post, only: %i[ edit update destroy ]
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -55,6 +56,12 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def current_user_post
+    unless current_user.id == @post.user.id
+      redirect_to posts_path(@post.id), flash: { error: '他人の投稿は編集することができません。' }
+    end
   end
 
 end
