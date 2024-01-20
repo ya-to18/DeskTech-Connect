@@ -1,5 +1,6 @@
 @import "swiper/swiper-bundle.min.css";
 @import "swiper.css";
+@import "collapse.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
