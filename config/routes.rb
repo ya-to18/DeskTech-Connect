@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
 
+  resources :autocomplete do
+    get :brand, on: :collection
+    get :name, on: :collection
+  end
   resources :users, only: %i[new create]
   resources :posts do
     resources :gadgets

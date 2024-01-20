@@ -11,4 +11,12 @@ class Post < ApplicationRecord
   def liked_by?(user)
     likes.exists?(user_id: user.id)
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["content"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["gadgets"]
+  end
 end

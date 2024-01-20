@@ -230,6 +230,10 @@ GEM
     rake (13.1.0)
     rakuten_web_service (1.13.2)
       json (~> 2.3)
+    ransack (4.1.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     rdoc (6.6.0)
       psych (>= 4.0.0)
     regexp_parser (2.8.2)
@@ -320,6 +324,7 @@ DEPENDENCIES
   rails (~> 7.0.8)
   rails-i18n (~> 7.0.8)
   rakuten_web_service
+  ransack
   sassc (~> 2.0)
   sassc-rails
   selenium-webdriver
