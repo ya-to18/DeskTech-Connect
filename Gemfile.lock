@@ -181,6 +181,7 @@ GEM
       rack (>= 1.2, < 4)
       snaky_hash (~> 2.0)
       version_gem (~> 1.1)
+    pagy (6.4.3)
     pg (1.5.4)
     pry (0.14.2)
       coderay (~> 1.1)
@@ -318,6 +319,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   mini_magick
+  pagy
   pg (~> 1.1)
   pry-rails
   puma (~> 5.0)
