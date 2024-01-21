@@ -30,7 +30,7 @@ class PostImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :index_size do
-    process resize_and_pad:[1600, 900, '#ecfdf5', 'Center']
+    process resize_and_pad:[1600, 900, '#f8fafc', 'Center']
   end
 
   # Add an allowlist of extensions which are allowed to be uploaded.

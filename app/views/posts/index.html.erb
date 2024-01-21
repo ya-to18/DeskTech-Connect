@@ -1,10 +1,10 @@
 <h1 class="text-3xl font-bold text-center p-3">みんなの投稿一覧</h1>
 <div tab-index="0" class="collapse bg-base-200 mt-3 mb-3 collapse-override">
   <input type="checkbox" />
-  <div class="collapse-title text-xl font-medium text-center">
+  <div class="collapse-title text-xl font-medium text-center bg-slate-50">
     <i class="fa-solid fa-magnifying-glass">検索</i>
   </div>
-  <div class="collapse-content">
+  <div class="collapse-content bg-slate-50">
     <%= render 'search', q: @q, url: posts_path %>
   </div>
 </div>
