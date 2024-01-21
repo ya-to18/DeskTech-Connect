@@ -1,6 +1,6 @@
 <!-- grid-cols-3 で3列のグリッドを作成 -->
 <div class="grid grid-cols-4 gap-4 grid-flow-row">
-  <% @products.first(10).each do |product| %>
+  <% @products.each do |product| %>
     <!-- gridコンテナ内の各アイテムをdivで囲む -->
     <button type="button" id= 'item-<%= product['productId'] %>' data-action="click->modal#itemSelect" data-modal-target="itemId">
       <div class="p-4 border rounded shadow-md hover:border-blue-900 cursor-pointer" > <!-- 各製品のカードスタイル -->
