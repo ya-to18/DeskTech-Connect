@@ -8,6 +8,10 @@ class PostsController < ApplicationController
     @pagy, @posts = pagy(@q.result(distinct: true).includes(:user).order("created_at desc"), items: 9)
   end
 
+  def my_posts
+    @pagy, @posts= pagy(Post.where(user_id: current_user.id).order(created_at: :desc))
+  end
+
   def show; end
 
   def new
