@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     @pagy, @posts= pagy(Post.where(user_id: current_user.id).order(created_at: :desc))
   end
 
+  def likes
+    @pagy, @posts = pagy(current_user.liked_posts)
+  end
+
   def edit
   end
 

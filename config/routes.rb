@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resource :users, only: %i[new create show edit update] do
     collection do
       get 'posts'
+      get 'likes'
     end
   end
 
