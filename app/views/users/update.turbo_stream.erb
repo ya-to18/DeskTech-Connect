@@ -1,0 +1,7 @@
+<% if current_user.errors.any? %>
+  <%= turbo_stream.update 'error_message', partial: 'shared/error_message', locals: { object: current_user } %>
+<% else %>
+  <%= turbo_stream.update 'error_message', '' %>
+  <%= turbo_stream.update 'flash_messages', partial: 'shared/flash_message', locals: { flash: flash } %>
+  <%= turbo_stream.replace 'user-name', partial: 'users/user_name', locals: { user: current_user } %>
+<% end %>

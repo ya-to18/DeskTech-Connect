@@ -1,0 +1,12 @@
+<%= turbo_frame_tag 'user-name' do %>
+  <%= form_with model:@user, url: users_path, method: :put  do |f|%>
+    <div class="flex my-4 w-auto justify-between">
+      <p class="my-1"><i class="fa-solid fa-user pr-3"></i>ユーザーネーム</p>
+      <div class="flex">
+        <p class="btn btn-sm ml-4"><%= f.submit '更新' %></p>
+        <p class="btn btn-sm ml-4"><%= link_to 'キャンセル', users_path %></p>
+      </div>
+    </div>
+    <%= f.text_field :name, value: current_user.name, class: 'input input-bordered w-full text-center' %>
+  <% end %>
+<% end %>
