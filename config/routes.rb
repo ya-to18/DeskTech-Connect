@@ -13,13 +13,16 @@ Rails.application.routes.draw do
     get :name, on: :collection
   end
 
-  resource :users, only: %i[new create show edit update]
+  resource :users, only: %i[new create show edit update] do
+    collection do
+      get 'posts'
+    end
+  end
 
   resources :posts do
     resources :gadgets
     resource :likes, only: %i[ create destroy ]
   end
-  get 'my_posts', to: 'posts#my_posts'
 
   get 'search', to: 'posts#search'
 end

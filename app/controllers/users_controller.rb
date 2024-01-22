@@ -9,6 +9,10 @@ class UsersController < ApplicationController
     current_user
   end
 
+  def posts
+    @pagy, @posts= pagy(Post.where(user_id: current_user.id).order(created_at: :desc))
+  end
+
   def edit
   end
 
