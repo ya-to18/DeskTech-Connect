@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get :brand, on: :collection
     get :name, on: :collection
   end
-  resources :users, only: %i[new create]
+  resource :users, only: %i[new create show]
   resources :posts do
     resources :gadgets
     resource :likes, only: %i[ create destroy ]

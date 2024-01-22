@@ -1,0 +1,19 @@
+<div class="flex justify-center">
+  <div class="w-3/4">
+    <h1 class="text-center mt-20 mb-10 text-2xl font-bold"><i class="fa-solid fa-gear px-3"></i>個人設定</h1>
+    <div class="flex flex-col w-auto">
+        <div class="flex my-4 w-auto justify-between">
+          <p class="my-1"><i class="fa-solid fa-user pr-3"></i>ユーザーネーム</p>
+          <p class="btn btn-sm ml-4"><%= link_to '変更' %></p>
+        </div>
+        <p class="w-full text-center border rounded p-4 bg-white"><%= current_user.name %></p>
+    </div>
+    <div class="flex flex-col w-auto">
+        <div class="flex my-4 w-auto justify-between">
+          <p class="my-1"><i class="fa-solid fa-envelope pr-3"></i>メールアドレス</p>
+          <p class="btn btn-sm ml-4"><%= link_to '変更' %></p>
+        </div>
+        <p class="w-full text-center border rounded p-4 bg-white"><%= current_user.email %></p>
+    </div>
+  </div>
+</div>
