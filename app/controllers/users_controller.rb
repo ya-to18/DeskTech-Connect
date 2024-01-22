@@ -10,11 +10,13 @@ class UsersController < ApplicationController
   end
 
   def posts
-    @pagy, @posts= pagy(Post.where(user_id: current_user.id).order(created_at: :desc))
+    @q = Post.where(user_id: current_user.id).ransack(params[:q])
+    @pagy, @posts= pagy(@q.result(distinct: true).includes(:user).order("created_at desc"), items: 9)
   end
 
   def likes
-    @pagy, @posts = pagy(current_user.liked_posts)
+    @q = current_user.liked_posts.ransack(params[:q])
+    @pagy, @posts = pagy(@q.result(distinct: true).includes(:user).order("created_at desc"), items: 9)
   end
 
   def edit
