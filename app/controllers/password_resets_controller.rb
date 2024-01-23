@@ -5,8 +5,8 @@ class PasswordResetsController < ApplicationController
 
   def create
     @user = User.find_by_email(params[:email])
-    @user.deliver_reset_password_instructions! if @user
-    redirect_to(root_path, :success => 'Instructions have been sent to your email.')
+    @user&.deliver_reset_password_instructions!
+    redirect_to request.referer, flash: { success: 'メールを送信しました。' }
   end
 
   def edit
@@ -14,7 +14,7 @@ class PasswordResetsController < ApplicationController
     @user = User.load_from_reset_password_token(params[:id])
 
     if @user.blank?
-      mot_authenticated
+      not_authenticated
       return
     end
   end
