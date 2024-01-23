@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
 
-  resources :password_resets, only: %i[ create edit update ]
+  resources :password_resets, only: %i[ new create edit update ]
 
   resources :autocomplete do
     get :brand, on: :collection

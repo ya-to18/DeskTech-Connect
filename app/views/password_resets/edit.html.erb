@@ -1,4 +1,20 @@
-<div>
-  <h1 class="font-bold text-4xl">PasswordResets#edit</h1>
-  <p>Find me in app/views/password_resets/edit.html.erb</p>
-</div>
+# app/views/password_resets/edit.html.erb
+<h1>Choose a new password</h1>
+<%= form_with @user, url: password_reset_path(@token), local: true do |f| %>
+  <%= render 'shared/error_message' %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= @user.email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: 'btn' %>
+  </div>
+<% end %>
