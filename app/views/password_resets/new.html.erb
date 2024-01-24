@@ -1,7 +1,21 @@
-<%= form_with url: password_resets_path, local: true do |f| %>
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-controll textarea border' %>
+<div class="py-20 sm:py-20 min-h-[calc(100vh-160px)] px-4">
+  <div class="mx-auto max-w-screen-sm bg-white p-8 md:p-8 border rounded-lg relative">
+    <div class="flex justify-center">
+      <i class="fa-solid fa-envelope text-3xl border p-3 rounded-full absolute top-0 -mt-7 bg-white"></i>
+    </div>
+    <h2 class="mb-4 text-base text-gray-800 md:mb-8">パスワード変更案内のメールを送信します。</h2>
+    <h2 class="mb-4 text-base text-gray-800 md:mb-8 md:whitespace-nowrap">下記に現在登録しているメールアドレスを入力して送信ボタンを押してください。</h2>
+
+    <%= form_with url: password_resets_path, local: true do |f| %>
+      <div class="form-group mx-auto max-w-lg">
+        <div class="flex flex-col gap-4 p-4">
+          <%= f.label :email, class: 'mb-2 inline-block text-sm text-gray-800 sm:text-base' %>
+          <%= f.email_field :email, class: 'form-controll w-full rounded border bg-slate-100 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring' %>
+          <div class="flex justify-center">
+            <%= f.submit '送信', class: 'mt-4 w-16 block rounded-lg bg-gray-800 p-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active:bg-gray-600 md:text-base' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <%= f.submit '送信', class: 'btn' %>
-<% end %>
+</div>
