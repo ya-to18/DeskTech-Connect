@@ -1,20 +1,26 @@
-# app/views/password_resets/edit.html.erb
-<h1>Choose a new password</h1>
-<%= form_with model: @user, url: password_reset_path(@token), local: true do |f| %>
-  <%= render 'shared/error_message', object: f.object %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= @user.email %>
+<div class="py-20 sm:py-20 min-h-[calc(100vh-160px)] px-4">
+  <div class="mx-auto max-w-screen-sm bg-white p-8 md:p-8 border rounded-lg shadow relative">
+    <div class="flex justify-center">
+      <i class="fa-solid fa-key text-3xl sm:2xl shadow p-3 rounded-full absolute top-0 -mt-7 bg-white"></i>
+    </div>
+    <h1 class="mb-3 text-base text-gray-800 md:mb-5">新しいパスワードを入力してください。</h1>
+    <%= form_with model: @user, url: password_reset_path(@token), local: true do |f| %>
+      <%= render 'shared/error_message', object: f.object %>
+      <div class="form-group mx-auto mx-w-lg">
+        <div class="flex flex-col gap-3 p-4">
+          <%= f.label :email, class: 'inline-block text-sm text-gray-800 sm:text-base' %>
+          <p class="font-bold"><%= @user.email %></p>
+          <%= f.label :password, class: 'mb-2 inline-block text-sm text-gray-800 sm:text-base' %>
+          <%= f.password_field :password, class: 'form-controll w-full rounded border bg-slate-100 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring' %>
+          <%= f.label :password_confirmation, class: 'mb-2 inline-block text-sm text-gray-800 sm:text-base' %>
+          <%= f.password_field :password_confirmation, class: 'form-controll w-full rounded border bg-slate-100 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring' %>
+          <div class="flex justify-center">
+            <%= f.submit '更新', class: 'mt-4 w-16 block rounded-lg bg-gray-800 p-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active:bg-gray-600 md:text-base' %>
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="actions">
-    <%= f.submit class: 'btn' %>
-  </div>
-<% end %>
+</div>
