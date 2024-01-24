@@ -1,0 +1,52 @@
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-4 md:mx-32">
+  <% Post.ranking.each.with_index(1) do |post, i| %>
+    <% if first_place?(i) %>
+      <div class="md:col-span-2 py-4">
+        <div class="flex justify-center relative z-10">
+          <%= display_rank(i) %>
+        </div>
+        <div class="border rounded-lg shadow-lg h-auto transform hover:-translate-y-2 duration-300">
+          <div id="header" class="flex justify-between p-2 bg-slate-100 font-bold rounded-t-lg">
+            <%= post.user.name %>
+            <p><%= post.created_at.strftime('%Y/%m/%d') %></p>
+          </div>
+          <div id="contents" class="flex flex-col">
+            <div class="overflow-hidden">
+              <%= link_to image_tag(main_image_existence(post), class: 'object-contain cursor-pointer transition-transform hover:scale-110 duration-700 page-specific-class', data: {action: "mouseenter->show-view#textDisplay mouseleave->show-view#textHidden"} ), post_path(post.id) %>
+            </div>
+            <div id="item-image" class="h-auto p-3">
+              <div class="swiper">
+                <div class="swiper-wrapper">
+                  <% post.gadgets.each do |gadget| %>
+                    <%= image_tag gadget.image_url, class: "swiper-slide shadow mr-2 h-28 object-contain" %>
+                  <% end %>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+              </div>
+            </div>
+            <div id="brand" class="p-1">
+              <% brand_remove_duplicate(post.id) %>
+              <% unless @brand.empty? %>
+                <% @brand.each do |brand| %>
+                  <p class="badge bg-slate-200"><%= link_to brand, posts_path(q: { gadgets_brand_cont: brand }) %></p>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div id="footer" class="p-2 text-right">
+            <%= render 'posts/likes/like', post: post %>
+            <%= link_to "", posts_path, class: "fa-regular fa-comment" %>
+          </div>
+        </div>
+      </div>
+    <% else %>
+        <div class="pb-4">
+          <div class="flex justify-center relative z-10">
+            <%= display_rank(i) %>
+          </div>
+          <%= render 'post', post: post %>
+        </div>
+    <% end %>
+  <% end %>
+</div>

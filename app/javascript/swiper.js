@@ -1,8 +1,13 @@
 document.addEventListener('DOMContentLoaded', function(){
+  let slidesPerViewOptions = 3;
+  if (document.querySelector('.page-specific-class')) {
+    slidesPerViewOptions = 5;
+  }
+
   new Swiper('.swiper', {
     // Optional parameters
     loop: true,
-    slidesPerView: 3,
+    slidesPerView: slidesPerViewOptions,
     // autoplay: { // 自動再生
     //   delay: 1000, // 3秒後に次のスライド
     // },

@@ -1,37 +1,34 @@
-<div data-controller="show-view">
-  <div id="card" class="border rounded-lg shadow-lg h-auto transform hover:-translate-y-3 duration-300" >
-    <div id="header" class="flex justify-between p-2 bg-slate-100 font-bold rounded-t-lg">
-      <%= post.user.name %>
-      <p><%= post.created_at.strftime('%Y/%m/%d') %></p>
+<div id="card" class="border rounded-lg shadow-lg h-auto transform hover:-translate-y-2 duration-300" >
+  <div id="header" class="flex justify-between p-2 bg-slate-100 font-bold rounded-t-lg">
+    <%= post.user.name %>
+    <p><%= post.created_at.strftime('%Y/%m/%d') %></p>
+  </div>
+  <div id="contents" class="flex flex-col h-5/6">
+    <div id="main-image" class="relative overflow-hidden">
+      <%= link_to image_tag(main_image_existence(post), class: 'h-auto w-full object-contain cursor-pointer transition-transform hover:scale-110 duration-700'), post_path(post.id) %>
     </div>
-    <div id="contents" class="flex flex-col h-5/6">
-      <div id="main-image" class="flex-none relative overflow-hidden">
-        <%= link_to image_tag(main_image_existence(post), class: 'h-auto w-full object-contain cursor-pointer hover:opacity-20 transition-transform hover:scale-110 duration-700', data: {action: "mouseenter->show-view#textDisplay mouseleave->show-view#textHidden"} ), post_path(post.id) %>
-        <p class="hidden absolute top-1/2 left-1/3 font-bold text-3xl" data-show-view-target="detailNav" >詳細</p>
-      </div>
-      <div id="item-image" class="h-auto p-3">
-        <div class="swiper">
-          <div class="swiper-wrapper">
-            <% post.gadgets.each do |gadget| %>
-              <%= image_tag gadget.image_url, class: "swiper-slide shadow mr-2 h-28 w-9 object-contain" %>
-            <% end %>
-          </div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        </div>
-      </div>
-      <div id="brand" class="p-1">
-        <% brand_remove_duplicate(post.id) %>
-        <% unless @brand.empty? %>
-          <% @brand.each do |brand| %>
-            <p class="badge bg-slate-200"><%= link_to brand, posts_path(q: { gadgets_brand_cont: brand }) %></p>
+    <div id="item-image" class="h-auto p-3">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <% post.gadgets.each do |gadget| %>
+            <%= image_tag gadget.image_url, class: "swiper-slide shadow mr-2 h-16 md:h-28 w-9 object-contain" %>
           <% end %>
-        <% end %>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
     </div>
-    <div id="footer" class="p-2 text-right">
-      <%= render 'posts/likes/like', post: post %>
-      <%= link_to "", posts_path, class: "fa-regular fa-comment" %>
+    <div id="brand" class="p-1">
+      <% brand_remove_duplicate(post.id) %>
+      <% unless @brand.empty? %>
+        <% @brand.each do |brand| %>
+          <p class="badge bg-slate-200"><%= link_to brand, posts_path(q: { gadgets_brand_cont: brand }) %></p>
+        <% end %>
+      <% end %>
     </div>
+  </div>
+  <div id="footer" class="p-2 text-right">
+    <%= render 'posts/likes/like', post: post %>
+    <%= link_to "", posts_path, class: "fa-regular fa-comment" %>
   </div>
 </div>
