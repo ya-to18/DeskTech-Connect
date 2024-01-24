@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
 
   resources :password_resets, only: %i[ new create edit update ]
+  get 'sended_mail', to: 'password_resets#sended_mail'
 
   resources :autocomplete do
     get :brand, on: :collection
