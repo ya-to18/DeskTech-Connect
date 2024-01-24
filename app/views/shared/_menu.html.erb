@@ -6,9 +6,10 @@
   <div class="drawer-side z-50">
     <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"></label>
     <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-      <% if current_user %>
+      <% if logged_in? %>
         <li><%= link_to '新規投稿', new_post_path %></li>
         <li><%= link_to '投稿一覧', posts_path %></li>
+        <li><%= link_to '人気ランキング', '#' %></li>
         <li>
           <details close>
             <summary>マイページ</summary>
