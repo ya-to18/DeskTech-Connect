@@ -18,4 +18,8 @@ module PostsHelper
   def my_post?(post)
     current_user.id == post.user.id
   end
+
+  def first_place?(rank)
+    rank == 1
+  end
 end

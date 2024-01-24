@@ -1,0 +1,9 @@
+<% Post.ranking.each.with_index(1) do |post, i| %>
+  <% if first_place?(i) %>
+    <p>第<%= i %>位</p>
+    <%= post.id %>
+    <%= post.content %>
+  <% else %>
+    <p>第<%= i %>位</p>
+  <% end %>
+<% end %>

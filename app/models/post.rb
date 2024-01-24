@@ -19,4 +19,8 @@ class Post < ApplicationRecord
   def self.ransackable_associations(auth_object = nil)
     ["gadgets"]
   end
+
+  def self.ranking
+    Post.joins(:likes).group(:id).order('count(likes.id) desc').limit(10)
+  end
 end
