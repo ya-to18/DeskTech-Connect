@@ -34,7 +34,7 @@ module PostsHelper
         'rank/rank3'
       end
 
-      image_tag(image_file, class: 'w-20')
+      image_tag(image_file, class: 'w-10 md:w-20')
     else
       content_tag(:p, "#{rank}位", class: 'text-lg font-bold')
     end

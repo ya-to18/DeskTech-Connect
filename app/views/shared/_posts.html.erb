@@ -7,7 +7,7 @@
     <%= render 'shared/search', q: @q, url: url %>
   </div>
 </div>
-<div class="grid grid-cols-2 gap-3 pb-3 md:grid-cols-3" >
+<div class="grid grid-cols-1 px-4 gap-3 pb-3 md:grid-cols-3" >
   <%= render partial: 'posts/post', collection: @posts %>
 </div>
 <div class="flex justify-center m-4">
