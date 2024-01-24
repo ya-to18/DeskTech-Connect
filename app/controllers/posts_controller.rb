@@ -8,6 +8,10 @@ class PostsController < ApplicationController
     @pagy, @posts = pagy(@q.result(distinct: true).includes(:user).order("created_at desc"), items: 9)
   end
 
+  def ranking
+    
+  end
+
   def liked_posts
     @posts = Post.likes
   end

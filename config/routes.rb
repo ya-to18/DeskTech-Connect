@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'rank', to: 'posts#ranking'
   resources :posts do
     resources :gadgets
     resource :likes, only: %i[ create destroy ]
