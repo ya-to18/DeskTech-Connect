@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  get 'likes/new'
-  get 'likes/create'
-  get 'likes/destroy'
   root 'tops#index'
 
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
+
+  resources :password_resets, only: %i[ new create edit update ]
+  get 'sended_mail', to: 'password_resets#sended_mail'
+  get 'after_setting', to: 'password_resets#after_setting'
 
   resources :autocomplete do
     get :brand, on: :collection
@@ -26,4 +27,6 @@ Rails.application.routes.draw do
   end
 
   get 'search', to: 'posts#search'
+
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
