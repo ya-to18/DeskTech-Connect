@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :password_resets, only: %i[ new create edit update ]
   get 'sended_mail', to: 'password_resets#sended_mail'
+  get 'after_setting', to: 'password_resets#after_setting'
 
   resources :autocomplete do
     get :brand, on: :collection

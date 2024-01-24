@@ -32,9 +32,11 @@ class PasswordResetsController < ApplicationController
 
     @user.password_confirmation = params[:user][:password_confirmation]
     if @user.change_password(params[:user][:password])
-      redirect_to(root_path, :success => 'Password was successfully updated.')
+      redirect_to(after_setting_path, :success => 'パスワードを更新しました。')
     else
-      render :action => "edit"
+      render :action => "edit", status: :unprocessable_entity
     end
   end
+
+  def after_setting; end
 end

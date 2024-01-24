@@ -1,0 +1,15 @@
+<div class="flex justify-center items-center min-h-[calc(100vh-160px)]">
+  <div class="p-10 text-base bg-white border rounded-lg relative">
+    <div class="flex justify-center">
+      <i class="fa-solid fa-key text-3xl border p-3 rounded-full absolute top-0 -mt-7 bg-white"></i>
+    </div>
+    <p class="m-5">パスワードの変更を受け付けました。</p>
+    <% if logged_in? %>
+      <p class="m-5">次回ログイン時に変更後のパスワードでログインしてください。</p>
+      <%= link_to '個人設定ページに戻る', users_path, class: 'link m-5 hover:link-primary' %>
+    <% else %>
+      <p class="m-5">下記よりログインを行なってください。</p>
+      <p><%= link_to 'ログイン', login_path, class: 'link' %></p>
+    <% end %>
+  </div>
+</div>
