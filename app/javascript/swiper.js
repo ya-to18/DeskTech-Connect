@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   new Swiper('.swiper', {
     // Optional parameters
-    loop: true,
+    // loop: true,
     slidesPerView: slidesPerViewOptions,
     // autoplay: { // 自動再生
     //   delay: 1000, // 3秒後に次のスライド
