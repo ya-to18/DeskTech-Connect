@@ -4,14 +4,14 @@ class LikesController < ApplicationController
 
   def create
     like = current_user.likes.new(post_id: @post.id)
-    like.save
-    redirect_to request.referer
+    like.save!
+    render partial: 'posts/likes/like', locals: { post: @post }
   end
 
   def destroy
     like = current_user.likes.find_by(post_id: @post.id)
-    like.destroy
-    redirect_to request.referer
+    like.destroy!
+    render partial: 'posts/likes/like', locals: { post: @post }
   end
 
   private
