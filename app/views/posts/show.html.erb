@@ -27,7 +27,7 @@
           <div class="flex-grow flex flex-col">
             <p class="text-center p-2"><%= truncate_name(gadget.name) %></p>
             <p class="text-right font-bold md:p-2">¥<%= number_with_delimiter(gadget.price) %></p>
-            <p>ジャンル：<%= gadget.genre %></p>
+            <p class="text-right border-t"><%= gadget.genre %></p>
           </div>
         </div>
       <% end %>
