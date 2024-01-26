@@ -1,5 +1,9 @@
-<div data-controller="modal">
-  <a href="#" data-action="click->modal#showModal" class="btn m-6" >アイテムを追加する</a>
+<div data-controller="modal" class="relative">
+  <div class="flex justify-center">
+    <div class="absolute -translate-y-52">
+      <a href="#" data-action="click->modal#showModal" class="btn m-6" >アイテムを追加する</a>
+    </div>
+  </div>
 
   <dialog id="favDialog" data-modal-target="dialog" class="bg-white p-10 rounded shadow ">
     <form>
@@ -31,7 +35,7 @@
               <%= f.submit '検索', class: "form-control btn" %>
             </div>
           <% end %>
-        <%= turbo_frame_tag "search_results" do %><% end %>
+        <%= turbo_frame_tag "search_results" %>
       </div>
   </div>
 </div>

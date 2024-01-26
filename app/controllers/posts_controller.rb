@@ -50,9 +50,8 @@ class PostsController < ApplicationController
   end
 
   def rakuten_search
-    unless params[:keyword] = ""
+    if params[:keyword]
       @products = RakutenWebService::Ichiba::Product.search(keyword: params[:keyword])
-    else
     end
   end
 

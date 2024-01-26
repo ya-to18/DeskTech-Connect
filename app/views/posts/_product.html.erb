@@ -1,8 +1,8 @@
 <div class="grid grid-cols-2 md:grid-cols-5 gap-4 my-3">
   <% @products.each do |product| %>
-    <button type="button" id= 'item-<%= product['productId'] %>' data-action="click->modal#itemSelect" data-modal-target="itemId">
+    <button type="button" id= 'item-<%= product['productId'] %>' class="transform hover:-translate-y-2 duration-200" data-action="click->modal#itemSelect" data-modal-target="itemId">
       <div class="h-full">
-        <div class="flex flex-col p-4 border rounded shadow-md hover:border-blue-900 cursor-pointer" >
+        <div class="flex flex-col p-4 border rounded shadow-md cursor-pointer" >
           <div class="flex justify-center">
             <%= image_tag(product['mediumImageUrl'], data: { modal_target: 'imageUrl'}, class: "h-24 object-contain") %>
           </div>
