@@ -6,12 +6,15 @@
           <div class="flex justify-center">
             <%= image_tag(product['mediumImageUrl'], data: { modal_target: 'imageUrl'}, class: "h-24 object-contain") %>
           </div>
-          <p class="my-2 h-16 md:h-24 overflow-clip"><%= link_to truncate_name(product['productName']), product['productUrlPC'], { data: { modal_target: 'name'}, id: 'name' } %></p>
+          <p class="my-2 h-16 md:h-24 overflow-clip" data-modal-target="name"><%= truncate_name(product['productName']) %></p>
           <div class="flex justify-center text-lg font-bold">
             <p>¥</p>
             <p class="" data-modal-target="price"><%= number_with_delimiter(product['averagePrice']) %></p>
           </div>
-          <p class="hidden" data-modal-target="maker"><%= product['makerName'] %></p>
+          <p class="hidden" data-modal-target="maker"><%= product['brandName'] %></p>
+          <p class="hidden"><%= product['makerName'] %></p>
+          <p class="hidden"><%= product['productUrlPC'] %></p>
+          <p class="hidden"><%= product['productId'] %> </p>
         </div>
       </div>
     </button>
