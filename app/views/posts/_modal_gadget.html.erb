@@ -1,5 +1,9 @@
-<div data-controller="modal">
-  <a href="#" data-action="click->modal#showModal" class="btn m-6" >アイテムを追加する</a>
+<div data-controller="modal" class="relative">
+  <div class="flex justify-center">
+    <div class="absolute -translate-y-52">
+      <a href="#" data-action="click->modal#showModal" class="btn m-6" >アイテムを追加する</a>
+    </div>
+  </div>
 
   <dialog id="favDialog" data-modal-target="dialog" class="bg-white p-10 rounded shadow ">
     <form>
@@ -25,19 +29,13 @@
           <p id="selectedGenreText"></p>
         </div>
         <h1 class="font-bold"><i class="fa-solid fa-magnifying-glass"></i>アイテムを検索しよう！</h1>
-          <%= form_with url: search_path, method: :get, local: false, html: { data: { turbo_frame: "search_results" } } do |f| %>
+          <%= form_with url: rakuten_search_path, method: :get, local: false, html: { data: { turbo_frame: "search_results" } } do |f| %>
             <div class="form-group flex justify-between md:justify-start gap-4">
               <%= f.text_field :keyword, value: params[:keyword], class: "form-control input input-bordered w-2/3 md:2/3" %>
               <%= f.submit '検索', class: "form-control btn" %>
             </div>
           <% end %>
-        <%= turbo_frame_tag "search_results" do %>
-          <% if @products.present? %>
-            <%= render 'posts/product', products: @products %>
-          <% else %>
-            <div>検索結果がありません</div>
-          <% end %>
-        <% end %>
+        <%= turbo_frame_tag "search_results" %>
       </div>
   </div>
 </div>

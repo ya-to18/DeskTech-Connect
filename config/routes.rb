@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     resource :likes, only: %i[ create destroy ]
   end
 
-  get 'search', to: 'posts#search'
+  get 'rakuten_search', to: 'posts#rakuten_search'
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
