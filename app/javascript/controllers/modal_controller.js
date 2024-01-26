@@ -72,7 +72,7 @@ export default class extends Controller {
     //表示用の要素に代入
     document.querySelector(`#main_form_name_display_${this.gadgetIndex}`).innerText = name;
     document.querySelector(`#main_form_maker_display_${this.gadgetIndex}`).innerText = maker;
-    document.querySelector(`#main_form_price_display_${this.gadgetIndex}`).innerText = price;
+    document.querySelector(`#main_form_price_display_${this.gadgetIndex}`).innerText = '¥' + price;
     document.querySelector(`#main_form_imageUrl_display_${this.gadgetIndex}`).src = imageUrl;
     document.querySelector(`#main_form_genre_display_${this.gadgetIndex}`).innerText = this.selectedGenreItem;
 
