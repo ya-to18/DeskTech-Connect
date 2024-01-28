@@ -10,20 +10,26 @@ export default class extends Controller {
 
   showModal() {
     const dialog = this.dialogTarget;
+    const turboFrame = document.getElementById('search_results');
+    const selectedGenreText = document.getElementById('selectedGenreText')
+    const keyword = document.getElementById('search_keyword')
 
     event.preventDefault();
+    turboFrame.src = '/rakuten_search?keyword='; // 検索キーワードなしの場合のページのsrc属性を代入
+    selectedGenreText.innerText = ''; //選択中のジャンルを初期化
+    keyword.value = ''; //検索キーワードの初期化
     dialog.showModal();
-    this.modalTarget.classList.toggle("hidden");
+    this.modalTarget.classList.remove("hidden");
   };
 
   closeModal() {
-    this.modalTarget.classList.toggle("hidden");
+    this.modalTarget.classList.add("hidden");
     this.dialogTarget.close();
   }
 
   dialogClose() {
     this.dialogTarget.close();
-    this.modalTarget.classList.toggle("hidden");
+    this.modalTarget.classList.remove("hidden");
   }
 
   selectedGenre(event) {
@@ -60,10 +66,6 @@ export default class extends Controller {
     displayItem.querySelector('#main_form_name_display').id += `_${this.gadgetIndex}`;
     displayItem.querySelector('#main_form_brand_display').id += `_${this.gadgetIndex}`;
     displayItem.querySelector('#main_form_price_display').id += `_${this.gadgetIndex}`;
-    // displayItem.querySelector('#main_form_makerName_display').id += `_${this.gadgetIndex}`;
-    // displayItem.querySelector('#main_form_makerCode_display').id += `_${this.gadgetIndex}`;
-    // displayItem.querySelector('#main_form_productUrl_display').id += `_${this.gadgetIndex}`;
-    // displayItem.querySelector('#main_form_productId_display').id += `_${this.gadgetIndex}`;
     displayItem.querySelector('#main_form_delete_btn').id += `_${this.gadgetIndex}`;
 
     displayItem.querySelector('#subitem').id += `_${this.gadgetIndex}`;
