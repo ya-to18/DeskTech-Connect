@@ -10,20 +10,23 @@ export default class extends Controller {
 
   showModal() {
     const dialog = this.dialogTarget;
+    const turboFrame = document.getElementById('search_results');
 
     event.preventDefault();
+    // 検索キーワードなしの場合のページのsrc属性を代入
+    turboFrame.src = '/rakuten_search?keyword='
     dialog.showModal();
-    this.modalTarget.classList.toggle("hidden");
+    this.modalTarget.classList.remove("hidden");
   };
 
   closeModal() {
-    this.modalTarget.classList.toggle("hidden");
+    this.modalTarget.classList.add("hidden");
     this.dialogTarget.close();
   }
 
   dialogClose() {
     this.dialogTarget.close();
-    this.modalTarget.classList.toggle("hidden");
+    this.modalTarget.classList.remove("hidden");
   }
 
   selectedGenre(event) {

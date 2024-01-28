@@ -2,6 +2,6 @@
   <% if @products.present? %>
     <%= render 'posts/product', products: @products %>
   <% else %>
-    <h1>検索キーワードを入力してください。</h1>
+    <%= render 'posts/no_keywords' %>
   <% end %>
 <% end %>
