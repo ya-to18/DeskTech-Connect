@@ -24,9 +24,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_26_150256) do
     t.datetime "updated_at", null: false
     t.bigint "post_id"
     t.string "product_url"
-    t.string "product_id"
+    t.string "product_id", default: "0", null: false
     t.string "maker_name"
-    t.integer "maker_code"
+    t.integer "maker_code", default: 0, null: false
     t.index ["post_id"], name: "index_gadgets_on_post_id"
   end
 

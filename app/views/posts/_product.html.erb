@@ -11,11 +11,11 @@
             <p>¥</p>
             <p class="" data-modal-target="price"><%= number_with_delimiter(product['averagePrice']) %></p>
           </div>
-          <p class="hidden" data-modal-target="maker"><%= product['brandName'] %></p>
-          <p class="hidden"><%= product['makerName'] %></p>
-          <p class="hidden"><%= product['makerCode'] %> </p>
-          <p class="hidden"><%= product['productUrlPC'] %></p>
-          <p class="hidden"><%= product['productId'] %> </p>
+          <p class="hidden" data-modal-target="brand"><%= product['brandName'] %></p>
+          <p class="hidden" data-modal-target="makerName"><%= product['makerName'] %></p>
+          <p class="" data-modal-target="makerCode"><%= product['makerCode'] %> </p>
+          <p class="hidden" data-modal-target="productUrl"><%= product['productUrlPC'] %></p>
+          <p class="hidden" data-modal-target="productId"><%= product['productId'] %> </p>
         </div>
       </div>
     </button>

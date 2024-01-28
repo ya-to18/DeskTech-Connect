@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   // static targets = ["name", "brand", "price", "imageUrl", "genre", "modal", "subitems"]
-  static targets = ["itemId", "name", "maker", "price", "imageUrl", "genre", "modal", "subitems", "dialog", "genreSelectBox"]
+  static targets = ["itemId", "name", "brand", "price", "imageUrl", "genre", "modal","makerName","makerCode","productUrl","productId", "subitems", "dialog", "genreSelectBox"]
   connect() {
     this.gadgetIndex = 0;
     this.selectedGenreItem = '';
@@ -40,7 +40,11 @@ export default class extends Controller {
     const name = clickedElement.querySelector('[data-modal-target=name]').innerText;
     const price = clickedElement.querySelector('[data-modal-target=price]').innerText;
     const noCommaPrice = price.replace(/,/g, '')
-    const maker = clickedElement.querySelector('[data-modal-target=maker]').innerText;
+    const brand = clickedElement.querySelector('[data-modal-target=brand]').innerText;
+    const makerName = clickedElement.querySelector('[data-modal-target=makerName]').innerText;
+    const makerCode = clickedElement.querySelector('[data-modal-target=makerCode]').innerText;
+    const productUrl = clickedElement.querySelector('[data-modal-target=productUrl]').innerText;
+    const productId = clickedElement.querySelector('[data-modal-target=productId]').innerText;
 
     this.gadgetIndex++;
 
@@ -54,9 +58,14 @@ export default class extends Controller {
     displayItem.querySelector('#main_form_genre_display').id += `_${this.gadgetIndex}`;
     displayItem.querySelector('#main_form_imageUrl_display').id += `_${this.gadgetIndex}`;
     displayItem.querySelector('#main_form_name_display').id += `_${this.gadgetIndex}`;
-    displayItem.querySelector('#main_form_maker_display').id += `_${this.gadgetIndex}`;
+    displayItem.querySelector('#main_form_brand_display').id += `_${this.gadgetIndex}`;
     displayItem.querySelector('#main_form_price_display').id += `_${this.gadgetIndex}`;
+    // displayItem.querySelector('#main_form_makerName_display').id += `_${this.gadgetIndex}`;
+    // displayItem.querySelector('#main_form_makerCode_display').id += `_${this.gadgetIndex}`;
+    // displayItem.querySelector('#main_form_productUrl_display').id += `_${this.gadgetIndex}`;
+    // displayItem.querySelector('#main_form_productId_display').id += `_${this.gadgetIndex}`;
     displayItem.querySelector('#main_form_delete_btn').id += `_${this.gadgetIndex}`;
+
     displayItem.querySelector('#subitem').id += `_${this.gadgetIndex}`;
 
     const displayItemHtml = displayItem.querySelector('div').outerHTML;
@@ -64,14 +73,18 @@ export default class extends Controller {
 
     // 非表示用のフォームに代入
     document.querySelector(`#main_form_name_${this.gadgetIndex}`).value = name;
-    document.querySelector(`#main_form_maker_${this.gadgetIndex}`).value = maker;
+    document.querySelector(`#main_form_brand_${this.gadgetIndex}`).value = brand;
     document.querySelector(`#main_form_price_${this.gadgetIndex}`).value = noCommaPrice;
     document.querySelector(`#main_form_imageUrl_${this.gadgetIndex}`).value = imageUrl;
     document.querySelector(`#main_form_genre_${this.gadgetIndex}`).value = this.selectedGenreItem;
+    document.querySelector(`#main_form_makerName_${this.gadgetIndex}`).value = makerName;
+    document.querySelector(`#main_form_makerCode_${this.gadgetIndex}`).value = makerCode;
+    document.querySelector(`#main_form_productUrl_${this.gadgetIndex}`).value = productUrl;
+    document.querySelector(`#main_form_productId_${this.gadgetIndex}`).value = productId;
 
     //表示用の要素に代入
     document.querySelector(`#main_form_name_display_${this.gadgetIndex}`).innerText = name;
-    document.querySelector(`#main_form_maker_display_${this.gadgetIndex}`).innerText = maker;
+    document.querySelector(`#main_form_brand_display_${this.gadgetIndex}`).innerText = brand;
     document.querySelector(`#main_form_price_display_${this.gadgetIndex}`).innerText = '¥' + price;
     document.querySelector(`#main_form_imageUrl_display_${this.gadgetIndex}`).src = imageUrl;
     document.querySelector(`#main_form_genre_display_${this.gadgetIndex}`).innerText = this.selectedGenreItem;
