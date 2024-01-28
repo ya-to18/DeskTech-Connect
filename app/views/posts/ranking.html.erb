@@ -1,3 +1,4 @@
+<% breadcrumb :rank_post %>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-4 md:mx-32">
   <% Post.ranking.each.with_index(1) do |post, i| %>
     <% if first_place?(i) %>
