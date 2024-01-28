@@ -1,5 +1,32 @@
 crumb :root do
-  link "Home", root_path
+  link "みんなの投稿", posts_path
+end
+
+crumb :show_post do |post|
+  link "#{post.user.name}さんの投稿", post_path(post.id)
+end
+
+crumb :edit_post do |post|
+  link "編集", posts_path(post.id)
+  parent :show_post, post
+end
+
+crumb :new_post do
+  link "新規投稿", new_post_path
+  parent :root
+end
+
+crumb :rank_post do
+  link "人気ランキング", rank_path
+  parent :root
+end
+
+crumb :liked_post do
+  link "いいね！した投稿", likes_users_path
+end
+
+crumb :my_post do
+  link "自分の投稿", posts_users_path
 end
 
 # crumb :projects do
