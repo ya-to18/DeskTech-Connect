@@ -37,7 +37,7 @@
         <% if @post.gadgets.ids.present? %>
           <% @post.gadgets.each_with_index do |gadget, index| %>
             <%= form.fields_for :gadgets, gadget, child_index: index + 10000 do |gadget_form| %>
-              <div id="gadget-fields_<%= index + 10000 %>" class="">
+              <div id="gadget-fields_<%= index + 10000 %>" class="hidden">
                 <%= gadget_form.text_field :genre %>
                 <%= gadget_form.url_field :image_url %>
                 <%= gadget_form.text_field :name %>
