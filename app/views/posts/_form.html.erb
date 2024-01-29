@@ -6,7 +6,7 @@
       <p class="mb-3 text-sm md:text-base">▼ 自分のデスク画像をアップロードしよう！</p>
       <%= form.file_field :image, accept: "image/png, image/jpeg", class: 'file-input file-input-bordered file-input-sm md:file-input-md w-full max-w-xs' %>
       <p class="text-center font-bold"><%= form.label :content %></p>
-      <%= form.text_area :content, class: "textarea textarea-bordered w-full h-40 md:h-56", placeholder: "ここに自分のデスクのお勧めポイントを書いてね！" %>
+      <%= form.text_area :content, class: "base-form-area w-full h-36 md:h-48", placeholder: "ここに自分のデスクのお勧めポイントを書いてね！" %>
     </div>
 
     <div class="flex flex-col items-center">

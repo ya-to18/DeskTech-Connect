@@ -13,6 +13,10 @@
   @apply bg-red-500 hover:bg-red-400 rounded-lg p-1 text-white cursor-pointer
 }
 
+.base-form-area {
+  @apply rounded border bg-white px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring
+}
+
 .pagy-nav,
 .pagy-nav-js {
   @apply flex space-x-2;

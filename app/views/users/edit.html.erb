@@ -7,7 +7,7 @@
         <p class="cancel-btn ml-1"><%= link_to 'キャンセル', users_path %></p>
       </div>
     </div>
-    <%= f.text_field :name, value: current_user.name, class: 'input input-bordered w-full text-center' %>
+    <%= f.text_field :name, value: current_user.name, class: 'base-form-area w-full text-center' %>
   <% end %>
 <% end %>
 
@@ -20,6 +20,6 @@
         <p class="cancel-btn ml-1"><%= link_to 'キャンセル', users_path %></p>
       </div>
     </div>
-    <%= f.text_field :email, value: current_user.email, class: 'input input-bordered w-full text-center' %>
+    <%= f.text_field :email, value: current_user.email, class: 'base-form-area w-full text-center' %>
   <% end %>
 <% end %>
