@@ -19,7 +19,9 @@
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, class: 'form-control input input-bordered w-full max-w-xs text-xl' %>
       </div>
-      <%= f.submit '登録', class: 'btn btn-wide w-full mt-8' %>
+      <div class="flex justify-center">
+        <%= f.submit '登録', class: 'base-btn w-full mt-8' %>
+      </div>
     <% end %>
   </div>
 

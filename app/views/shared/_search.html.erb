@@ -16,6 +16,8 @@
       <%= f.hidden_field :content, data: { autocomplete_target: 'hidden' } %>
       <ul class="list-group bg-white absolute w-full md:text-sm max-w-max z-50" data-autocomplete-target="results"></ul>
     </div>
-    <%= f.submit '検索', class: 'btn ml-3' %>
+    <div class="flex">
+      <%= f.submit '検索', class: 'base-btn ml-3' %>
+    </div>
   </div>
 <% end %>

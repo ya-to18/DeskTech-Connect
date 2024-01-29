@@ -3,8 +3,8 @@
     <div class="flex my-4 w-auto justify-between">
       <p class="my-1"><i class="fa-solid fa-user pr-3"></i>ユーザーネーム</p>
       <div class="flex">
-        <p class="btn btn-sm ml-4"><%= f.submit '更新' %></p>
-        <p class="btn btn-sm ml-4"><%= link_to 'キャンセル', users_path %></p>
+        <p class="base-btn ml-4"><%= f.submit '更新' %></p>
+        <p class="cancel-btn ml-1"><%= link_to 'キャンセル', users_path %></p>
       </div>
     </div>
     <%= f.text_field :name, value: current_user.name, class: 'input input-bordered w-full text-center' %>
@@ -16,8 +16,8 @@
     <div class="flex my-4 w-auto justify-between">
       <p class="my-1"><i class="fa-solid fa-envelope pr-3"></i>メールアドレス</p>
       <div class="flex">
-        <p class="btn btn-sm ml-4"><%= f.submit '更新' %></p>
-        <p class="btn btn-sm ml-4"><%= link_to 'キャンセル', users_path %></p>
+        <p class="base-btn ml-4"><%= f.submit '更新' %></p>
+        <p class="cancel-btn ml-1"><%= link_to 'キャンセル', users_path %></p>
       </div>
     </div>
     <%= f.text_field :email, value: current_user.email, class: 'input input-bordered w-full text-center' %>

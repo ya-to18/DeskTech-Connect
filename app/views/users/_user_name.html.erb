@@ -1,7 +1,7 @@
 <%= turbo_frame_tag 'user-name' do %>
   <div class="flex my-4 w-auto justify-between">
     <p class="my-1"><i class="fa-solid fa-user pr-3"></i>ユーザーネーム</p>
-    <p class="btn btn-sm ml-4"><%= link_to '変更', edit_users_path, data: { turbo_frame: 'user-name' } %></p>
+    <p class="base-btn ml-4"><%= link_to '変更', edit_users_path, data: { turbo_frame: 'user-name' } %></p>
   </div>
   <p class="w-full text-center border rounded p-4 bg-white"><%= user.name %></p>
 <% end %>
