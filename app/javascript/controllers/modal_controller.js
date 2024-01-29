@@ -1,7 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  // static targets = ["name", "brand", "price", "imageUrl", "genre", "modal", "subitems"]
   static targets = ["itemId", "name", "brand", "price", "imageUrl", "genre", "modal","makerName","makerCode","productUrl","productId", "subitems", "dialog", "genreSelectBox"]
   connect() {
     this.gadgetIndex = 0;
@@ -29,7 +28,7 @@ export default class extends Controller {
 
   dialogClose() {
     this.dialogTarget.close();
-    this.modalTarget.classList.remove("hidden");
+    this.modalTarget.classList.add("hidden");
   }
 
   selectedGenre(event) {

@@ -5,10 +5,10 @@
     <p class="text-right my-2">投稿日 <%= @post.created_at.strftime('%Y/%m/%d') %></p>
     <div class="flex justify-between gap-4">
       <%= render 'posts/likes/like', post: @post %>
-      <div>
+      <div class="flex gap-2">
         <% if my_post?(@post) %>
-          <%= link_to "編集", edit_post_path(@post.id), class: "btn btn-outline " %>
-          <%= link_to "削除", post_path(@post.id), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: "btn btn-outline btn-error" %>
+          <%= link_to "編集", edit_post_path(@post.id), class: "base-btn" %>
+          <%= link_to "削除", post_path(@post.id), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: "cancel-btn" %>
         <% end %>
       </div>
     </div>

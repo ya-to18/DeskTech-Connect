@@ -1,21 +1,23 @@
 <%= search_form_for @q, url: url do |f| %>
-  <div class="flex justify-center items-center relative">
+  <div class="flex justify-center items-center gap-1 relative">
     <div class="flex flex-col h-auto">
       <%= f.label :genre %>
       <%= f.select :gadgets_genre_eq, Gadget.genres_i18n.invert.map{ |key, value| [key, Gadget.genres[value]] }, class: "p-3" %>
     </div>
     <div data-controller="autocomplete" data-autocomplete-url-value="/autocomplete/brand", role="combobox">
       <%= f.label :brand %>
-      <%= f.search_field :gadgets_brand_cont, data: { autocomplete_target: 'input' }, class: 'form-controll input input-bordered w-full max-w-xs', placeholder: '検索ワード' %>
+      <%= f.search_field :gadgets_brand_cont, data: { autocomplete_target: 'input' }, class: 'form-controll base-form-area w-full max-w-xs', placeholder: '検索ワード' %>
       <%= f.hidden_field :content, data: { autocomplete_target: 'hidden' } %>
       <ul class="list-group bg-white absolute w-full md:text-sm max-w-max z-50" data-autocomplete-target="results"></ul>
     </div>
     <div data-controller="autocomplete" data-autocomplete-url-value="/autocomplete/name", role="combobox">
       <%= f.label :name %>
-      <%= f.search_field :gadgets_name_cont, data: { autocomplete_target: 'input'}, class: 'form-controll input input-bordered w-full max-w-xs', placeholder: '検索ワード' %>
+      <%= f.search_field :gadgets_name_cont, data: { autocomplete_target: 'input'}, class: 'form-controll base-form-area w-full max-w-xs', placeholder: '検索ワード' %>
       <%= f.hidden_field :content, data: { autocomplete_target: 'hidden' } %>
       <ul class="list-group bg-white absolute w-full md:text-sm max-w-max z-50" data-autocomplete-target="results"></ul>
     </div>
-    <%= f.submit '検索', class: 'btn ml-3' %>
+    <div class="flex">
+      <%= f.submit '検索', class: 'base-btn ml-3' %>
+    </div>
   </div>
 <% end %>
