@@ -14,3 +14,7 @@ ja:
     login: ログイン
     logout: ログアウト
     sign_up: アカウント登録
+  search:
+    genre: ジャンル
+    brand: ブランド
+    name: 商品名

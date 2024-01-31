@@ -1,7 +1,7 @@
 <div id="card" class="border rounded-lg shadow-lg h-auto group transform hover:-translate-y-2 duration-200" >
   <div id="header" class="flex justify-between p-2 bg-slate-100 font-bold rounded-t-lg">
     <%= post.user.name %>
-    <p><%= post.created_at.strftime('%Y/%m/%d') %></p>
+    <p><%= l post.created_at %></p>
   </div>
   <div id="contents" class="flex flex-col h-5/6">
     <div id="main-image" class="relative overflow-hidden">
