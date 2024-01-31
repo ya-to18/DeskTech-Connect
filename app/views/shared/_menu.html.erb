@@ -10,48 +10,48 @@
         <li>
           <div class="flex items-center">
             <i class="fa-solid fa-pen-to-square"></i>
-            <%= link_to '新規投稿', new_post_path %>
+            <%= link_to t('menu.new_post'), new_post_path %>
           </div>
         </li>
         <li>
           <div class="flex items-center">
             <i class="fa-solid fa-desktop"></i>
-            <%= link_to '投稿一覧', posts_path %>
+            <%= link_to t('menu.index'), posts_path %>
           </div>
         </li>
         <li>
           <div class="flex items-center">
             <i class="fa-solid fa-crown"></i>
-            <%= link_to '人気ランキング', rank_path %>
+            <%= link_to t('menu.ranking'), rank_path %>
           </div>
         </li>
         <li>
           <details close>
-            <summary><i class="fa-solid fa-user"></i>マイページ</summary>
+            <summary><i class="fa-solid fa-user"></i><%= t('menu.my_page') %></summary>
             <ul>
-              <li><%= link_to "自分の投稿一覧", posts_users_path %></li>
-              <li><%= link_to "いいね一覧", likes_users_path %></li>
-              <li><%= link_to "個人設定", users_path %></li>
+              <li><%= link_to t('menu.my_posts'), posts_users_path %></li>
+              <li><%= link_to t('menu.liked_posts'), likes_users_path %></li>
+              <li><%= link_to t('menu.settings'), users_path %></li>
             </ul>
           </details>
         </li>
         <li>
           <div class="flex items-center">
             <i class="fa-solid fa-right-from-bracket"></i>
-            <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete } %>
+            <%= link_to t('menu.logout'), logout_path, data: { turbo_method: :delete } %>
           </div>
         </li>
       <% else %>
         <li>
           <div class="flex items-center">
             <i class="fa-solid fa-right-to-bracket"></i>
-            <%= link_to 'ログイン', login_path %>
+            <%= link_to t('menu.login'), login_path %>
           </div>
         </li>
         <li>
           <div class="flex items-center">
             <i class="fa-solid fa-user-plus"></i>
-            <%= link_to 'サインアップ', new_users_path %>
+            <%= link_to t('menu.sign_up'), new_users_path %>
           </div>
         </li>
       <% end %>

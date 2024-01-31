@@ -1,0 +1,16 @@
+ja:
+  footer:
+    contacts: お問い合わせ
+    terms_of_service: 利用規約
+    privacy_policy: プライバシーポリシー
+  menu:
+    new_post: 新規投稿
+    index: みんなの投稿
+    ranking: 人気ランキング
+    my_page: マイページ
+    my_posts: 自分の投稿
+    liked_posts: いいね一覧
+    settings: 個人設定
+    login: ログイン
+    logout: ログアウト
+    sign_up: アカウント登録
