@@ -6,7 +6,7 @@ ja:
       gadget: アイテム
     attributes:
       user:
-        name: 名前
+        name: ユーザーネーム
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード確認用

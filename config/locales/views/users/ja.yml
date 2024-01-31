@@ -1,0 +1,19 @@
+ja:
+  users:
+    new:
+      title: ユーザー登録
+      login_link: ログイン
+    show:
+      title: 個人設定
+      edit: 変更
+    edit:
+      update: 更新
+      cancel: キャンセル
+    user_email:
+      edit: 変更
+    user_name:
+      edit: 変更
+    likes:
+      title: いいね一覧
+    posts:
+      title: 自分の投稿
