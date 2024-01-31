@@ -15,8 +15,8 @@
       </div>
     <% end %>
   </div>
-  <div class='flex text-center flex-col m-10'>
-    <%= link_to t('.sign_up'), new_users_path, class: 'link hover:link-primary mb-5' %>
-    <%= link_to t('.password_reset'), new_password_reset_path, class: 'link hover:link-primary' %>
+  <div class='flex text-center flex-col m-10 gap-5'>
+    <p><%= link_to t('.sign_up'), new_users_path, class: 'link hover:link-primary mb-5' %></p>
+    <p><%= link_to t('.password_reset'), new_password_reset_path, class: 'link hover:link-primary' %></p>
   </div>
 </div>
