@@ -6,8 +6,8 @@
         <%= User.human_attribute_name :name %>
       </p>
       <div class="flex">
-        <%= f.submit t('.update'), class: "base-btn" %>
-        <%= link_to t('.cancel'), users_path, class: "cancel-btn ml-1" %>
+        <%= f.submit class: "base-btn" %>
+        <%= link_to t('defaults.cancel'), users_path, class: "cancel-btn ml-1" %>
       </div>
     </div>
     <%= f.text_field :name, value: current_user.name, class: 'base-form-area w-full text-center' %>
@@ -22,8 +22,8 @@
         <%= User.human_attribute_name :email %>
       </p>
       <div class="flex">
-        <%= f.submit t('.update'), class: "base-btn" %>
-        <%= link_to t('.cancel'), users_path, class: "cancel-btn ml-1" %>
+        <%= f.submit class: "base-btn" %>
+        <%= link_to t('defaults.cancel'), users_path, class: "cancel-btn ml-1" %>
       </div>
     </div>
     <%= f.text_field :email, value: current_user.email, class: 'base-form-area w-full text-center' %>

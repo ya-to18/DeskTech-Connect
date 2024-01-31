@@ -12,7 +12,7 @@
             <i class="fa-solid fa-user pr-3"></i>
             <%= User.human_attribute_name :name %>
           </p>
-          <%= link_to t('.edit'), edit_users_path, class: "base-btn", data: { turbo_frame: 'user-name' } %>
+          <%= link_to t('defaults.change'), edit_users_path, class: "base-btn", data: { turbo_frame: 'user-name' } %>
         </div>
         <p class="w-full text-center border rounded py-2 px-3 bg-white"><%= current_user.name %></p>
         <% end %>
@@ -24,7 +24,7 @@
             <i class="fa-solid fa-envelope pr-3"></i>
             <%= User.human_attribute_name :email %>
           </p>
-          <%= link_to t('.edit'), edit_users_path, class: "base-btn", data: { turbo_frame: 'user-email' } %>
+          <%= link_to t('defaults.change'), edit_users_path, class: "base-btn", data: { turbo_frame: 'user-email' } %>
         </div>
         <p class="w-full text-center border rounded py-2 px-3 bg-white"><%= current_user.email %></p>
         <% end %>

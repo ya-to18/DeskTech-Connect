@@ -1,4 +1,9 @@
 ja:
+  defaults:
+    login: ログイン
+    sign_up: 登録
+    cancel: キャンセル
+    change: 変更
   helpers:
     submit:
       create: 登録
