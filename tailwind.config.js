@@ -18,18 +18,18 @@ module.exports = {
         '640': '40rem'
       },
       animation: {
-        "scale-in-hor-center": "scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
+        "fade-in-fwd": "fade-in-fwd 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
         "scale-out-horizontal": "scale-out-horizontal 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both",
         "slide-in-right": "slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both"
       },
       keyframes: {
-        "scale-in-hor-center": {
+        "fade-in-fwd": {
           "0%": {
-            transform: "scaleX(0)",
+            transform: "translateZ(-80px)",
             opacity: "0"
           },
           to: {
-            transform: "scaleX(1)",
+            transform: "translateZ(0)",
             opacity: "1"
           }
         },
