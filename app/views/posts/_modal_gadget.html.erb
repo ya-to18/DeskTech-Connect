@@ -9,8 +9,11 @@
     <form>
       <h2><i class="fa-regular fa-lightbulb pr-2"></i><%= t('.genre_select_sentence') %></h2>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-3 my-4" data-modal-target="genreSelectBox">
-        <% Gadget.genres.each do |key, value| %>
-          <a data-action="click->modal#selectedGenre" class="cursor-pointer border shadow rounded-full text-center bg-slate-100 hover:bg-slate-200"><%= key %></a>
+        <% Gadget.genres_i18n.invert.each do |key, value| %>
+          <a data-action="click->modal#selectedGenre" class="cursor-pointer border shadow rounded-full text-center bg-slate-100 hover:bg-slate-200">
+            <p><%= key %></p>
+            <p class="hidden"><%= value %></p>
+          </a>
         <% end %>
       </div>
       <div class="flex justify-end">
@@ -25,8 +28,8 @@
           <div class="cancel-btn" data-action="click->modal#closeModal"><%= t('defaults.cancel') %></div>
         </div>
         <div class="flex justify-end my-3">
-          <p class=""><%= t('.selected_genre') %></p>
-          <p id="selectedGenreText"></p>
+          <p><%= t('.selected_genre') %></p>
+          <p id="selectedGenreKey"></p>
         </div>
         <h1 class="font-bold"><i class="fa-solid fa-magnifying-glass"></i><%= t('.search_item_sentence') %></h1>
           <%= form_with url: rakuten_search_path, method: :get, local: false, html: { data: { turbo_frame: "search_results" } } do |f| %>
