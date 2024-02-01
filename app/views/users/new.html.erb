@@ -1,5 +1,5 @@
 <div class="text-xl">
-  <h1 class="text-center m-6 text-2xl">ユーザー登録</h1>
+  <h1 class="text-center m-6 text-2xl"><%= t('.title') %></h1>
   <div class="flex justify-center">
     <%= form_with model: @user, local: true do |f| %>
       <%= render 'shared/error_message', object: f.object %>
@@ -20,12 +20,12 @@
         <%= f.password_field :password_confirmation, class: 'form-control base-form-area w-full max-w-xs text-xl' %>
       </div>
       <div class="flex justify-center">
-        <%= f.submit '登録', class: 'base-btn w-full mt-8' %>
+        <%= f.submit t('defaults.sign_up'), class: 'base-btn w-full mt-8' %>
       </div>
     <% end %>
   </div>
 
   <div class='text-center m-10'>
-    <%= link_to 'ログイン', login_path, class: 'link' %>
+    <%= link_to t('defaults.login'), login_path, class: 'link' %>
   </div>
 </div>

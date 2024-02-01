@@ -6,38 +6,42 @@
       <div id="step1">
         <div class="flex items-center justify-start gap-2">
           <i class="fa-solid fa-caret-down text-2xl ml-1"></i>
-          <p class="text-sm md:text-base">STEP1 自分のデスク画像をアップロードしよう！</p>
+          <p class="text-sm md:text-base"><%= t('.step1') %></p>
         </div>
         <div class="border p-5 bg-white rounded-lg">
           <%= image_tag main_image_existence(@post), class: "object-contain border rounded-lg" %>
           <div class="flex flex-col items-center m-5 gap-2">
             <div class="flex items-center gap-2">
               <i class="fa-regular fa-lightbulb"></i>
-              <p class="text-sm md:text-base">ここから画像をアップロードしてね！</p>
+              <p class="text-sm md:text-base"><%= t('.image_upload') %></p>
             </div>
             <%= form.file_field :image, accept: "image/png, image/jpeg", class: 'file-input file-input-bordered file-input-sm md:file-input-md w-full max-w-xs' %>
           </div>
         </div>
       </div>
 
+      <i class="fa-solid fa-circle-right fa-rotate-90 text-2xl md:text-3xl"></i>
+
       <div id="step2" class="w-full">
         <div class="flex items-center justify-start gap-2">
           <i class="fa-solid fa-caret-down text-2xl ml-1"></i>
-          <p class="text-sm md:text-base">STEP2 デスクのおすすめポイントを書こう！</p>
+          <p class="text-sm md:text-base"><%= t('.step2') %></p>
         </div>
         <div class="border p-5 bg-white rounded-lg">
-          <p class="font-bold"><%= form.label :content %></p>
+          <%= form.label :content %>
           <%= form.text_area :content, class: "base-form-area w-full h-36 md:h-48", placeholder: "ここに自分のデスクのお勧めポイントを書いてね！" %>
         </div>
       </div>
 
+      <i class="fa-solid fa-circle-right fa-rotate-90 text-3xl"></i>
+
       <div id="step3" class="w-full">
         <div class="flex items-center justify-start gap-2">
           <i class="fa-solid fa-caret-down text-2xl ml-1"></i>
-          <p class="text-sm md:text-base">STEP3 使用しているアイテムを追加しよう！</p>
+          <p class="text-sm md:text-base"><%= t('.step3') %></p>
         </div>
         <div class="border px-5 pt-5 pb-20 bg-white rounded-lg">
-          <p class="text-xl pb-3 text-center"><i class="fa-solid fa-desktop pr-2"></i>アイテム一覧</p>
+          <p class="text-xl pb-3 text-center"><i class="fa-solid fa-desktop pr-2"></i><%= t('.item_index') %></p>
           <div class="flex flex-col items-center">
             <%= render 'posts/template/form_template', form: form %>
             <div id="gadget-display-item-container" class="grid grid-cols-1 md:grid-cols-3 gap-5 grid-flow-row p-4">
@@ -84,7 +88,7 @@
           </div>
         </div>
       </div>
-      <%= form.submit '登録する', class: 'base-btn w-24 h-12 mt-10 mb-10' %>
+      <%= form.submit class: 'base-btn w-24 h-12 mt-10 mb-10' %>
     </div>
 
   <% end %>

@@ -4,18 +4,19 @@ export default class extends Controller {
   static targets = ["itemId", "name", "brand", "price", "imageUrl", "genre", "modal","makerName","makerCode","productUrl","productId", "subitems", "dialog", "genreSelectBox"]
   connect() {
     this.gadgetIndex = 0;
-    this.selectedGenreItem = '';
+    this.selectedGenreItemKey = '';
+    this.selectedGenreItemValue = '';
   }
 
   showModal() {
     const dialog = this.dialogTarget;
     const turboFrame = document.getElementById('search_results');
-    const selectedGenreText = document.getElementById('selectedGenreText')
+    const selectedGenreKey = document.getElementById('selectedGenreKey')
     const keyword = document.getElementById('search_keyword')
 
     event.preventDefault();
     turboFrame.src = '/rakuten_search?keyword='; // 検索キーワードなしの場合のページのsrc属性を代入
-    selectedGenreText.innerText = ''; //選択中のジャンルを初期化
+    selectedGenreKey.innerText = ''; //選択中のジャンルを初期化
     keyword.value = ''; //検索キーワードの初期化
     dialog.showModal();
     this.modalTarget.classList.remove("hidden");
@@ -32,11 +33,13 @@ export default class extends Controller {
   }
 
   selectedGenre(event) {
-    const clickedElement = event.target.closest('a')
+    const clickedElement = event.target.closest('a');
+    const pElements = clickedElement.querySelectorAll('p')
 
-    this.selectedGenreItem = clickedElement.innerText;
+    this.selectedGenreItemKey = pElements[0].innerText;
+    this.selectedGenreItemValue = pElements[1].innerText;
     this.dialogTarget.close();
-    document.querySelector('#selectedGenreText').innerText = this.selectedGenreItem;
+    document.querySelector('#selectedGenreKey').innerText = this.selectedGenreItemKey;
   }
 
   itemSelect(event) {
@@ -77,7 +80,7 @@ export default class extends Controller {
     document.querySelector(`#main_form_brand_${this.gadgetIndex}`).value = brand;
     document.querySelector(`#main_form_price_${this.gadgetIndex}`).value = noCommaPrice;
     document.querySelector(`#main_form_imageUrl_${this.gadgetIndex}`).value = imageUrl;
-    document.querySelector(`#main_form_genre_${this.gadgetIndex}`).value = this.selectedGenreItem;
+    document.querySelector(`#main_form_genre_${this.gadgetIndex}`).value = this.selectedGenreItemValue;
     document.querySelector(`#main_form_makerName_${this.gadgetIndex}`).value = makerName;
     document.querySelector(`#main_form_makerCode_${this.gadgetIndex}`).value = makerCode;
     document.querySelector(`#main_form_productUrl_${this.gadgetIndex}`).value = productUrl;
@@ -88,7 +91,7 @@ export default class extends Controller {
     document.querySelector(`#main_form_brand_display_${this.gadgetIndex}`).innerText = brand;
     document.querySelector(`#main_form_price_display_${this.gadgetIndex}`).innerText = '¥' + price;
     document.querySelector(`#main_form_imageUrl_display_${this.gadgetIndex}`).src = imageUrl;
-    document.querySelector(`#main_form_genre_display_${this.gadgetIndex}`).innerText = this.selectedGenreItem;
+    document.querySelector(`#main_form_genre_display_${this.gadgetIndex}`).innerText = this.selectedGenreItemKey;
 
     // モーダルをトグルする
     this.closeModal();

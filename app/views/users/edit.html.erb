@@ -1,10 +1,13 @@
 <%= turbo_frame_tag 'user-name' do %>
   <%= form_with model:@user, url: users_path, method: :put do |f|%>
     <div class="flex my-4 w-auto justify-between">
-      <p class="my-1"><i class="fa-solid fa-user pr-3"></i>ユーザーネーム</p>
+      <p class="my-1">
+        <i class="fa-solid fa-user pr-3"></i>
+        <%= User.human_attribute_name :name %>
+      </p>
       <div class="flex">
-        <%= f.submit '更新', class: "base-btn" %>
-        <%= link_to 'キャンセル', users_path, class: "cancel-btn ml-1" %>
+        <%= f.submit class: "base-btn" %>
+        <%= link_to t('defaults.cancel'), users_path, class: "cancel-btn ml-1" %>
       </div>
     </div>
     <%= f.text_field :name, value: current_user.name, class: 'base-form-area w-full text-center' %>
@@ -14,10 +17,13 @@
 <%= turbo_frame_tag 'user-email' do %>
   <%= form_with model:@user, url: users_path, method: :put do |f|%>
     <div class="flex my-4 w-auto justify-between">
-      <p class="my-1"><i class="fa-solid fa-envelope pr-3"></i>メールアドレス</p>
+      <p class="my-1">
+        <i class="fa-solid fa-envelope pr-3"></i>
+        <%= User.human_attribute_name :email %>
+      </p>
       <div class="flex">
-        <%= f.submit '更新', class: "base-btn" %>
-        <%= link_to 'キャンセル', users_path, class: "cancel-btn ml-1" %>
+        <%= f.submit class: "base-btn" %>
+        <%= link_to t('defaults.cancel'), users_path, class: "cancel-btn ml-1" %>
       </div>
     </div>
     <%= f.text_field :email, value: current_user.email, class: 'base-form-area w-full text-center' %>

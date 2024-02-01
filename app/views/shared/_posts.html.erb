@@ -1,7 +1,7 @@
 <div tab-index="0" class="collapse bg-base-200 mt-3 mb-3 collapse-override">
   <input type="checkbox" />
   <div class="collapse-title text-xl font-medium text-center bg-slate-50">
-    <i class="fa-solid fa-magnifying-glass">検索</i>
+    <i class="fa-solid fa-magnifying-glass"><%= t('defaults.search') %></i>
   </div>
   <div class="collapse-content bg-slate-50">
     <%= render 'shared/search', q: @q, url: url %>
