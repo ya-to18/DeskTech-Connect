@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'my_pages/index'
   root 'tops#index'
 
   get 'login', to: 'user_sessions#new'
