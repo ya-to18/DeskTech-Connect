@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   root 'tops#index'
-
+  
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
+
+  get 'my_page', to: 'my_pages#index'
 
   resources :password_resets, only: %i[ new create edit update ]
   get 'sended_mail', to: 'password_resets#sended_mail'
