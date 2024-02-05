@@ -1,12 +1,12 @@
-<div tab-index="0" class="collapse bg-base-200 mt-3 mb-3 collapse-override">
-  <input type="checkbox" />
-  <div class="collapse-title text-xl font-medium text-center bg-slate-50">
+<div class="flex justify-center">
+  <button class="my-5 text-xl bg-slate-50" onclick="my_modal_3.showModal()">
     <i class="fa-solid fa-magnifying-glass"><%= t('defaults.search') %></i>
-  </div>
-  <div class="collapse-content bg-slate-50">
+  </button>
+  <dialog id="my_modal_3" class="modal">
     <%= render 'shared/search', q: @q, url: url %>
-  </div>
+  </dialog>
 </div>
+
 <div class="grid grid-cols-1 px-4 gap-3 pb-3 md:grid-cols-3" >
   <%= render partial: 'posts/post', collection: @posts %>
 </div>
