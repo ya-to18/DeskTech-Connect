@@ -43,17 +43,25 @@
     - マイデスク機能
     - ジャンル別人気ランキング
     - 投稿シェア機能（X）
+    - コメント機能
 ## 機能の実装方針予定
   - Ruby3系
   - Ruby on Rails7系
   - TailwindCSS
+  - daisyUI
   - PostgreSQL
   - heroku
-  - 楽天市場ショッピングAPI
+  - 楽天商品価格ナビAPI
   - X API
   - gem
-    - carrierwave
     - sorcery
+    - carrierwave
+    - MiniMagick
+    - enum_help
+    - rails-i18n
+    - ransack
+    - pagy
+    - gretel
 ## 差別化、売りのポイント
 Youtubeやガジェット紹介サイトは、単一の商品を紹介しているのみで、どういう組合せでデスクを作っているのかを紹介していることは少なく、企業に勤めている社員のデスクを紹介しているWebブログのようなサイトがありますが、どのメーカーなのか等の情報が載っていることは少ないです。このアプリであれば、他者がどのようなデスク環境を使っているのかを一元的に見る事ができる点で差別化ができていると思います。また、一部の動画配信ではデスクツアーの類の動画もありますが、同じような動画を何個も見る必要が無く、短い時間で情報の入手ができます。
 ## 追加サービスの案・追加機能の案
@@ -65,4 +73,4 @@ Youtubeやガジェット紹介サイトは、単一の商品を紹介してい�
 ## 画面遷移図
 Figma：https://www.figma.com/file/1ykhFs9VneuzQD1Nb06XT3/Web%E3%82%A2%E3%83%97%E3%83%AA_%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?type=design&node-id=0%3A1&mode=design&t=sCeXxhnOsxsjeQ4d-1
 ## ER図
-https://gyazo.com/1d2b142cb4a3e6d3270280412e2f838f
+https://gyazo.com/f4ebe8f63e0c5c4897b95ebf136bee23
