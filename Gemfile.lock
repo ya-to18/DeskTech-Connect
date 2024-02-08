@@ -83,6 +83,15 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    carrierwave (2.2.5)
+      activemodel (>= 5.0.0)
+      activesupport (>= 5.0.0)
+      addressable (~> 2.6)
+      image_processing (~> 1.1)
+      marcel (~> 1.0.0)
+      mini_mime (>= 0.1.3)
+      ssrf_filter (~> 1.0)
+    coderay (1.1.3)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     cssbundling-rails (1.3.3)
@@ -91,19 +100,32 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
+    enum_help (0.0.19)
+      activesupport (>= 3.0.0)
     erubi (1.12.0)
     faraday (2.7.12)
       base64
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
+    ffi (1.16.3)
     font-awesome-rails (4.7.0.8)
       railties (>= 3.2, < 8.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    gretel (5.0.0)
+      actionview (>= 5.1, < 7.2)
+      railties (>= 5.1, < 7.2)
     hashie (5.0.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    image_processing (1.12.2)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     importmap-rails (1.2.3)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -117,7 +139,16 @@ GEM
       activesupport (>= 5.0.0)
     jsbundling-rails (1.2.1)
       railties (>= 6.0.0)
+    json (2.7.1)
     jwt (2.7.1)
+    launchy (2.5.2)
+      addressable (~> 2.8)
+    letter_opener (1.8.1)
+      launchy (>= 2.2, < 3)
+    letter_opener_web (1.4.1)
+      actionmailer (>= 3.2)
+      letter_opener (~> 1.0)
+      railties (>= 3.2)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -129,6 +160,7 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
+    mini_magick (4.12.0)
     mini_mime (1.1.5)
     minitest (5.20.0)
     msgpack (1.7.2)
@@ -160,7 +192,13 @@ GEM
       rack (>= 1.2, < 4)
       snaky_hash (~> 2.0)
       version_gem (~> 1.1)
+    pagy (6.4.3)
     pg (1.5.4)
+    pry (0.14.2)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     psych (5.1.1.1)
       stringio
     public_suffix (5.0.4)
@@ -191,6 +229,9 @@ GEM
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
+    rails-i18n (7.0.8)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 8)
     railties (7.0.8)
       actionpack (= 7.0.8)
       activesupport (= 7.0.8)
@@ -199,14 +240,30 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.1.0)
+    rakuten_web_service (1.13.2)
+      json (~> 2.3)
+    ransack (4.1.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     rdoc (6.6.0)
       psych (>= 4.0.0)
     regexp_parser (2.8.2)
     reline (0.4.0)
       io-console (~> 0.5)
     rexml (3.2.6)
+    ruby-vips (2.2.0)
+      ffi (~> 1.12)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (4.10.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -225,6 +282,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    ssrf_filter (1.1.2)
     stimulus-rails (1.3.0)
       railties (>= 6.0.0)
     stringio (3.0.9)
@@ -233,6 +291,7 @@ GEM
     tailwindcss-rails (2.0.32-arm64-darwin)
       railties (>= 6.0.0)
     thor (1.3.0)
+    tilt (2.3.0)
     timeout (0.4.1)
     turbo-rails (1.5.0)
       actionpack (>= 6.0.0)
@@ -261,15 +320,28 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   capybara
+  carrierwave (~> 2.0)
   cssbundling-rails
   debug
+  dotenv-rails
+  enum_help
   font-awesome-rails
+  gretel
   importmap-rails
   jbuilder
   jsbundling-rails
+  letter_opener_web (~> 1.0)
+  mini_magick
+  pagy
   pg (~> 1.1)
+  pry-rails
   puma (~> 5.0)
   rails (~> 7.0.8)
+  rails-i18n (~> 7.0.8)
+  rakuten_web_service
+  ransack
+  sassc (~> 2.0)
+  sassc-rails
   selenium-webdriver
   sorcery
   sprockets-rails

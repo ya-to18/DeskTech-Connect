@@ -1,0 +1,6 @@
+ja:
+  user_sessions:
+    new:
+      title: ログイン
+      sign_up: アカウント登録
+      password_reset: パスワードをお忘れの方はこちらをクリックしてください。

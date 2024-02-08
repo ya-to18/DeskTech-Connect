@@ -1,0 +1,21 @@
+<div class="py-20 sm:py-20 min-h-[calc(100vh-160px)] px-4">
+  <div class="mx-auto max-w-screen-sm bg-white p-8 md:p-8 border rounded-lg shadow relative">
+    <div class="flex justify-center">
+      <i class="fa-solid fa-envelope text-3xl border p-3 rounded-full shadow absolute top-0 -mt-7 bg-white"></i>
+    </div>
+    <h2 class="mb-4 text-base text-gray-800 md:mb-8">パスワード変更案内のメールを送信します。</h2>
+    <h2 class="mb-4 text-base text-gray-800 md:mb-8 md:whitespace-nowrap">下記に現在登録しているメールアドレスを入力して送信ボタンを押してください。</h2>
+
+    <%= form_with url: password_resets_path, local: true do |f| %>
+      <div class="form-group mx-auto max-w-lg">
+        <div class="flex flex-col gap-4 p-4">
+          <%= f.label :email, class: 'mb-2 inline-block text-sm text-gray-800 sm:text-base' %>
+          <%= f.email_field :email, class: 'form-controll w-full base-form-area' %>
+          <div class="flex justify-center">
+            <%= f.submit '送信', class: 'base-btn mt-4 w-16' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

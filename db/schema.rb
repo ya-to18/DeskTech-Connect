@@ -10,9 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_27_141030) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_28_071921) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "gadgets", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "brand"
+    t.integer "price"
+    t.string "image_url"
+    t.integer "genre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "post_id"
+    t.string "product_url"
+    t.string "product_id", default: "0", null: false
+    t.string "maker_name"
+    t.bigint "maker_code", default: 0, null: false
+    t.index ["post_id"], name: "index_gadgets_on_post_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "content"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
@@ -22,7 +56,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_27_141030) do
     t.string "x_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_token_expires_at"
+    t.datetime "reset_password_email_sent_at"
+    t.integer "access_count_to_reset_password_page", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
+  add_foreign_key "gadgets", "posts"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users"
+  add_foreign_key "posts", "users"
 end

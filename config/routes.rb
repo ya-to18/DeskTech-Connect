@@ -1,7 +1,35 @@
 Rails.application.routes.draw do
   root 'tops#index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  
+  get 'login', to: 'user_sessions#new'
+  post 'login', to: 'user_sessions#create'
+  delete 'logout', to: 'user_sessions#destroy'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get 'my_page', to: 'my_pages#index'
+
+  resources :password_resets, only: %i[ new create edit update ]
+  get 'sended_mail', to: 'password_resets#sended_mail'
+  get 'after_setting', to: 'password_resets#after_setting'
+
+  resources :autocomplete do
+    get :brand, on: :collection
+    get :name, on: :collection
+  end
+
+  resource :users, only: %i[new create show edit update] do
+    collection do
+      get 'posts'
+      get 'likes'
+    end
+  end
+
+  get 'rank', to: 'posts#ranking'
+  resources :posts do
+    resources :gadgets
+    resource :likes, only: %i[ create destroy ]
+  end
+
+  get 'rakuten_search', to: 'posts#rakuten_search'
+
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end

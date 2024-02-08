@@ -1,0 +1,9 @@
+<%= turbo_frame_tag 'flash_messages' do %>
+  <% flash.each do |message_type, message| %>
+    <% if message_type == 'success' %>
+      <div role="alert" class="bg-green-200 text-green-700 p-3"><%= message %></div>
+    <% else %>
+      <div role="alert" class="bg-red-200 text-red-700 p-3"><%= message %></div>
+    <% end %>
+  <% end %>
+<% end %>

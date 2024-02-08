@@ -1,0 +1,38 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      post: 投稿
+      gadget: アイテム
+    attributes:
+      user:
+        name: ユーザーネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認用
+      post:
+        image: デスク画像
+        content: おすすめポイント
+      gadget:
+        name: 商品名
+        brand: ブランド
+        price: 価格
+        image_url: 商品画像
+        genre: ジャンル
+        product_url: 商品URL
+        product_id: 商品ID
+        maker_name: メーカー
+        maker_code: メーカーコード
+  enums:
+    gadget:
+      genre:
+        pc: 'PC'
+        monitor: 'モニター'
+        keyboard: 'キーボード'
+        mouse: 'マウス'
+        desk: 'デスク'
+        chair: 'チェア'
+        other: 'その他'
+  attributes:
+    created_at: 作成日
+    updated_at: 更新日

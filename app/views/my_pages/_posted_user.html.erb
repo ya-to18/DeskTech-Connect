@@ -1,0 +1,9 @@
+<div class="flex justify-end">
+  <%= l @latest_post.created_at %>
+</div>
+<%= image_tag @latest_post.image.url, class: "w-full h-80 md:h-96 object-contain border shadow-lg" %>
+<div class="flex justify-end">
+  <%= link_to post_path(@latest_post.id), class: "font-bold mt-2 hover:text-blue-500" do %>
+    <i class="fa-solid fa-circle-arrow-right mr-2"></i>詳細
+  <% end %>
+</div>

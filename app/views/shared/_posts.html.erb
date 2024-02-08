@@ -1,0 +1,15 @@
+<div class="flex justify-center">
+  <button class="my-5 text-xl bg-slate-50" onclick="my_modal_3.showModal()">
+    <i class="fa-solid fa-magnifying-glass"><%= t('defaults.search') %></i>
+  </button>
+  <dialog id="my_modal_3" class="modal">
+    <%= render 'shared/search', q: @q, url: url %>
+  </dialog>
+</div>
+
+<div class="grid grid-cols-1 px-4 gap-3 pb-3 md:grid-cols-3" >
+  <%= render partial: 'posts/post', collection: @posts %>
+</div>
+<div class="flex justify-center m-4">
+  <%== pagy_nav(@pagy) %>
+</div>

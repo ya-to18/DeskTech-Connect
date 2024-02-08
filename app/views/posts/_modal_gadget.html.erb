@@ -1,0 +1,44 @@
+<div data-controller="modal" class="relative">
+  <div class="flex justify-center">
+    <div class="absolute -translate-y-72">
+      <a href="#" data-action="click->modal#showModal" class="mt-14 mb-6 base-btn" ><%= t('.add_item') %></a>
+    </div>
+  </div>
+
+  <dialog id="favDialog" data-modal-target="dialog" class="bg-white p-10 rounded shadow animate-fade-in-fwd">
+    <form>
+      <h2><i class="fa-regular fa-lightbulb pr-2"></i><%= t('.genre_select_sentence') %></h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 my-4" data-modal-target="genreSelectBox">
+        <% Gadget.genres_i18n.invert.each do |key, value| %>
+          <a data-action="click->modal#selectedGenre" class="cursor-pointer border shadow rounded-full text-center bg-slate-100 hover:bg-slate-200">
+            <p><%= key %></p>
+            <p class="hidden"><%= value %></p>
+          </a>
+        <% end %>
+      </div>
+      <div class="flex justify-end">
+        <button value="cancel" formmethod="dialog" class="cancel-btn" data-action="click->modal#dialogClose"><%= t('defaults.cancel') %></button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="hidden fixed m-auto w-screen h-screen top-0 left-0 bg-gray-700/50 z-10 animate-fade-in-fwd" data-modal-target="modal">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-5 rounded shadow w-11/12 h-5/6 overflow-auto">
+        <div class="flex justify-end">
+          <div class="cancel-btn" data-action="click->modal#closeModal"><%= t('defaults.cancel') %></div>
+        </div>
+        <div class="flex justify-end my-3">
+          <p><%= t('.selected_genre') %></p>
+          <p id="selectedGenreKey"></p>
+        </div>
+        <h1 class="font-bold"><i class="fa-solid fa-magnifying-glass"></i><%= t('.search_item_sentence') %></h1>
+          <%= form_with url: rakuten_search_path, method: :get, local: false, html: { data: { turbo_frame: "search_results" } } do |f| %>
+            <div class="form-group flex justify-between items-center md:justify-start gap-4">
+              <%= f.text_field :keyword, value: params[:keyword], class: "form-control base-form-area w-2/3 md:2/3", id: "search_keyword" %>
+              <%= f.submit t('.search'), class: "form-control base-btn" %>
+            </div>
+          <% end %>
+        <%= turbo_frame_tag "search_results" %>
+      </div>
+  </div>
+</div>

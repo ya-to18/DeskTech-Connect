@@ -6,16 +6,17 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
     <%= stylesheet_link_tag "application", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= render "layouts/header" %>
-    <main class="container mx-auto px-5">
+  <body class="flex flex-col min-h-screen bg-slate-50 text-slate-600">
+    <%= render "shared/header" %>
+    <%= render 'shared/flash_message' %>
+    <div class="container mx-auto flex-grow justify-center">
+      <%= breadcrumbs separator: " &rsaquo; " %>
       <%= yield %>
-    </main>
-    <%= render "layouts/footer" %>
+    </div>
+    <%= render "shared/footer" %>
   </body>
 </html>
