@@ -1,30 +1,25 @@
 document.addEventListener('DOMContentLoaded', function(){
-  let slidesPerViewOptions = 3;
+  let slidesPerViewOptions = 4.5;
   if (document.querySelector('.page-specific-class')) {
-    slidesPerViewOptions = 5;
+    slidesPerViewOptions = 5.5;
   }
 
   new Swiper('.swiper', {
-    // Optional parameters
-    // loop: true,
     slidesPerView: slidesPerViewOptions,
-    // autoplay: { // 自動再生
-    //   delay: 1000, // 3秒後に次のスライド
-    // },
-    // If we need pagination
+    spaceBetween: 10,
+
     pagination: {
       el: '.swiper-pagination',
     },
-  
-    // Navigation arrows
+
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
-  
-    // And if we need scrollbar
+
     scrollbar: {
       el: '.swiper-scrollbar',
+      hide: true,
     },
   });
 });
