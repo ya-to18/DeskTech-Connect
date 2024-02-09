@@ -1,0 +1,23 @@
+.swiper-button-prev,
+.swiper-button-next {
+  width: 24px; /* ボタンの幅 */
+  height: 40px; /* ボタンの高さ */
+  background-size: 24px 40px; /* 表示したいサイズ */
+  transform: translateY(-50%);
+  margin-top: 0;
+}
+
+.swiper-button-next {
+  background-image: url('https://kiomiru.co.jp/blog/wp-content/uploads/2021/09/img_arrow_black_01.png');
+  }
+
+/* 前ページボタンのスタイル */
+.swiper-button-prev {
+  background-image: url('https://kiomiru.co.jp/blog/wp-content/uploads/2021/09/img_arrow_black_01.png');
+  transform: translateY(-50%) scale(-1, 1); /* 左右反転 */
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+ display: none;
+}
