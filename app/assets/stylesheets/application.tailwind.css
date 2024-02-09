@@ -1,9 +1,7 @@
+@import "swiper/swiper-bundle.min.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "swiper/swiper-bundle.min.css";
-@import "swiper.css";
-@import "collapse.css";
 
 .base-btn {
   @apply block rounded-lg cursor-pointer bg-gray-800 px-2 py-1 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active:bg-gray-600 md:text-base
