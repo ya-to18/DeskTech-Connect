@@ -38,6 +38,7 @@ tmp/cache/bootsnap/
 /public/uploads
 /.env
 /node_modules
+yarn.lock
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
