@@ -76,7 +76,6 @@ end
 
 gem 'sorcery'
 gem 'cssbundling-rails'
-gem 'jsbundling-rails'
 gem 'font-awesome-rails'
 gem 'pry-rails'
 gem 'carrierwave', '~> 2.0'
