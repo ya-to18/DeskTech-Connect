@@ -1,8 +1,17 @@
-<div class="flex flex-col items-center justify-center w-full border shadow-lg bg-white text-xl font-semibold">
-  <%= link_to 'みんなの投稿を見る', posts_path, class: 'base-btn' %>
-  <%= link_to 'アカウント登録', new_users_path, class: 'base-btn' %>
+<div class="flex flex-col items-center justify-center w-full border shadow-lg bg-white md:text-xl font-semibold">
+  <div class="flex text-2xl mb-10">
+    <i class="fa-regular fa-lightbulb mr-5"></i>
+    <p class="underline decoration-dotted decoration-2 underline-offset-8">実際に投稿されてるデスクはこんなのがあります！！</p>
+  </div>
+  <div class="grid grid-cols-2 gap-3 mx-20 w-2/3">
+    <% @recent_3_posts.each do |post| %>
+      <%= image_tag post.image.url(:index_size), class: "shadow-xl rounded-xl border" %>
+    <% end %>
+  </div>
+  <p class="underline decoration-dotted decoration-2 underline-offset-8 my-10">まずはみんなの投稿を見てみる？</p>
+  <%= link_to '見に行く', posts_path, class: 'block rounded-xl cursor-pointer bg-gray-800 px-4 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active:bg-gray-600 md:text-lg' %>
 </div>
 <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-  <a href="#slide1" class="btn btn-circle">❮</a>
-  <a href="#slide3" class="btn btn-circle">❯</a>
+  <a href="#slide1" class="btn btn-circle bg-white">❮</a>
+  <a href="#slide3" class="btn btn-circle bg-white">❯</a>
 </div>
