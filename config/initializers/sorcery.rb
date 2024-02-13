@@ -121,7 +121,7 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.user_info_path = "/1.1/account/verify_credentials.json?include_email=true"
   config.twitter.user_info_mapping = {
     :email => 'email',
-    :name: => 'name'
+    :name => 'name'
   }
   #
   # config.facebook.key = ""
