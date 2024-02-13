@@ -1,31 +1,33 @@
-<div class="text-xl">
-  <h1 class="text-center m-6 text-2xl"><%= t('.title') %></h1>
-  <div class="flex justify-center">
-    <%= form_with model: @user, local: true do |f| %>
-      <%= render 'shared/error_message', object: f.object %>
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control base-form-area w-full max-w-xs text-xl', size: "50" %>
-      </div>
-      <div class="form-group mt-5">
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control base-form-area w-full max-w-xs text-xl' %>
-      </div>
-      <div class="form-group mt-5">
-        <%= f.label :password %>
-        <%= f.password_field :password, class: 'form-control base-form-area w-full max-w-xs text-xl' %>
-      </div>
-      <div class="form-group mt-5">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: 'form-control base-form-area w-full max-w-xs text-xl' %>
-      </div>
-      <div class="flex justify-center">
-        <%= f.submit t('defaults.sign_up'), class: 'base-btn w-full mt-8' %>
-      </div>
-    <% end %>
-  </div>
+<div class="flex justify-center mt-10 md:mt-8 h-full">
+  <div class="bg-white w-4/4 md:w-2/3 p-5 md:p-0 border rounded-xl text-base md:text-lg">
+    <h1 class="text-center m-6 text-xl md:text-2xl font-bold"><i class="fa-solid fa-user-plus mr-2"></i><%= t('.title') %></h1>
+    <div class="flex justify-center w-full">
+      <%= form_with model: @user, local: true do |f| %>
+        <%= render 'shared/error_message', object: f.object %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'form-control base-form-area w-full max-w-xs', size: "50" %>
+        </div>
+        <div class="form-group mt-5">
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control base-form-area w-full max-w-xs' %>
+        </div>
+        <div class="form-group mt-5">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control base-form-area w-full max-w-xs' %>
+        </div>
+        <div class="form-group mt-5">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, class: 'form-control base-form-area w-full max-w-xs' %>
+        </div>
+        <div class="flex justify-center">
+          <%= f.submit t('defaults.sign_up'), class: 'base-btn w-2/4 mt-8' %>
+        </div>
+      <% end %>
+    </div>
 
-  <div class='text-center m-10'>
-    <%= link_to t('defaults.login'), login_path, class: 'link' %>
+    <div class='text-center m-10'>
+      <%= link_to t('defaults.login'), login_path, class: 'link hover:text-blue-500' %>
+    </div>
   </div>
 </div>
