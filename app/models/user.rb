@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
+  has_many :authentications, dependent: :destroy
 
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
