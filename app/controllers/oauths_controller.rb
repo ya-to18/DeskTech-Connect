@@ -7,17 +7,16 @@ class OauthsController < ApplicationController
   def callback
     provider = auth_params[:provider]
 
-    if @user = login_from(provider)
-      redirect_to my_page_path, flash: { success: 'Twitterでログインしました。' }
-    else
-      begin
-        @user = create_from(provider)
-        reset_session
-        auto_login(@user)
-        redirect_to my_page_path, flash: { success: 'Twitterでログインしました。' }
+    if auth_params[:denied].present?
+      redirect_to root_path, success: ('Twitterアカウントでのアカウント作成に成功しました')
+      return
+    end
 
-      rescue
-        redirect_to root_path, flash: { error: 'Twitterでログインできませんでした。' }
+    begin
+      create_user_from(provider) unless (@user = login_from(provider))
+      redirect_to my_page_path, flash: { success: 'Twitterでログインしました。' }
+    rescue StandardError
+      redirect_to root_path, flash: { error: 'Twitterでログインできませんでした。' }
     end
   end
 
@@ -25,5 +24,11 @@ class OauthsController < ApplicationController
 
   def auth_params
     params.permit(:code, :provider, :denied)
+  end
+
+  def create_user_from(provider)
+    @user = create_from(provider)
+    reset_session
+    auto_login(@user)
   end
 end

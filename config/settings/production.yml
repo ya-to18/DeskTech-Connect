@@ -1,2 +1,2 @@
 sorcery:
-  callback_url: https://desktech-connect-ba757d0b0928.herokuapp.com/oauth/callback?
+  callback_url: "https://desktech-connect-ba757d0b0928.herokuapp.com/oauth/callback?provider=twitter"

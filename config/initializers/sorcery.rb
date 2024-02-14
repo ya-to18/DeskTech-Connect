@@ -120,6 +120,7 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.callback_url = Settings.sorcery[:callback_url]
   config.twitter.user_info_path = "/1.1/account/verify_credentials.json?include_email=true"
   config.twitter.user_info_mapping = {
+    :x_id => 'id',
     :email => 'email',
     :name => 'name'
   }
