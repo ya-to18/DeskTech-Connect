@@ -4,6 +4,9 @@ class Post < ApplicationRecord
   belongs_to :user
   accepts_nested_attributes_for :gadgets, allow_destroy: true
 
+  validates :image, presence: true
+  validates :content, presence: true
+
   validates_associated :gadgets
   validates :gadgets, presence: true
   mount_uploader :image, PostImageUploader
