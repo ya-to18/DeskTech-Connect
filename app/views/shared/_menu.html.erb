@@ -45,35 +45,35 @@
           </details>
         </li>
         <li class="mt-3">
-          <div class="flex items-center">
+          <%= link_to posts_path do %>
             <i class="fa-solid fa-desktop"></i>
-            <%= link_to t('menu.index'), posts_path %>
-          </div>
+            <%= t('menu.index') %>
+          <% end %>
         </li>
         <li>
-          <div class="flex items-center">
+          <%= link_to rank_path do %>
             <i class="fa-solid fa-crown"></i>
-            <%= link_to t('menu.ranking'), rank_path %>
-          </div>
+            <%= t('menu.ranking') %>
+          <% end %>
         </li>
         <li class="mt-3">
-          <div class="flex items-center">
+          <%= link_to logout_path, data: { turbo_method: :delete } do %>
             <i class="fa-solid fa-right-from-bracket"></i>
-            <%= link_to t('menu.logout'), logout_path, data: { turbo_method: :delete } %>
-          </div>
+            <%= t('menu.logout') %>
+          <% end %>
         </li>
       <% else %>
         <li>
-          <div class="flex items-center">
-            <i class="fa-solid fa-right-to-bracket"></i>
-            <%= link_to t('menu.login'), login_path %>
-          </div>
+          <%= link_to login_path do %>
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <%= t('menu.login') %>
+        <% end %>
         </li>
         <li>
-          <div class="flex items-center">
+          <%= link_to new_users_path do %>
             <i class="fa-solid fa-user-plus"></i>
-            <%= link_to t('menu.sign_up'), new_users_path %>
-          </div>
+            <%= t('menu.sign_up') %>
+          <% end %>
         </li>
       <% end %>
     </ul>
