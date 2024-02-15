@@ -48,7 +48,11 @@
               <% if @post.gadgets.ids.present? %>
                 <% @post.gadgets.each_with_index do |gadget, index| %>
                   <div id="subitem_<%= index + 10000 %>" class="flex flex-col bg-white shadow rounded-lg text-base p-4 relative">
-                    <p id="main_form_brand_display" class="badge bg-slate-200"><%= gadget.brand %></p>
+                    <% if gadget.brand.present? %>
+                      <p id="main_form_brand_display" class="badge bg-slate-200 min-h-6"><%= gadget.brand %></p>
+                    <% else %>
+                      <div class="min-h-6"></div>
+                    <% end %>
                     <div class="flex justify-center py-2 h-2/3">
                       <%= image_tag gadget.image_url, class: "h-24 w-32 shadow object-contain" %>
                     </div>
