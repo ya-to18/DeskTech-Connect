@@ -11,7 +11,7 @@ module PostsHelper
     if post.image.present?
       post.image.url(:index_size)
     else
-      'default.png'
+      'post/default.png'
     end
   end
 
