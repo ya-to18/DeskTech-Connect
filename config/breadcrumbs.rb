@@ -36,3 +36,7 @@ end
 crumb :my_post do
   link "自分の投稿一覧", posts_users_path
 end
+
+crumb :setting do
+  link "個人設定", users_path
+end
