@@ -1,4 +1,5 @@
 <% content_for(:title, t('.title')) %>
 <% breadcrumb :posts_index %>
 <h1 class="text-2xl md:text-3xl font-bold text-center p-3"><%= t('.title') %></h1>
+<%= render 'shared/search', q: @q, url: posts_path %>
 <%= render 'shared/posts', url: posts_path %>
