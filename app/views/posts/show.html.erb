@@ -19,7 +19,7 @@
     <div class="flex flex-col gap-4 my-5">
       <%= image_tag main_image_existence(@post), class: 'border' %>
       <p class="text-lg md:text-2xl font-bold mt-5"><i class="fa-regular fa-lightbulb pr-2"></i><%= Post.human_attribute_name :content %></p>
-      <div class="overflow-auto border bg-white p-4 h-40 md:h-56 rounded-lg"><%= @post.content %></div>
+      <div class="overflow-auto border bg-white p-4 h-40 md:h-56 rounded-lg"><%= safe_join(@post.content.split("\n"),tag(:br)) %></div>
     </div>
     <p class="text-lg md:text-2xl font-bold mb-5"><i class="fa-solid fa-desktop pr-2"></i><%= t('.item_detail') %></p>
     <div id="gadget-content" class="grid grid-cols-1 gap-4 mb-10 md:grid-cols-3">
