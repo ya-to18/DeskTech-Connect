@@ -8,6 +8,9 @@ module.exports = {
   plugins: [
     require('daisyui')
   ],
+  daisyui: {
+    darkTheme: false,
+  },
   theme: {
     extend: {
       height: {
