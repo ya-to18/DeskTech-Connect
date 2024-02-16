@@ -17,6 +17,9 @@ module.exports = {
         '928': '58rem',
         '640': '40rem'
       },
+      backgroundImage: {
+        'main': "url('background_image.png')",
+      },
       animation: {
         "fade-in-fwd": "fade-in-fwd 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
         "scale-out-horizontal": "scale-out-horizontal 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both",
