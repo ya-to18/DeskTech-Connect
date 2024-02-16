@@ -21,7 +21,7 @@
       <% brand_remove_duplicate(post.id) %>
       <% unless @brand.empty? %>
         <% @brand.each do |brand| %>
-          <p class="badge bg-slate-200"><%= link_to brand, posts_path(q: { gadgets_brand_cont: brand }) %></p>
+          <%= link_to brand, posts_path(q: { gadgets_brand_cont: brand }), class: "badge bg-slate-200 hover:bg-slate-300" %>
         <% end %>
       <% end %>
     </div>
