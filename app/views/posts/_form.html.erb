@@ -16,6 +16,7 @@
               <p class="text-sm md:text-base"><%= t('.image_upload') %></p>
             </div>
             <%= form.file_field :image, class: 'file-input file-input-bordered file-input-sm md:file-input-md w-full max-w-xs' %>
+            <p class="text-red-400"><%= t('.extension_text') %></p>
           </div>
         </div>
       </div>
