@@ -8,7 +8,7 @@
           <i class="fa-solid fa-caret-down text-2xl ml-1"></i>
           <p class="text-sm md:text-base"><%= t('.step1') %></p>
         </div>
-        <div class="border p-5 bg-white rounded-lg">
+        <div class="border p-5 bg-white rounded-lg shadow">
           <%= image_tag main_image_existence(@post), class: "object-contain border rounded-lg" %>
           <div class="flex flex-col items-center m-5 gap-2">
             <div class="flex items-center gap-2">
@@ -28,7 +28,7 @@
           <i class="fa-solid fa-caret-down text-2xl ml-1"></i>
           <p class="text-sm md:text-base"><%= t('.step2') %></p>
         </div>
-        <div class="border p-5 bg-white rounded-lg">
+        <div class="border p-5 bg-white rounded-lg shadow">
           <%= form.label :content %>
           <%= form.text_area :content, class: "base-form-area w-full h-36 md:h-48", placeholder: "ここに自分のデスクのお勧めポイントを書いてね！" %>
         </div>
@@ -41,7 +41,7 @@
           <i class="fa-solid fa-caret-down text-2xl ml-1"></i>
           <p class="text-sm md:text-base"><%= t('.step3') %></p>
         </div>
-        <div class="border px-5 pt-5 pb-20 bg-white rounded-lg">
+        <div class="border px-5 pt-5 pb-20 bg-white rounded-lg shadow">
           <p class="text-xl pb-3 text-center"><i class="fa-solid fa-desktop pr-2"></i><%= t('.item_index') %></p>
           <div class="flex flex-col items-center">
             <%= render 'posts/template/form_template', form: form %>
