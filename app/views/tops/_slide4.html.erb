@@ -36,10 +36,14 @@
     </div>
   </div>
   <h2 class="mt-10 md:mt-20 text-base md:text-2xl">さあ、自分のデスクを共有しよう！！</h2>
-  <div class="flex items-center gap-5 mt-10">
+  <div class="flex items-center gap-5 mt-10 mb-3">
     <%= link_to t('.sign_up'), new_users_path, class: "border rounded-xl p-3 text-base text-white bg-blue-700 hover:bg-blue-900" %>
     <p>or</p>
     <%= link_to t('defaults.login'), login_path, class: "border rounded-xl p-3 text-base text-white bg-slate-700 hover:bg-slate-900" %>
+  </div>
+  <div class="flex items-center gap-3 text-sm md:text-base">
+    <i class="fa-regular fa-lightbulb"></i>
+    <p>X（旧Twitter）でログインも可能です</p>
   </div>
 </div>
 <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
