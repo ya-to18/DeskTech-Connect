@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <%= favicon_link_tag('favicon.ico') %>
+    <title><%= page_title(yield(:title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,7 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="flex flex-col min-h-screen bg-slate-50 text-slate-600">
+  <body class="flex flex-col min-h-screen bg-slate-50 text-slate-600 bg-main bg-contain">
     <%= render "shared/header" %>
     <%= render 'shared/flash_message' %>
     <div class="container mx-auto flex-grow justify-center">

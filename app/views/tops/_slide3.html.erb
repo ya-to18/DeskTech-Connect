@@ -1,10 +1,10 @@
-<div class="flex flex-col items-center md:justify-center w-full border shadow-lg bg-white text-base md:text-lg font-semibold ">
+<div class="flex flex-col items-center md:justify-center w-full text-base md:text-lg font-semibold ">
   <div class="flex flex-col items-center gap-5 max-w-screen-lg mt-20 md:mt-0">
     <div class="flex gap-5 items-center text-xl md:text-2xl">
       <i class="fa-regular fa-pen-to-square md:text-2xl"></i>
       <h1 class="underline decoration-dotted decoration-2 underline-offset-8">投稿は簡単３STEP！</h1>
     </div>
-    <ul class="border rounded-2xl border-base-300 px-10 py-5 md:px-20 md:py-10 bg-slate-50 m-5 md:m-0">
+    <ul class="border rounded-2xl border-base-300 px-10 py-5 md:px-20 md:py-10 bg-white m-5 md:m-0">
       <li class="mb-7">
         <div class="flex gap-5">
           <p>STEP1</p>
@@ -27,15 +27,9 @@
         </div>
       </li>
     </ul>
-    <h2 class="mt-7 text-lg md:text-xl">さあ、自分のデスクを共有しよう！！</h2>
-    <div class="flex items-center gap-5">
-      <%= link_to t('.sign_up'), new_users_path, class: "border rounded-xl p-3 text-base text-white bg-blue-700 hover:bg-blue-900" %>
-      <p>or</p>
-      <%= link_to t('defaults.login'), login_path, class: "border rounded-xl p-3 text-base text-white bg-slate-700 hover:bg-slate-900" %>
-    </div>
   </div>
   <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
     <a href="#slide2" class="btn btn-circle bg-white">❮</a>
-    <a href="#slide1" class="btn btn-circle bg-white">❯</a>
+    <a href="#slide4" class="btn btn-circle bg-white">❯</a>
   </div>
 </div>

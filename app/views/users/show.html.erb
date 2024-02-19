@@ -1,7 +1,9 @@
+<% content_for(:title, t('.title')) %>
+<% breadcrumb :setting %>
 <div id="error_message"></div>
 <div class="flex justify-center">
-  <div class="w-3/4">
-    <h1 class="text-center mt-20 mb-10 text-2xl font-bold">
+  <div class="md:w-3/5 bg-white p-10 rounded-xl border shadow m-5">
+    <h1 class="text-center mt-10 mb-10 text-2xl font-bold">
       <i class="fa-solid fa-gear px-3"></i>
       <%= t('.title') %>
     </h1>
@@ -10,30 +12,30 @@
     <% end %>
     <div class="flex flex-col w-auto">
         <%= turbo_frame_tag 'user-name' do %>
-        <div class="flex my-3 w-auto justify-between">
-          <p class="my-1">
-            <i class="fa-solid fa-user pr-3"></i>
-            <%= User.human_attribute_name :name %>
-          </p>
-          <% unless logged_in_for_x? %>
-            <%= link_to t('defaults.change'), edit_users_path, class: "base-btn", data: { turbo_frame: 'user-name' } %>
-          <% end %>
-        </div>
-        <p class="w-full text-center border rounded py-2 px-3 bg-white"><%= current_user.name %></p>
+          <div class="flex my-3 w-auto justify-between">
+            <p class="my-1">
+              <i class="fa-solid fa-user pr-3"></i>
+              <%= User.human_attribute_name :name %>
+            </p>
+            <% unless logged_in_for_x? %>
+              <%= link_to t('defaults.change'), edit_users_path, class: "base-btn", data: { turbo_frame: 'user-name' } %>
+            <% end %>
+          </div>
+          <p class="w-full text-center border rounded py-2 px-3 bg-white"><%= current_user.name %></p>
         <% end %>
     </div>
     <div class="flex flex-col w-auto">
         <%= turbo_frame_tag 'user-email' do %>
-        <div class="flex my-4 w-auto justify-between">
-          <p class="my-1">
-            <i class="fa-solid fa-envelope pr-3"></i>
-            <%= User.human_attribute_name :email %>
-          </p>
-          <% unless logged_in_for_x? %>
-            <%= link_to t('defaults.change'), edit_users_path, class: "base-btn", data: { turbo_frame: 'user-email' } %>
-          <% end %>
-        </div>
-        <p class="w-full text-center border rounded py-2 px-3 bg-white"><%= current_user.email %></p>
+          <div class="flex my-4 w-auto justify-between">
+            <p class="my-1">
+              <i class="fa-solid fa-envelope pr-3"></i>
+              <%= User.human_attribute_name :email %>
+            </p>
+            <% unless logged_in_for_x? %>
+              <%= link_to t('defaults.change'), edit_users_path, class: "base-btn", data: { turbo_frame: 'user-email' } %>
+            <% end %>
+          </div>
+          <p class="w-full text-center border rounded py-2 px-3 bg-white"><%= current_user.email %></p>
         <% end %>
     </div>
     <% unless logged_in_for_x? %>

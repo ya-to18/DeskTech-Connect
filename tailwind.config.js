@@ -8,6 +8,9 @@ module.exports = {
   plugins: [
     require('daisyui')
   ],
+  daisyui: {
+    darkTheme: false,
+  },
   theme: {
     extend: {
       height: {
@@ -16,6 +19,9 @@ module.exports = {
       width: {
         '928': '58rem',
         '640': '40rem'
+      },
+      backgroundImage: {
+        'main': "url('background_image.png')",
       },
       animation: {
         "fade-in-fwd": "fade-in-fwd 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",

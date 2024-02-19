@@ -13,6 +13,7 @@ ja:
       post:
         image: デスク画像
         content: おすすめポイント
+        gadgets: デスクのアイテム
       gadget:
         name: 商品名
         brand: ブランド
@@ -23,6 +24,14 @@ ja:
         product_id: 商品ID
         maker_name: メーカー
         maker_code: メーカーコード
+    errors:
+      models:
+        post:
+          attributes:
+            image:
+              blank: をアップロードしてください。
+            gadgets:
+              blank: を１つ以上追加してください。
   enums:
     gadget:
       genre:

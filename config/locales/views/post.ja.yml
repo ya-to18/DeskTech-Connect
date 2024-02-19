@@ -19,6 +19,7 @@ ja:
       step3: STEP3 使用しているアイテムを追加しよう！
       image_upload: ここから画像をアップロードしてね！
       item_index: アイテム一覧
+      extension_text: ※ jpeg jpg pngの拡張子がアップロード可能です。
     modal_gadget:
       add_item: アイテム追加
       genre_select_sentence: 登録するアイテムのジャンルを選択しよう！

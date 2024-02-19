@@ -4,12 +4,19 @@ class Post < ApplicationRecord
   belongs_to :user
   accepts_nested_attributes_for :gadgets, allow_destroy: true
 
+  validates :image, presence: true
+  validates :content, presence: true
+
   validates_associated :gadgets
   validates :gadgets, presence: true
   mount_uploader :image, PostImageUploader
 
   def liked_by?(user)
-    likes.exists?(user_id: user.id)
+    if user.nil?
+      return
+    else
+      likes.exists?(user_id: user.id)
+    end
   end
 
   def self.ransackable_attributes(auth_object = nil)

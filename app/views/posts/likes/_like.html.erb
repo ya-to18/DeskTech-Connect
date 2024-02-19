@@ -1,13 +1,20 @@
-<%= turbo_frame_tag "like_button_#{post.id}" do %>
-  <% if post.liked_by?(current_user) %>
+<% if current_user %>
+  <%= turbo_frame_tag "like_button_#{post.id}" do %>
+    <% if post.liked_by?(current_user) %>
       <%= link_to post_likes_path(post.id), data: { turbo_method: :delete, turbo_fram: "like_button_#{post.id}" } do %>
         <i class="fa-solid fa-heart" style="color: #fa0019"></i>
       <% end %>
-    <%= post.likes.count %>
-  <% else %>
+      <%= post.likes.count %>
+    <% else %>
       <%= link_to post_likes_path(post.id), data: { turbo_method: :post, turbo_fram: "like_button_#{post.id}" } do %>
         <i class="fa-regular fa-heart"></i>
       <% end %>
-    <%= post.likes.count %>
+      <%= post.likes.count %>
+    <% end %>
   <% end %>
+<%else%>
+  <div class="tooltip tooltip-left" data-tip="ログイン後に可能です">
+    <i class="fa-regular fa-heart"></i>
+    <%= post.likes.count %>
+  </div>
 <% end %>
