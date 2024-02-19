@@ -1,0 +1,48 @@
+<div class="flex flex-col items-center md:justify-center w-full font-semibold">
+  <div class="flex items-center text-base md:text-2xl mt-10 md:mt-0 mb-5 md:mb-10">
+    <i class="fa-regular fa-lightbulb mr-3 md:mr-5"></i>
+    <p class="underline decoration-dotted decoration-2 underline-offset-8">他にも以下の機能があります！</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 w-3/5 md:w-3/4 gap-4 md:gap-8 text-sm md:text-base">
+    <div class="border rounded-lg p-5 bg-white">
+      <div class="flex items-center mb-3">
+        <i class="fa-solid fa-circle-plus mr-2"></i>
+        <p class="">いいね機能</p>
+      </div>
+      <p class="ml-3">他の人の投稿にいいねができる。</p>
+    </div>
+    <div class="border rounded-lg p-5 bg-white">
+      <div class="flex items-center mb-3">
+        <i class="fa-solid fa-circle-plus mr-2"></i>
+        <p class="">人気の投稿ランキング</p>
+      </div>
+      <p class="ml-3">いいね数が多い投稿をランキング形式でみる事ができる。</p>
+    </div>
+    <div class="border rounded-lg p-5 bg-white">
+      <div class="flex items-center mb-3">
+        <i class="fa-solid fa-circle-plus mr-2"></i>
+        <p>ジャンル別人気ランキング</p>
+        <p class="text-rose-400">(後日リリース)</p>
+      </div>
+      <p class="ml-3">PCやマウス、キーボードといったジャンルごとのランキングをみる事ができる。</p>
+    </div>
+    <div class="border rounded-lg p-5 bg-white">
+      <div class="flex items-center mb-3">
+        <i class="fa-solid fa-circle-plus mr-2"></i>
+        <p>マイデスク機能</p>
+        <p class="text-rose-400">(後日リリース)</p>
+      </div>
+      <p class="ml-3">アイテムをマイデスクという専用の場所に追加できます。今後買いたいアイテム等を備忘として残しておく事ができます。</p>
+    </div>
+  </div>
+  <h2 class="mt-10 md:mt-20 text-base md:text-2xl">さあ、自分のデスクを共有しよう！！</h2>
+  <div class="flex items-center gap-5 mt-10">
+    <%= link_to t('.sign_up'), new_users_path, class: "border rounded-xl p-3 text-base text-white bg-blue-700 hover:bg-blue-900" %>
+    <p>or</p>
+    <%= link_to t('defaults.login'), login_path, class: "border rounded-xl p-3 text-base text-white bg-slate-700 hover:bg-slate-900" %>
+  </div>
+</div>
+<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+  <a href="#slide3" class="btn btn-circle bg-white">❮</a>
+  <a href="#slide1" class="btn btn-circle bg-white">❯</a>
+</div>

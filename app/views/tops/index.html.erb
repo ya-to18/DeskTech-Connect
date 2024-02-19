@@ -1,14 +1,14 @@
-<div class="text-center font-bold justify-center">
-  <h1 class="text-2xl mt-20">あなたはどのようなデスク環境で、<br>仕事・勉強・作業をしていますか？</h1>
-  <div class="md:flex items-center justify-center m-16">
-    <%= image_tag 'toppage_image.jpg', class: 'rounded-full max-w-xs mr-4' %>
-    <div class="flex-col text-xl">
-      <h2 class="p-3">あなたのデスクをみんなに共有しよう！</h2>
-      <h2 class="p-3">新たなアイテムに出会えるかも・・・？</h2>
-    </div>
+<div class="carousel w-full h-screen">
+  <div id="slide1" class="carousel-item relative w-full">
+    <%= render 'slide1' %>
   </div>
-  <div class="flex justify-center m-10 gap-4">
-    <%= link_to 'みんなの投稿を見る', posts_path, class: 'base-btn' %>
-    <%= link_to 'アカウント登録', new_users_path, class: 'base-btn' %>
+  <div id="slide2" class="carousel-item relative w-full">
+    <%= render 'slide2' %>
+  </div>
+  <div id="slide3" class="carousel-item relative w-full">
+    <%= render 'slide3' %>
+  </div>
+  <div id="slide4" class="carousel-item relative w-full">
+    <%= render 'slide4' %>
   </div>
 </div>

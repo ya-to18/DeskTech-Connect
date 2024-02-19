@@ -24,8 +24,6 @@ gem "turbo-rails"
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
-# Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
-gem "tailwindcss-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
@@ -78,7 +76,6 @@ end
 
 gem 'sorcery'
 gem 'cssbundling-rails'
-gem 'jsbundling-rails'
 gem 'font-awesome-rails'
 gem 'pry-rails'
 gem 'carrierwave', '~> 2.0'
@@ -91,3 +88,5 @@ gem 'sassc', '~> 2.0'
 gem 'ransack'
 gem 'pagy'
 gem 'gretel'
+gem 'config'
+gem 'fog'

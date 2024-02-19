@@ -2,3 +2,4 @@ ja:
   my_pages:
     index:
       title: '%{user_name}さんのマイページ'
+      home: HOME

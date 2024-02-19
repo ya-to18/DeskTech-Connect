@@ -1,0 +1,21 @@
+<div class="flex flex-col items-center md:justify-center w-full md:text-xl font-semibold">
+  <div class="flex flex-col w-2/3 md:w-full items-center mt-20 md:mt-0">
+    <div class="flex md:text-2xl mb-5">
+      <i class="fa-regular fa-lightbulb mr-3 md:mr-5"></i>
+      <p class="underline decoration-dotted decoration-2 underline-offset-8">実際に投稿されてるデスクはこんなのがあります！！</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:mx-10">
+      <% @recent_3_posts.each do |post| %>
+        <%= image_tag post.image.url(:index_size), class: "shadow-xl rounded-xl border" %>
+      <% end %>
+    </div>
+    <p class="underline decoration-dotted decoration-2 underline-offset-8 mt-10 mb-5">ログインすると、もっと詳細な情報を見ることができるよ！</p>
+    <%= image_tag 'top_page/item_detail.png', class: "md:w-2/4 rounded-xl border shadow-xl" %>
+    <p class="mt-10 mb-5">まずはみんなの投稿を見てみる？</p>
+    <%= link_to 'みんなの投稿を見る', posts_path, class: "border rounded-xl p-3 text-base text-white bg-slate-700 hover:bg-slate-900" %>
+  </div>
+</div>
+<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+  <a href="#slide1" class="btn btn-circle bg-white">❮</a>
+  <a href="#slide3" class="btn btn-circle bg-white">❯</a>
+</div>

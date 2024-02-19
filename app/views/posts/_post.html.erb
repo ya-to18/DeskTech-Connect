@@ -1,4 +1,4 @@
-<div id="card" class="border rounded-lg shadow-lg h-auto group transform hover:-translate-y-2 duration-200" >
+<div id="card" class="border rounded-lg shadow-lg h-auto group transform hover:-translate-y-2 duration-200 bg-slate-50" >
   <div id="header" class="flex justify-between p-2 bg-slate-100 font-bold rounded-t-lg">
     <%= post.user.name %>
     <p><%= l post.created_at %></p>
@@ -11,24 +11,22 @@
       <div class="swiper">
         <div class="swiper-wrapper">
           <% post.gadgets.each do |gadget| %>
-            <%= image_tag gadget.image_url, class: "swiper-slide shadow mr-2 h-16 md:h-28 w-9 object-contain" %>
+            <%= image_tag gadget.image_url, class: "swiper-slide shadow h-16 md:h-20 w-9 object-contain" %>
           <% end %>
         </div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <div class="swiper-scrollbar"></div>
       </div>
     </div>
     <div id="brand" class="p-1">
       <% brand_remove_duplicate(post.id) %>
       <% unless @brand.empty? %>
         <% @brand.each do |brand| %>
-          <p class="badge bg-slate-200"><%= link_to brand, posts_path(q: { gadgets_brand_cont: brand }) %></p>
+          <%= link_to brand, posts_path(q: { gadgets_brand_cont: brand }), class: "badge bg-slate-200 hover:bg-slate-300" %>
         <% end %>
       <% end %>
     </div>
   </div>
   <div id="footer" class="p-2 text-right">
     <%= render 'posts/likes/like', post: post %>
-    <%= link_to "", posts_path, class: "fa-regular fa-comment" %>
   </div>
 </div>
