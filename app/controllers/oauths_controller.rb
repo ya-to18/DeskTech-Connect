@@ -15,7 +15,7 @@ class OauthsController < ApplicationController
     begin
       create_user_from(provider) unless (@user = login_from(provider))
       redirect_to my_page_path, flash: { success: 'Twitterでログインしました。' }
-    rescue StandardError
+    rescue StandardError => e
       logger.error "Twitterログイン時にエラーが発生しました: #{e.message}"
       logger.error e.backtrace.join("\n")
       redirect_to root_path, flash: { error: 'Twitterでログインできませんでした。' }
