@@ -2,6 +2,11 @@
 <% if current_user %>
   <% breadcrumb :posts_index %>
 <% end %>
-<h1 class="text-2xl md:text-3xl font-bold text-center p-3"><%= t('.title') %></h1>
+<div class="flex justify-center items-center text-xl md:text-2xl">
+  <div class="border rounded-full bg-white p-3  relative right-24 md:right-28 z-10">
+    <i class="fa-solid fa-desktop"></i>
+  </div>
+  <h1 class="absolute font-semibold shadow-lg border border-slate-300 py-2 px-8 rounded-full bg-slate-100 "><%= t('.title') %></h1>
+</div>
 <%= render 'shared/search', q: @q, url: posts_path %>
 <%= render 'shared/posts', url: posts_path %>

@@ -1,4 +1,7 @@
 <div class="mx-auto max-w-4xl">
+  <div class="flex justify-end">
+    <%= render 'explanation' %>
+  </div>
   <%= form_with model: @post, local: true do |form| %>
     <%= render 'shared/error_message', object: form.object %>
 
