@@ -64,7 +64,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = 'https://desktech-connect-ba757d0b0928.herokuapp.com/'
+  config.action_mailer.default_url_options = Settings.default_url_options
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.delivery_method = :smtp
