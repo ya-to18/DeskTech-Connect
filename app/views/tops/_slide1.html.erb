@@ -1,22 +1,22 @@
-<div class="flex flex-col items-center justify-center w-full md:text-xl font-semibold ">
-  <h1 id="welcome" class="text-3xl md:text-8xl text-center font-bold my-6 animate-tracking-in-expand">Welcom to<br>DeskTech-Connect!!</h1>
+<div class="flex flex-col items-center justify-center w-full md:text-xl font-semibold">
+  <h1 id="welcome" class="text-5xl md:text-8xl text-center font-bold my-6 animate-tracking-in-expand">Welcom to<br>DeskTech-Connect!!</h1>
   <%= image_tag 'top_page/logo.png', class: "h-36 md:h-44" %>
   <div class="flex flex-col items-center w-2/3">
     <p class="text-center underline decoration-dotted decoration-2 underline-offset-8 pt-8">あなたはどんなデスクで仕事や趣味を楽しんでいますか？</p>
     <p class="text-center underline decoration-dotted decoration-2 underline-offset-8 py-8">他の人はどんなデスクで仕事や趣味をしているのだろう、<br>と思ったことはありませんか？</p>
     <p class="text-center underline decoration-dotted decoration-2 underline-offset-8">自分のデスク写真や実際に使用しているアイテムを登録して、<br>共有することができるアプリです。</p>
-    <div class="flex items-center gap-5 mt-10 mb-3">
-      <%= link_to t('.sign_up'), new_users_path, class: "border rounded-xl p-3 text-base text-white bg-blue-700 hover:bg-blue-900" %>
+    <div class="flex items-center gap-5 mt-10 mb-3 ">
+      <%= link_to t('.sign_up'), new_users_path, class: "border rounded-xl p-3 text-sm md:text-base text-white bg-blue-700 hover:bg-blue-900" %>
       <p>or</p>
-      <%= link_to t('defaults.login'), login_path, class: "border rounded-xl p-3 text-base text-white bg-slate-700 hover:bg-slate-900" %>
+      <%= link_to t('defaults.login'), login_path, class: "border rounded-xl p-3 text-sm md:text-base text-white bg-slate-700 hover:bg-slate-900" %>
     </div>
     <div class="flex items-center gap-3 text-sm md:text-base">
       <i class="fa-regular fa-lightbulb"></i>
       <p>X（旧Twitter）でログインも可能です</p>
     </div>
   </div>
-  <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-    <a href="#slide4" class="btn btn-circle bg-white">❮</a>
-    <a href="#slide2" class="btn btn-circle bg-white">❯</a>
+  <div class="absolute flex justify-between transform -translate-y-1/2 left-1 md:left-5 right-1 md:right-5 top-1/2">
+    <a href="#slide4" class="btn btn-circle btn-sm md:btn-md bg-white">❮</a>
+    <a href="#slide2" class="btn btn-circle btn-sm md:btn-md bg-white">❯</a>
   </div>
 </div>

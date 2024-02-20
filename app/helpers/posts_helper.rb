@@ -27,11 +27,11 @@ module PostsHelper
     if rank <= 3
       image_file = case rank
       when 1
-        'rank/rank1'
+        'rank/rank1.png'
       when 2
-        'rank/rank2'
+        'rank/rank2.png'
       when 3
-        'rank/rank3'
+        'rank/rank3.png'
       end
 
       image_tag(image_file, class: 'w-10 md:w-20')
