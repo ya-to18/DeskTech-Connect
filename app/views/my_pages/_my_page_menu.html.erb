@@ -37,6 +37,10 @@
 <%= link_to users_path, class: "flex items-center w-full p-2 border shadow-md hover:bg-slate-100 transform hover:-translate-y-1 duration-200" do %>
   <i class="fa-solid fa-circle-chevron-right pr-2"></i>個人設定
 <% end %>
-<%= link_to logout_path, data: { turbo_method: :delete }, class: "flex items-center w-full p-2 border shadow-md hover:bg-slate-100 transform hover:-translate-y-1 duration-200 mt-10 md:mt-32" do %>
+<div class="flex text-sm mt-5">
+  <i class="fa-solid fa-circle-info mr-3 pt-1 text-blue-500"></i>
+  <p class="">みんなの投稿やランキングを見たいときは、右上のメニューボタンから見に行ってね！</p>
+</div>
+<%= link_to logout_path, data: { turbo_method: :delete }, class: "flex items-center w-full p-2 border shadow-md hover:bg-slate-100 transform hover:-translate-y-1 duration-200 mt-10 md:mt-5" do %>
   <i class="fa-solid fa-right-from-bracket pr-2"></i>ログアウト
 <% end %>
