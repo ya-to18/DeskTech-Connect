@@ -3,7 +3,7 @@
     <i class="fa-regular fa-lightbulb mr-3 md:mr-5"></i>
     <p class="underline decoration-dotted decoration-2 underline-offset-8">他にも以下の機能があります！</p>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 w-3/5 md:w-3/4 gap-4 md:gap-8 text-sm md:text-base">
+  <div class="grid grid-cols-1 md:grid-cols-2 w-4/5 md:w-3/4 gap-4 md:gap-8 text-sm md:text-base">
     <div class="border rounded-lg p-5 bg-white">
       <div class="flex items-center mb-3">
         <i class="fa-solid fa-circle-plus mr-2"></i>
@@ -36,17 +36,17 @@
     </div>
   </div>
   <h2 class="mt-10 md:mt-20 text-base md:text-2xl">さあ、自分のデスクを共有しよう！！</h2>
-  <div class="flex items-center gap-5 mt-10 mb-3">
-    <%= link_to t('.sign_up'), new_users_path, class: "border rounded-xl p-3 text-base text-white bg-blue-700 hover:bg-blue-900" %>
+  <div class="flex items-center gap-5 mt-5 mb-3">
+    <%= link_to t('.sign_up'), new_users_path, class: "border rounded-xl p-3 text-sm md:text-base text-white bg-blue-700 hover:bg-blue-900" %>
     <p>or</p>
-    <%= link_to t('defaults.login'), login_path, class: "border rounded-xl p-3 text-base text-white bg-slate-700 hover:bg-slate-900" %>
+    <%= link_to t('defaults.login'), login_path, class: "border rounded-xl p-3 text-sm md:text-base text-white bg-slate-700 hover:bg-slate-900" %>
   </div>
   <div class="flex items-center gap-3 text-sm md:text-base">
     <i class="fa-regular fa-lightbulb"></i>
     <p>X（旧Twitter）でログインも可能です</p>
   </div>
 </div>
-<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-  <a href="#slide3" class="btn btn-circle bg-white">❮</a>
-  <a href="#slide1" class="btn btn-circle bg-white">❯</a>
+<div class="absolute flex justify-between transform -translate-y-1/2 left-1 md:left-5 right-1 md:right-5 top-1/2">
+  <a href="#slide3" class="btn btn-circle btn-sm md:btn-md bg-white">❮</a>
+  <a href="#slide1" class="btn btn-circle btn-sm md:btn-md bg-white">❯</a>
 </div>
