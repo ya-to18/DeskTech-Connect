@@ -1,10 +1,10 @@
 <% content_for(:title, t('.title')) %>
 <% breadcrumb :liked_post %>
 <div class="flex justify-center items-center text-xl md:text-2xl">
-  <div class="border rounded-full bg-white p-3 relative right-20 md:right-24 z-10">
+  <div class="border rounded-full bg-white py-3 px-4 relative right-20 md:right-24 z-10">
     <i class="fa-regular fa-heart"></i>
   </div>
-  <h1 class="absolute font-semibold shadow-lg border border-slate-300 py-2 px-5 rounded-full bg-slate-100 "><%= t('.title') %></h1>
+  <h1 class="absolute font-semibold shadow-lg border border-slate-300 py-2 px-8 rounded-full bg-slate-100 "><%= t('.title') %></h1>
 </div>
 <%= render 'shared/search', q: @q, url: likes_users_path %>
 <% if @posts.present? %>
