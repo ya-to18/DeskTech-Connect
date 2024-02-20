@@ -17,6 +17,7 @@ ja:
       step1: STEP1 自分のデスク画像をアップロードしよう！
       step2: STEP2 デスクのおすすめポイントを書こう！
       step3: STEP3 使用しているアイテムを追加しよう！
+      require: 必須
       image_upload: ここから画像をアップロードしてね！
       item_index: アイテム一覧
       extension_text: ※ jpeg jpg pngの拡張子がアップロード可能です。
