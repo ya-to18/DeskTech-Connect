@@ -10,14 +10,14 @@
       <h2><i class="fa-regular fa-lightbulb pr-2"></i><%= t('.genre_select_sentence') %></h2>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-3 my-4" data-modal-target="genreSelectBox">
         <% Gadget.genres_i18n.invert.each do |key, value| %>
-          <a data-action="click->modal#selectedGenre" class="cursor-pointer border shadow rounded-full text-center bg-slate-100 hover:bg-slate-200">
+          <a data-action="click->modal#selectedGenre" class="cursor-pointer border shadow rounded-full text-center bg-blue-200 hover:bg-blue-300">
             <p><%= key %></p>
             <p class="hidden"><%= value %></p>
           </a>
         <% end %>
       </div>
       <div class="flex justify-end">
-        <button value="cancel" formmethod="dialog" class="cancel-btn" data-action="click->modal#dialogClose"><%= t('defaults.cancel') %></button>
+        <button value="cancel" formmethod="dialog" class="cancel-btn" data-action="click->modal#closeModal"><%= t('defaults.cancel') %></button>
       </div>
     </form>
   </dialog>

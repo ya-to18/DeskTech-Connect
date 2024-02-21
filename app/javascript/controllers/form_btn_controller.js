@@ -6,17 +6,17 @@ export default class extends Controller {
   connect() {
   }
   delete() {
-    const index = this.deleteBtnTarget.id.split("_")[4];
-    const template = document.getElementById('gadget-fields_' + index);
-    const displayTemplate = document.getElementById('subitem_' + index);
-    const delete_field = document.getElementById('delete_flag_' + index);
+    const index = this.deleteBtnTarget.id.split("_")[2];
+    const displayTemplate = document.getElementById('gadget-display-' + index);
+    const template = document.getElementById('gadget-hidden-' + index);
+    const delete_field = document.getElementById('delete-flag-' + index);
 
     if (index >= 10000) {
       displayTemplate.remove();
       delete_field.value = '1'
     } else {
-      template.remove();
       displayTemplate.remove();
+      template.remove();
     }
   }
 }
