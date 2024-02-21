@@ -1,35 +1,50 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["itemId", "name", "brand", "price", "imageUrl", "genre", "modal","makerName","makerCode","productUrl","productId", "subitems", "dialog", "genreSelectBox"]
+  static targets = ["itemId",
+                    "name",
+                    "brand",
+                    "price",
+                    "imageUrl",
+                    "genre",
+                    "modal",
+                    "makerName",
+                    "makerCode",
+                    "productUrl",
+                    "productId",
+                    "dialog",
+                    "genreSelectBox"]
+
   connect() {
     this.gadgetIndex = 0;
     this.selectedGenreItemKey = '';
     this.selectedGenreItemValue = '';
   }
 
+  toggleModal(show = true) {
+    const action = show ? 'remove' : 'add';
+    this.modalTarget.classList[action]("hidden");
+    if(show) {
+      this.dialogTarget.showModal();
+    } else {
+      this.dialogTarget.close();
+    }
+  }
+
   showModal() {
-    const dialog = this.dialogTarget;
     const turboFrame = document.getElementById('search_results');
     const selectedGenreKey = document.getElementById('selectedGenreKey')
     const keyword = document.getElementById('search_keyword')
 
+    this.toggleModal(true)
     event.preventDefault();
     turboFrame.src = '/rakuten_search?keyword='; // 検索キーワードなしの場合のページのsrc属性を代入
     selectedGenreKey.innerText = ''; //選択中のジャンルを初期化
     keyword.value = ''; //検索キーワードの初期化
-    dialog.showModal();
-    this.modalTarget.classList.remove("hidden");
   };
 
   closeModal() {
-    this.modalTarget.classList.add("hidden");
-    this.dialogTarget.close();
-  }
-
-  dialogClose() {
-    this.dialogTarget.close();
-    this.modalTarget.classList.add("hidden");
+    this.toggleModal(false)
   }
 
   selectedGenre(event) {
@@ -42,62 +57,54 @@ export default class extends Controller {
     document.querySelector('#selectedGenreKey').innerText = this.selectedGenreItemKey;
   }
 
-  itemSelect(event) {
+  gadgetSelect(event) {
     const clickedElement = event.target.closest('button')
-    const imageUrl = clickedElement.querySelector('[data-modal-target=imageUrl]').src;
-    const name = clickedElement.querySelector('[data-modal-target=name]').innerText;
-    const price = clickedElement.querySelector('[data-modal-target=price]').innerText;
-    const noCommaPrice = price.replace(/,/g, '')
-    const brand = clickedElement.querySelector('[data-modal-target=brand]').innerText;
-    const makerName = clickedElement.querySelector('[data-modal-target=makerName]').innerText;
-    const makerCode = clickedElement.querySelector('[data-modal-target=makerCode]').innerText;
-    const productUrl = clickedElement.querySelector('[data-modal-target=productUrl]').innerText;
-    const productId = clickedElement.querySelector('[data-modal-target=productId]').innerText;
+    // 選択したアイテムの情報を取得
+    let price = clickedElement.querySelector('[data-modal-target=price]').innerText;
+    const data = {
+      name: clickedElement.querySelector('[data-modal-target=name]').innerText,
+      imageUrl: clickedElement.querySelector('[data-modal-target=imageUrl]').src,
+      price: price,
+      noCommaPrice: price.replace(/,/g, ''),
+      brand: clickedElement.querySelector('[data-modal-target=brand]').innerText,
+      makerName: clickedElement.querySelector('[data-modal-target=makerName]').innerText,
+      makerCode: clickedElement.querySelector('[data-modal-target=makerCode]').innerText,
+      productId: clickedElement.querySelector('[data-modal-target=productId]').innerText,
+      productUrl: clickedElement.querySelector('[data-modal-target=productUrl]').innerText
+    };
 
     this.gadgetIndex++;
+    this.insertTemplate('gadget-display-template', 'gadget-display-container');
+    this.insertTemplate('gadget-hidden-template', 'gadget-hidden-container');
+    this.insertElements(data);
 
-    const template = document.getElementById('gadget-form-template').content.cloneNode(true);
-    const templateHtml = template.querySelector('div').outerHTML;
-    const newForm = templateHtml.replace(/NEW_RECORD/g, this.gadgetIndex);
-
-    document.getElementById('gadget-hidden-display-item-container').insertAdjacentHTML('beforeend', newForm);
-
-    const displayItem = document.getElementById('gadget-display-template').content.cloneNode(true);
-    displayItem.querySelector('#main_form_genre_display').id += `_${this.gadgetIndex}`;
-    displayItem.querySelector('#main_form_imageUrl_display').id += `_${this.gadgetIndex}`;
-    displayItem.querySelector('#main_form_name_display').id += `_${this.gadgetIndex}`;
-    displayItem.querySelector('#main_form_brand_display').id += `_${this.gadgetIndex}`;
-    displayItem.querySelector('#main_form_price_display').id += `_${this.gadgetIndex}`;
-    displayItem.querySelector('#main_form_delete_btn').id += `_${this.gadgetIndex}`;
-
-    displayItem.querySelector('#subitem').id += `_${this.gadgetIndex}`;
-
-    const displayItemHtml = displayItem.querySelector('div').outerHTML;
-    document.getElementById('gadget-display-item-container').insertAdjacentHTML('beforeend', displayItemHtml);
-
-    // 非表示用のフォームに代入
-    document.querySelector(`#main_form_name_${this.gadgetIndex}`).value = name;
-    document.querySelector(`#main_form_brand_${this.gadgetIndex}`).value = brand;
-    document.querySelector(`#main_form_price_${this.gadgetIndex}`).value = noCommaPrice;
-    document.querySelector(`#main_form_imageUrl_${this.gadgetIndex}`).value = imageUrl;
-    document.querySelector(`#main_form_genre_${this.gadgetIndex}`).value = this.selectedGenreItemValue;
-    document.querySelector(`#main_form_makerName_${this.gadgetIndex}`).value = makerName;
-    document.querySelector(`#main_form_makerCode_${this.gadgetIndex}`).value = makerCode;
-    document.querySelector(`#main_form_productUrl_${this.gadgetIndex}`).value = productUrl;
-    document.querySelector(`#main_form_productId_${this.gadgetIndex}`).value = productId;
-
-    //表示用の要素に代入
-    document.querySelector(`#main_form_name_display_${this.gadgetIndex}`).innerText = name;
-    document.querySelector(`#main_form_brand_display_${this.gadgetIndex}`).innerText = brand;
-    document.querySelector(`#main_form_price_display_${this.gadgetIndex}`).innerText = '¥' + price;
-    document.querySelector(`#main_form_imageUrl_display_${this.gadgetIndex}`).src = imageUrl;
-    document.querySelector(`#main_form_genre_display_${this.gadgetIndex}`).innerText = this.selectedGenreItemKey;
-
-    // モーダルをトグルする
-    this.closeModal();
-    this.dialogTarget.close();
-
-    // サブアイテムを表示する
-    document.querySelector(`#subitem_${this.gadgetIndex}`).classList.remove("hidden");
+    this.toggleModal(false);
   };
+
+  insertTemplate(templateId, containerId) {
+    const Template = document.getElementById(templateId).content.cloneNode(true);
+    const templateHtml = Template.querySelector('div').outerHTML;
+    const newForm = templateHtml.replace(/index/g, this.gadgetIndex);
+    // templateのHTMLをフォームに挿入
+    document.getElementById(containerId).insertAdjacentHTML('beforeend', newForm);
+  }
+
+  insertElements(data) {
+    //表示用の要素に代入
+    document.querySelector(`#display_name_${this.gadgetIndex}`).innerText = data.name;
+    document.querySelector(`#display_brand_${this.gadgetIndex}`).innerText = data.brand;
+    document.querySelector(`#display_price_${this.gadgetIndex}`).innerText = '¥' + data.price;
+    document.querySelector(`#display_imageUrl_${this.gadgetIndex}`).src = data.imageUrl;
+    document.querySelector(`#display_genre_${this.gadgetIndex}`).innerText = this.selectedGenreItemKey;
+    // 非表示用のフォームに代入
+    document.querySelector(`#hidden_name_${this.gadgetIndex}`).value = data.name;
+    document.querySelector(`#hidden_brand_${this.gadgetIndex}`).value = data.brand;
+    document.querySelector(`#hidden_price_${this.gadgetIndex}`).value = data.noCommaPrice;
+    document.querySelector(`#hidden_imageUrl_${this.gadgetIndex}`).value = data.imageUrl;
+    document.querySelector(`#hidden_genre_${this.gadgetIndex}`).value = this.selectedGenreItemValue;
+    document.querySelector(`#hidden_makerName_${this.gadgetIndex}`).value = data.makerName;
+    document.querySelector(`#hidden_makerCode_${this.gadgetIndex}`).value = data.makerCode;
+    document.querySelector(`#hidden_productUrl_${this.gadgetIndex}`).value = data.productUrl;
+    document.querySelector(`#hidden_productId_${this.gadgetIndex}`).value = data.productId;
+  }
 };

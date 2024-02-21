@@ -1,6 +1,6 @@
 <div class="grid grid-cols-2 md:grid-cols-5 gap-4 my-3">
   <% @products.each do |product| %>
-    <button type="button" id= 'item-<%= product['productId'] %>' class="transform hover:-translate-y-2 duration-200" data-action="click->modal#itemSelect" data-modal-target="itemId">
+    <button type="button" id= 'item-<%= product['productId'] %>' class="transform hover:-translate-y-2 duration-200" data-action="click->modal#gadgetSelect" data-modal-target="itemId">
       <div class="h-full">
         <div class="flex flex-col p-4 border rounded shadow-md cursor-pointer" >
           <div class="flex justify-center">
@@ -9,7 +9,7 @@
           <p class="my-2 h-16 md:h-24 overflow-clip" data-modal-target="name"><%= truncate_name(product['productName']) %></p>
           <div class="flex justify-center text-lg font-bold">
             <p>¥</p>
-            <p class="" data-modal-target="price"><%= number_with_delimiter(product['salesMinPrice']) %></p>
+            <p data-modal-target="price"><%= number_with_delimiter(product['usedExcludeSalesMinPrice']) %></p>
           </div>
           <p class="hidden" data-modal-target="brand"><%= product['brandName'] %></p>
           <p class="hidden" data-modal-target="makerName"><%= product['makerName'] %></p>
