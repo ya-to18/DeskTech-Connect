@@ -1,6 +1,4 @@
 <div class="grid grid-cols-1 px-4 gap-3 pb-3 md:grid-cols-3" >
   <%= render partial: 'posts/post', collection: posts %>
 </div>
-<div class="flex justify-center m-4">
-  <%= render 'my_pages/next_page', { pagy: pagy, turbo_frame_id: turbo_frame_id } %>
-</div>
+<%= render 'shared/next_page', { pagy: pagy, turbo_frame_id: turbo_frame_id } %>

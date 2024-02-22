@@ -1,0 +1,19 @@
+<% content_for(:title, t('.home')) %>
+<div class="mx-auto max-w-screen-lg flex flex-col my-5 justify-center items-center bg-white rounded-xl border shadow py-5 md:py-10">
+  <h1 class="font-bold text-xl md:text-2xl"><%= t('.title', user_name: @user.name) %></h1>
+  <div class="flex gap-5 my-10 border-b-2">
+    <%= link_to '自分の投稿', my_page_posts_path, data: {turbo_frame: "content"}, class: "hover:text-blue-500 active:text-blue-500" %>
+    <%= link_to 'いいね', my_page_liked_path, data: {turbo_frame: "content"}, class: "hover:text-blue-500 active:text-blue-500" %>
+    <%= link_to '個人設定', users_path, data: { turbo_frame: "content" }, class: "hover:text-blue-500 active:text-blue-500" %>
+  </div>
+
+  <%= turbo_frame_tag "content" do %>
+    <%= turbo_frame_tag "posts-page-#{@pagy.page}" do %>
+      <% if @posts.present? %>
+        <%= render 'shared/posts', posts: @posts, url: posts_path, pagy: @pagy, turbo_frame_id: 'posts' %>
+      <% else %>
+        <%= render 'no_posted_message' %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

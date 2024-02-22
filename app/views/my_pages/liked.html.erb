@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "content" do %>
+  <%= turbo_frame_tag "posts-page-#{@pagy.page}" do %>
+    <% if @posts.present? %>
+      <%= render 'shared/posts', posts: @posts, url: posts_path, pagy: @pagy, turbo_frame_id: 'posts' %>
+    <% else %>
+      <% render 'no_posted_message' %>
+    <% end %>
+  <% end %>
+<% end %>
