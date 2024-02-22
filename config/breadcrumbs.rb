@@ -6,6 +6,12 @@ crumb :show_post do |post|
   link "#{post.user.name}さんの投稿", post_path(post.id)
   if request.referer == posts_url
     parent :posts_index
+  elsif request.referer == likes_users_url
+    parent :liked_post
+  elsif request.referer == posts_users_url
+    parent :my_post
+  elsif request.referer == rank_url
+    parent :rank_post
   else
     parent :root
   end

@@ -3,19 +3,9 @@
     <%= post.user.name %>
     <p><%= l post.created_at %></p>
   </div>
-  <div id="contents" class="flex flex-col h-5/6">
+  <div id="contents" class="flex flex-col">
     <div id="main-image" class="relative overflow-hidden">
       <%= link_to image_tag(main_image_existence(post), class: 'h-auto w-full object-contain cursor-pointer transition-transform group-hover:scale-110 duration-200'), post_path(post.id) %>
-    </div>
-    <div id="item-image" class="h-auto p-3">
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          <% post.gadgets.each do |gadget| %>
-            <%= image_tag gadget.image_url, class: "swiper-slide shadow h-16 md:h-20 w-20 object-contain" %>
-          <% end %>
-        </div>
-        <div class="swiper-scrollbar"></div>
-      </div>
     </div>
     <div id="brand" class="p-1">
       <% brand_remove_duplicate(post.id) %>
