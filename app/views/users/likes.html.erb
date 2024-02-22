@@ -8,7 +8,9 @@
 </div>
 <%= render 'shared/search', q: @q, url: likes_users_path %>
 <% if @posts.present? %>
-  <%= render 'shared/posts', url: likes_users_path %>
+  <%= turbo_frame_tag "blogs-page-#{@pagy.page}" do %>
+    <%= render 'shared/posts', posts: @posts, pagy: @pagy %>
+  <% end %>
 <% else %>
   <%= render 'no_posted_message' %>
 <% end %>

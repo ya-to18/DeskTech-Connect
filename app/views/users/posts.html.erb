@@ -8,7 +8,7 @@
 </div>
 <%= render 'shared/search', q: @q, url: posts_users_path %>
 <% if @posts.present? %>
-  <%= render 'shared/posts', url: posts_users_path %>
+  <%= render 'shared/posts', posts: @posts, pagy: @pagy %>
 <% else %>
   <%= render 'no_posted_message' %>
 <% end %>

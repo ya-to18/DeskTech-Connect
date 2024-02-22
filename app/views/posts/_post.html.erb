@@ -5,7 +5,7 @@
   </div>
   <div id="contents" class="flex flex-col">
     <div id="main-image" class="relative overflow-hidden">
-      <%= link_to image_tag(main_image_existence(post), class: 'h-auto w-full object-contain cursor-pointer transition-transform group-hover:scale-110 duration-200'), post_path(post.id) %>
+      <%= link_to image_tag(main_image_existence(post), class: 'h-auto w-full object-contain cursor-pointer transition-transform group-hover:scale-110 duration-200'), post_path(post.id), data: { turbo_frame: "_top" } %>
     </div>
     <div id="brand" class="p-1">
       <% brand_remove_duplicate(post.id) %>

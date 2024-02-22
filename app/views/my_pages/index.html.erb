@@ -1,13 +1,18 @@
 <% content_for(:title, t('.home')) %>
-<div class="mx-auto max-w-screen-lg flex flex-col my-5 justify-center items-center bg-white rounded-xl border shadow py-5 md:py-10 md:px-5">
+<div class="mx-auto max-w-screen-lg flex flex-col my-5 justify-center items-center bg-white rounded-xl border shadow py-5 md:py-10">
   <h1 class="font-bold text-xl md:text-2xl"><%= t('.title', user_name: @user.name) %></h1>
-  <div class="w-full md:flex gap-10 my-5 p-3">
-    <div class="flex flex-col h-full md:w-2/3">
-      <p class="font-bold">最新の投稿</p>
-      <%= posted_user? %>
+  <div role="tablist" class="tabs tabs-bordered mt-5">
+    <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="MyPosts" checked />
+    <div role="tabpanel" class="tab-content p-10">
+      <%= turbo_frame_tag "my-posts-page-#{@pagy_like.page}" do %>
+        <%= render 'shared/posts', posts: @my_posts, pagy: @pagy_my_post, turbo_frame_id: 'my_posts' %>
+      <% end %>
     </div>
-    <div class="flex flex-col gap-2 mt-6 md:w-1/3">
-      <%= render 'my_page_menu' %>
+    <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Likes" />
+    <div role="tabpanel" class="tab-content p-10">
+      <%= turbo_frame_tag "likes-page-#{@pagy_like.page}" do %>
+        <%= render 'shared/posts', { posts: @like_posts, pagy: @pagy_like, turbo_frame_id: 'likes' } %>
+      <% end %>
     </div>
   </div>
 </div>

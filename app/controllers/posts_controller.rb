@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
     @pagy, @posts = pagy(@q.result(distinct: true).includes(:user).order("created_at desc"), items: 9)
+    render 'index' if params[:page]
   end
 
   def ranking; end
