@@ -37,7 +37,7 @@
     </dialog>
   </div>
 
-  <div id="gadget-content" class="grid grid-cols-1 gap-4 mb-10 md:grid-cols-3">
+  <div id="gadget-content" class="grid grid-cols-2 gap-4 mb-10 md:grid-cols-3">
     <% @post.gadgets.each do |gadget| %>
       <div id="gadget-card" class="flex flex-col bg-white shadow rounded-lg text-base p-4">
         <% if gadget.brand.present? %>
@@ -49,13 +49,13 @@
           <%= image_tag gadget.image_url, class: "shadow h-24 w-32 object-contain" %>
         </div>
         <div class="flex-grow flex flex-col">
-          <%= link_to truncate_name(gadget.name), gadget.product_url, target: :_blank, rel: "noopener noreferrer", class: "text-center p-2 h-16 hover:text-blue-500" %>
+          <%= link_to truncate_name(gadget.name), gadget.product_url, target: :_blank, rel: "noopener noreferrer", class: "text-center p-2 md:h-16 hover:text-blue-500" %>
           <p class="text-right font-bold text-lg md:p-2">¥<%= number_with_delimiter(gadget.price) %></p>
-          <div class="flex justify-between my-2 text-sm">
+          <div class="flex flex-col md:flex-row justify-between my-2 text-sm border-t md:border-none pt-3 md:pt-0">
             <p><%= Gadget.human_attribute_name :maker_name %></p>
             <p ><%= gadget.maker_name %></p>
           </div>
-          <p class="text-right text-sm border-t"><%= gadget.genre_i18n %></p>
+          <p class="text-right text-sm border-t pt-3"><%= gadget.genre_i18n %></p>
         </div>
       </div>
     <% end %>
