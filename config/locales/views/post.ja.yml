@@ -13,7 +13,7 @@ ja:
       title: 新規投稿
     edit:
       title: 編集
-    form:
+    forms:
       form:
         step1: STEP1 自分のデスク画像をアップロードしよう！
         step2: STEP2 デスクのおすすめポイントを書こう！
