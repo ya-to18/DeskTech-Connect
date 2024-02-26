@@ -1,6 +1,5 @@
-<% content_for(:title, t('.title', user_name: @post.user.name)) %>
-<% breadcrumb :show_post, @post %>
-<div class="mx-auto max-w-4xl m-5 p-5 bg-white border rounded-xl shadow-xl">
+<% set_meta_tags title: t('.title', user_name: @post.user.name) %>
+<div class="mx-auto max-w-4xl p-5 bg-white border rounded-xl shadow-xl my-10">
   <p class="text-xl md:text-2xl text-center font-bold pt-3"><%= t('.title', user_name:@post.user.name) %></p>
   <div class="flex justify-between my-2 gap-2">
     <%= render 'posts/likes/like', post: @post %>

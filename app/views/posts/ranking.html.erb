@@ -1,6 +1,5 @@
-<% content_for(:title, t('.title')) %>
-<% breadcrumb :rank_post %>
-<div class="flex justify-center items-center text-xl md:text-2xl">
+<% set_meta_tags title: t('.title') %>
+<div class="flex justify-center items-center text-xl md:text-2xl mt-10">
   <div class="border rounded-full bg-white py-3 px-4 relative right-28 md:right-32 z-10">
     <i class="fa-solid fa-crown"></i>
   </div>
@@ -24,16 +23,6 @@
               <div class="overflow-hidden">
                 <%= link_to image_tag(main_image_existence(post), class: 'object-contain cursor-pointer transition-transform group-hover:scale-110 duration-200 page-specific-class', data: {action: "mouseenter->show-view#textDisplay mouseleave->show-view#textHidden"} ), post_path(post.id) %>
               </div>
-              <div id="item-image" class="h-auto p-3">
-                <div class="swiper">
-                  <div class="swiper-wrapper">
-                    <% post.gadgets.each do |gadget| %>
-                      <%= image_tag gadget.image_url, class: "swiper-slide shadow mr-2 h-28 object-contain" %>
-                    <% end %>
-                  </div>
-                  <div class="swiper-scrollbar"></div>
-                </div>
-              </div>
               <div id="brand" class="p-1">
                 <% brand_remove_duplicate(post.id) %>
                 <% unless @brand.empty? %>
@@ -54,7 +43,7 @@
           <div class="flex justify-center relative z-10">
             <%= display_rank(i) %>
           </div>
-          <%= render 'post', post: post %>
+          <%= render 'shared/post', post: post %>
         </div>
     <% end %>
   <% end %>

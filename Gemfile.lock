@@ -358,9 +358,6 @@ GEM
       multi_json (~> 1.11)
       os (>= 0.9, < 2.0)
       signet (>= 0.16, < 2.a)
-    gretel (5.0.0)
-      actionview (>= 5.1, < 7.2)
-      railties (>= 5.1, < 7.2)
     hashie (5.0.0)
     http-accept (1.7.0)
     http-cookie (1.0.5)
@@ -612,7 +609,6 @@ DEPENDENCIES
   enum_help
   fog
   font-awesome-rails
-  gretel
   importmap-rails
   jbuilder
   letter_opener_web (~> 1.0)

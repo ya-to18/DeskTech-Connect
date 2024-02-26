@@ -1,0 +1,4 @@
+.link-active {
+  border-bottom: 2px solid #007bff; /* 青い下線 */
+  color: #007bff; /* リンクのテキスト色を変更 */
+}

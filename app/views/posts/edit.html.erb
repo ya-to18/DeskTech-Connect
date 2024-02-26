@@ -1,9 +1,8 @@
-<% content_for(:title, t('.title')) %>
-<% breadcrumb :edit_post, @post %>
-<div class="flex justify-center items-center text-xl md:text-2xl">
+<% set_meta_tags title: t('.title') %>
+<div class="flex justify-center items-center text-xl md:text-2xl mt-10">
   <div class="border rounded-full bg-white p-3 px-4 relative right-20 z-10">
     <i class="fa-solid fa-pen-to-square"></i>
   </div>
   <h1 class="absolute font-semibold shadow-lg border border-slate-300 py-2 px-14 rounded-full bg-slate-100 "><%= t('.title') %></h1>
 </div>
-<%= render 'posts/form' %>
+<%= render 'posts/forms/form' %>

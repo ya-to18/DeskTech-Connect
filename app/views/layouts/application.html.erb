@@ -2,7 +2,6 @@
 <html>
   <head>
     <%= favicon_link_tag('favicon.ico') %>
-    <title><%= page_title(yield(:title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,9 +14,13 @@
     <%= render "shared/header" %>
     <%= render 'shared/flash_message' %>
     <div class="container mx-auto flex-grow justify-center">
-      <%= breadcrumbs separator: " &rsaquo; " %>
       <%= yield %>
     </div>
     <%= render "shared/footer" %>
+    <div data-controller="top-scroll">
+      <%= link_to '#', class:"text-4xl fixed right-2 bottom-8 md:right-12 md:bottom-16", data: { top_scroll_target: "btn", action: "click->top-scroll#scroll" } do %>
+        <i class="fa-solid fa-circle-chevron-up"></i>
+      <% end %>
+    </div>
   </body>
 </html>

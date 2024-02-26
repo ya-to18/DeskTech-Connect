@@ -1,6 +1,6 @@
 <div class="mx-auto max-w-4xl">
   <div class="flex justify-end mr-3">
-    <%= render 'explanation' %>
+    <%= render 'posts/forms/explanation' %>
   </div>
   <%= form_with model: @post, local: true do |form| %>
     <%= render 'shared/error_message', object: form.object %>
@@ -51,7 +51,7 @@
           </div>
           <p class="text-xl text-center my-3"><i class="fa-solid fa-desktop pr-2"></i><%= t('.item_index') %></p>
           <div class="flex flex-col items-center">
-            <%= render 'posts/template/form_template', form: form %>
+            <%= render 'posts/forms/template', form: form %>
             <div id="gadget-display-container" class="grid grid-cols-2 md:grid-cols-3 gap-1 grid-flow-row">
               <!-- 登録済みのガジェット -->
               <% if @post.gadgets.ids.present? %>
@@ -108,5 +108,5 @@
     </div>
 
   <% end %>
-  <%= render 'posts/modal_gadget' %>
+  <%= render 'posts/forms/modal_gadget' %>
 </div>

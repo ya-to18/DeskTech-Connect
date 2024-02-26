@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "search_results" do %>
-  <% if @products.present? %>
-    <%= render 'posts/product', products: @products %>
+  <% if @items.present? %>
+    <%= render 'posts/item', products: @items %>
   <% else %>
     <%= render 'posts/no_keywords' %>
   <% end %>

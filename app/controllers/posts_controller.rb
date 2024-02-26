@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
     @pagy, @posts = pagy(@q.result(distinct: true).includes(:user).order("created_at desc"), items: 9)
+    render 'index' if params[:page]
   end
 
   def ranking; end
@@ -52,7 +53,7 @@ class PostsController < ApplicationController
 
   def rakuten_search
     unless params[:keyword] == ""
-      @products = RakutenWebService::Ichiba::Product.search(keyword: params[:keyword])
+      @items = RakutenWebService::Ichiba::Product.search(keyword: params[:keyword])
     end
   end
 

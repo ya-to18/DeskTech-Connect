@@ -1,5 +1,4 @@
 ja:
   my_pages:
-    index:
+    my_page:
       title: '%{user_name}さんのマイページ'
-      home: HOME
