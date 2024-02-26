@@ -5,32 +5,14 @@
       <p class="p-1 bg-blue-100 text-blue-500 font-medium rounded-lg border w-52 text-center">X（Twitter）でログイン中</p>
     <% end %>
     <div class="flex flex-col w-auto">
-        <%= turbo_frame_tag 'user-name' do %>
-          <div class="flex my-3 w-auto justify-between">
-            <p class="my-1">
-              <i class="fa-solid fa-user pr-3"></i>
-              <%= User.human_attribute_name :name %>
-            </p>
-            <% unless logged_in_for_x? %>
-              <%= link_to t('defaults.change'), edit_users_path, class: "base-btn", data: { turbo_frame: 'user-name' } %>
-            <% end %>
-          </div>
-          <p class="w-full text-center border rounded py-2 px-3 bg-white"><%= current_user.name %></p>
-        <% end %>
+      <%= turbo_frame_tag 'user-name' do %>
+        <% render 'name_content', user: current_user %>
+      <% end %>
     </div>
     <div class="flex flex-col w-auto">
-        <%= turbo_frame_tag 'user-email' do %>
-          <div class="flex my-4 w-auto justify-between">
-            <p class="my-1">
-              <i class="fa-solid fa-envelope pr-3"></i>
-              <%= User.human_attribute_name :email %>
-            </p>
-            <% unless logged_in_for_x? %>
-              <%= link_to t('defaults.change'), edit_users_path, class: "base-btn", data: { turbo_frame: 'user-email' } %>
-            <% end %>
-          </div>
-          <p class="w-full text-center border rounded py-2 px-3 bg-white"><%= current_user.email %></p>
-        <% end %>
+      <%= turbo_frame_tag 'user-email' do %>
+        <%  render 'email_content', user: current_user %>
+      <% end %>
     </div>
     <% unless logged_in_for_x? %>
       <div class="flex flex-col w-auto">

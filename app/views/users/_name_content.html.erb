@@ -1,0 +1,10 @@
+<div class="flex my-3 w-auto justify-between">
+  <p class="my-1">
+    <i class="fa-solid fa-user pr-3"></i>
+    <%= User.human_attribute_name :name %>
+  </p>
+  <% unless logged_in_for_x? %>
+    <%= link_to t('defaults.change'), edit_users_path, class: "base-btn", data: { turbo_frame: 'user-name' } %>
+  <% end %>
+</div>
+<p class="w-full text-center border rounded py-2 px-3 bg-white"><%= user.name %></p>
