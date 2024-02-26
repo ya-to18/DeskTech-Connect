@@ -18,5 +18,10 @@
       <%= yield %>
     </div>
     <%= render "shared/footer" %>
+    <div data-controller="top-scroll">
+      <%= link_to '#', class:"text-4xl fixed right-2 bottom-8 md:right-12 md:bottom-16", data: { top_scroll_target: "btn", action: "click->top-scroll#scroll" } do %>
+        <i class="fa-solid fa-circle-chevron-up"></i>
+      <% end %>
+    </div>
   </body>
 </html>
