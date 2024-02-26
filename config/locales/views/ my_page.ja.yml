@@ -2,4 +2,3 @@ ja:
   my_pages:
     my_page:
       title: '%{user_name}さんのマイページ'
-      home: マイページ
