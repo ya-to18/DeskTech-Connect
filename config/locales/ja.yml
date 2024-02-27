@@ -8,6 +8,7 @@ ja:
     edit: 編集
     delete: 削除
     submit: 更新
+    password_resets_subject: パスワードリセット
   activerecord:
     errors:
       messages:

@@ -4,9 +4,7 @@ class PostImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  if Rails.env.development?
-    storage :file
-  elsif Rails.env.test?
+  if Rails.env.development? || Rails.env.test?
     storage :file
   else
     storage :fog
@@ -19,11 +17,8 @@ class PostImageUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
-  def default_url(*args)
-  #   # For Rails 3.1+ asset pipeline compatibility:
-    ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  #
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+  def default_url(*)
+    ActionController::Base.helpers.asset_path("fallback/#{[version_name, 'default.png'].compact.join('_')}")
   end
 
   # Process files as they are uploaded:
@@ -35,13 +30,13 @@ class PostImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :index_size do
-    process resize_and_pad:[1600, 900, '#f8fafc', 'Center']
+    process resize_and_pad: [1600, 900, '#f8fafc', 'Center']
   end
 
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_allowlist
-    %w(jpg jpeg png webp)
+    %w[jpg jpeg png webp]
   end
 
   process :convert_to_webp
@@ -56,6 +51,6 @@ class PostImageUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    super.chomp(File.extname(super)) + '.webp' if original_filename.present?
+    "#{super.chomp(File.extname(super))} .webp" if original_filename.present?
   end
 end

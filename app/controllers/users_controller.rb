@@ -2,15 +2,16 @@ class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
   before_action :set_user, only: %i[edit update]
 
-  def new
-    @user = User.new
-  end
-
   def show
     current_user
   end
 
-  def edit; end
+  def new
+    @user = User.new
+  end
+
+  def edit
+  end
 
   def create
     @user = User.new(user_params)
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       respond_to do |format|
-        format.html { redirect_to user_path(@user)}
+        format.html { redirect_to user_path(@user) }
         flash.now[:success] = t('.update')
         format.turbo_stream
       end

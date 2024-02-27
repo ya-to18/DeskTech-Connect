@@ -12,19 +12,17 @@ class Post < ApplicationRecord
   mount_uploader :image, PostImageUploader
 
   def liked_by?(user)
-    if user.nil?
-      return
-    else
-      likes.exists?(user_id: user.id)
-    end
+    return false if user.nil?
+
+    likes.exists?(user_id: user.id)
   end
 
-  def self.ransackable_attributes(auth_object = nil)
-    ["content"]
+  def self.ransackable_attributes(*)
+    ['content']
   end
 
-  def self.ransackable_associations(auth_object = nil)
-    ["gadgets"]
+  def self.ransackable_associations(*)
+    ['gadgets']
   end
 
   def self.ranking

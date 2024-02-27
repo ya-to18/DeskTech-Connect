@@ -3,13 +3,14 @@ class TopsController < ApplicationController
 
   def index
     @recent_3_posts = Post.order(created_at: :desc).limit(4)
+    return unless logged_in?
 
-    if logged_in?
-      redirect_to posts_path
-    end
+    redirect_to posts_path
   end
 
-  def terms_of_service; end
+  def terms_of_service
+  end
 
-  def privacy_policy; end
+  def privacy_policy
+  end
 end
