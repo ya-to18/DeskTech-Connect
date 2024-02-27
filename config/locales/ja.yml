@@ -7,6 +7,7 @@ ja:
     search: 検索
     edit: 編集
     delete: 削除
+    submit: 更新
   activerecord:
     errors:
       messages:
