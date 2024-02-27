@@ -2,3 +2,6 @@ ja:
   my_pages:
     my_page:
       title: '%{user_name}さんのマイページ'
+      my_post: 自分の投稿
+      like: いいね
+      setting: 個人設定

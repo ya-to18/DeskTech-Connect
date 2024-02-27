@@ -4,13 +4,13 @@
     <div class="flex justify-center">
       <i class="fa-solid fa-key text-3xl border p-3 rounded-full absolute top-0 -mt-7 bg-white"></i>
     </div>
-    <p class="m-5">パスワードの変更を受け付けました。</p>
+    <p class="m-5"><%= t('.accept') %></p>
     <% if logged_in? %>
-      <p class="m-5">次回ログイン時に変更後のパスワードでログインしてください。</p>
-      <%= link_to '個人設定ページに戻る', users_path, class: 'link m-5 hover:link-primary' %>
+      <p class="m-5"><%= t('.login_user_information') %></p>
+      <%= link_to t('.back_my_page'), users_path, class: 'link m-5 hover:link-primary' %>
     <% else %>
-      <p class="m-5">下記よりログインを行なってください。</p>
-      <p><%= link_to 'ログイン', login_path, class: 'link m-5 hover:link-primary' %></p>
+      <p class="m-5"><%= t('.not_login_user_information') %></p>
+      <p><%= link_to t('defaults.login'), login_path, class: 'link m-5 hover:link-primary' %></p>
     <% end %>
   </div>
 </div>

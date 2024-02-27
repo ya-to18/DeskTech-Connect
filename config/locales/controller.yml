@@ -1,0 +1,34 @@
+ja:
+  application:
+    danger: ログインしてください
+  oauths:
+    callback:
+      success: Twitterでログインしました。
+      error: Twitterでのログインに失敗しました。
+  password_resets:
+    create:
+      success: メールを送信しました。
+    update:
+      success: パスワードを更新しました。
+  posts:
+    create:
+      success: 投稿しました
+      error: 投稿に失敗しました
+    update:
+      success: 更新が完了しました
+      error: 更新に失敗しました
+    destroy:
+      success: 投稿を削除しました
+    current_user_post:
+      error: 他人の投稿は編集することができません。
+  user_sessions:
+    create:
+      success: ログインしました
+      error: ログインに失敗しました
+    destroy:
+      success: ログアウトしました
+  users:
+    create:
+      success: アカウントを登録しました
+      error: アカウント登録に失敗しました
+    update: 更新されました

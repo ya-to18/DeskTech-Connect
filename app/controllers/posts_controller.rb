@@ -26,18 +26,18 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to posts_path, flash: { success: '投稿しました。' }
+      redirect_to posts_path, flash: { success: t('.success') }
     else
-      flash.now[:error] = '投稿に失敗しました。'
+      flash.now[:error] = t('.error')
       render :new, status: :unprocessable_entity
     end
   end
 
   def update
     if @post.update(post_params)
-      redirect_to post_path(@post.id), flash: { success: '更新が完了しました。' }
+      redirect_to post_path(@post.id), flash: { success: t('.success') }
     else
-      flash.now[:error] = '更新に失敗しました。'
+      flash.now[:error] = t('.error')
       render :edit, status: :unprocessable_entity
     end
   end
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
 
   def destroy
     if @post.destroy!
-      redirect_to posts_path, status: :see_other, flash: { success: '投稿を削除しました。' }
+      redirect_to posts_path, status: :see_other, flash: { success: t('.success') }
     end
   end
 
@@ -69,7 +69,7 @@ class PostsController < ApplicationController
 
   def current_user_post
     unless current_user.id == @post.user.id
-      redirect_to posts_path(@post.id), flash: { error: '他人の投稿は編集することができません。' }
+      redirect_to posts_path(@post.id), flash: { error: t('posts.current_user_post.error') }
     end
   end
 

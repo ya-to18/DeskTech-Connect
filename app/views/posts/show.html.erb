@@ -27,7 +27,7 @@
       <div class="modal-box">
         <div class="flex items-center gap-2">
           <i class="fa-regular fa-lightbulb text-xl text-yellow-300 mb-3"></i>
-          <p>アイテム名をクリックすると、そのアイテムの販売ページに飛ぶことができるよ！</p>
+          <p><%= t('.item_info') %></p>
         </div>
       </div>
       <form method="dialog" class="modal-backdrop">
@@ -61,6 +61,6 @@
   </div>
 
   <div class="flex justify-center">
-    <%= link_to '前のページに戻る', 'javascript:history.back()', class: "btn" %>
+    <%= link_to t('.back_page'), 'javascript:history.back()', class: "btn" %>
   </div>
 </div>

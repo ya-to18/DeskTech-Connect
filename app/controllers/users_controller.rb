@@ -15,9 +15,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path, flash: { success: 'アカウントを登録しました' }
+      redirect_to root_path, flash: { success: t('.success') }
     else
-      flash.now[:error] = 'アカウント登録に失敗しました'
+      flash.now[:error] = t('.error')
       render :new, status: :unprocessable_entity
     end
   end
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       respond_to do |format|
         format.html { redirect_to user_path(@user)}
-        flash.now[:success] = '更新されました。'
+        flash.now[:success] = t('.update')
         format.turbo_stream
       end
     else
