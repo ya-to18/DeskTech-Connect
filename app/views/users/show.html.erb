@@ -2,7 +2,9 @@
   <div id="error_message"></div>
   <div class="flex flex-col justify-center">
     <% if logged_in_for_x? %>
-      <p class="p-1 bg-blue-100 text-blue-500 font-medium rounded-lg border w-52 text-center">X（Twitter）でログイン中</p>
+      <p class="p-1 bg-blue-100 text-blue-500 font-medium rounded-lg border w-52 text-center">
+        <%= t('.x_login_now') %>
+      </p>
     <% end %>
     <div class="flex flex-col w-auto">
       <%= turbo_frame_tag 'user-name' do %>
@@ -23,11 +25,17 @@
           </p>
         </div>
         <p class="w-full text-center border rounded py-2 px-3 bg-white">●●●●●●●●●●</p>
-        <p class="text-center mt-4">パスワードの変更は<%= link_to 'こちら', new_password_reset_path,  class: 'link link-primary', data: { turbo_frame: "_top" } %>をクリックしてください。</p>
+        <p class="text-center mt-4">
+        <%= t('.changed_password') %>
+        <%= link_to t('.this'), new_password_reset_path,  class: 'link link-primary', data: { turbo_frame: "_top" } %>
+        <%= t('.changed_password2') %>
+        </p>
       </div>
     <% else %>
       <div class="flex justify-center my-10">
-        <p class="p-2 bg-red-100 text-red-500 font-medium rounded-lg border">X（Twitter）でログインしている場合は、ユーザネーム・メールアドレスの変更はできません。</p>
+        <p class="p-2 bg-red-100 text-red-500 font-medium rounded-lg border">
+          <%= t('.x_user_announcement') %>
+        </p>
       </div>
     <% end %>
   </div>
