@@ -1,10 +1,9 @@
 module PostsHelper
-  def brand_remove_duplicate(post)
-    post = Post.find(post)
-    @brand = post.gadgets.map { |gadget| gadget.brand }.uniq
-    if @brand.include?('')
-      @brand.delete('')
-    end
+  def brand_remove_duplicate(post_id)
+    post = Post.find(post_id)
+    brands = post.gadgets.map(&:brand).uniq
+    brands.delete('')
+    brands
   end
 
   def main_image_existence(post)
@@ -25,14 +24,15 @@ module PostsHelper
 
   def display_rank(rank)
     if rank <= 3
-      image_file = case rank
-      when 1
-        'rank/rank1.png'
-      when 2
-        'rank/rank2.png'
-      when 3
-        'rank/rank3.png'
-      end
+      image_file =
+        case rank
+        when 1
+          'rank/rank1.png'
+        when 2
+          'rank/rank2.png'
+        when 3
+          'rank/rank3.png'
+        end
 
       image_tag(image_file, class: 'w-10 md:w-20')
     else

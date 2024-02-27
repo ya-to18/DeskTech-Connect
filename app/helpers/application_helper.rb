@@ -17,7 +17,7 @@ module ApplicationHelper
         description: :description,
         type: 'website',
         url: request.original_url,
-        # image: image_url('ogp.png'),
+        image: image_url('ogp/default_ogp.png'),
         local: 'ja-JP'
       },
       twitter: {
@@ -31,7 +31,7 @@ module ApplicationHelper
   def page_title(page_title = '')
     base_title = 'DeskTech-Connect'
 
-    page_title.empty? ? base_title : page_title + ' | ' + base_title
+    page_title.empty? ? base_title : "#{page_title}  |  #{base_title}"
   end
 
   def truncate_name(name)

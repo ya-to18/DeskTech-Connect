@@ -4,7 +4,8 @@ ja:
       title: アカウント登録
     show:
       title: 個人設定
-    likes:
-      title: いいね一覧
-    posts:
-      title: 自分の投稿一覧
+      x_login_now: X（Twitter）でログイン中
+      x_user_announcement: X（Twitter）でログインしている場合は、ユーザネーム・メールアドレスの変更はできません。
+      changed_password: パスワードの変更は
+      changed_password2: をクリックしてください。
+      this: こちら

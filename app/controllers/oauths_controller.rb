@@ -8,17 +8,17 @@ class OauthsController < ApplicationController
     provider = auth_params[:provider]
 
     if auth_params[:denied].present?
-      redirect_to root_path, success: ('Twitterアカウントでのアカウント作成に成功しました')
+      redirect_to root_path, falsh: { success: t('.success') }
       return
     end
 
     begin
       create_user_from(provider) unless (@user = login_from(provider))
-      redirect_to my_page_path, flash: { success: 'Twitterでログインしました。' }
+      redirect_to my_page_path, flash: { success: t('.success') }
     rescue StandardError => e
-      logger.error "Twitterログイン時にエラーが発生しました: #{e.message}"
+      logger.error "t('.error') : #{e.message}"
       logger.error e.backtrace.join("\n")
-      redirect_to root_path, flash: { error: 'Twitterでログインできませんでした。' }
+      redirect_to root_path, flash: { error: '' }
     end
   end
 

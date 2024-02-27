@@ -1,10 +1,10 @@
-<% content_for(:title, t('common_titles.password_change')) %>
+<% set_meta_tags title: t('common_titles.password_change') %>
 <div class="py-20 sm:py-20 min-h-[calc(100vh-160px)] px-4">
   <div class="mx-auto max-w-screen-sm bg-white p-8 md:p-8 border rounded-lg shadow relative">
     <div class="flex justify-center">
       <i class="fa-solid fa-key text-3xl sm:2xl shadow p-3 rounded-full absolute top-0 -mt-7 bg-white"></i>
     </div>
-    <h1 class="mb-3 text-base text-gray-800 md:mb-5">新しいパスワードを入力してください。</h1>
+    <h1 class="mb-3 text-base text-gray-800 md:mb-5"><%= t('.new_password_input') %></h1>
     <%= form_with model: @user, url: password_reset_path(@token), local: true do |f| %>
       <%= render 'shared/error_message', object: f.object %>
       <div class="form-group mx-auto mx-w-lg">
@@ -16,7 +16,7 @@
           <%= f.label :password_confirmation, class: 'mb-2 inline-block text-sm text-gray-800 sm:text-base' %>
           <%= f.password_field :password_confirmation, class: 'form-controll w-full base-form-area' %>
           <div class="flex justify-center">
-            <%= f.submit '更新', class: 'base-btn mt-4 w-16' %>
+            <%= f.submit t('defaults.submit'), class: 'base-btn mt-4 w-16' %>
           </div>
         </div>
       </div>

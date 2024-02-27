@@ -1,5 +1,7 @@
 ja:
   my_pages:
-    index:
+    my_page:
       title: '%{user_name}さんのマイページ'
-      home: HOME
+      my_post: 自分の投稿
+      like: いいね
+      setting: 個人設定

@@ -65,6 +65,10 @@ group :development do
   # gem "spring"
 
   gem 'letter_opener_web', '~> 1.0'
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec'
 end
 
 group :test do
@@ -87,7 +91,6 @@ gem 'dotenv-rails'
 gem 'sassc', '~> 2.0'
 gem 'ransack'
 gem 'pagy'
-gem 'gretel'
 gem 'config'
 gem 'fog'
-gem 'meta_tags'
+gem 'meta-tags', :require => 'meta_tags'

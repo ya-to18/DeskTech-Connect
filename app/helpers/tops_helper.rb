@@ -1,7 +1,7 @@
 module TopsHelper
   def login_user
     if current_user
-      my_page_path
+      posts_path
     else
       root_path
     end

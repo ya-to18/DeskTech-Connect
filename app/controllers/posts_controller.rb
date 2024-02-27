@@ -1,65 +1,84 @@
 class PostsController < ApplicationController
   before_action :require_login
-  skip_before_action :require_login, only: %i[ index ]
-  before_action :set_post, only: %i[ show edit update destroy ]
-  before_action :current_user_post, only: %i[ edit update destroy ]
+  skip_before_action :require_login, only: %i[index]
+  before_action :set_post, only: %i[show edit update destroy]
+  before_action :current_user_post, only: %i[edit update destroy]
 
   def index
     @q = Post.ransack(params[:q])
-    @pagy, @posts = pagy(@q.result(distinct: true).includes(:user).order("created_at desc"), items: 9)
+    @pagy, @posts = pagy(@q.result(distinct: true).includes(:user).order('created_at desc'), items: 9)
+    render 'index' if params[:page]
   end
 
-  def ranking; end
+  def ranking
+  end
 
   def liked_posts
     @posts = Post.likes
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @post = Post.new
     @post.gadgets.build
   end
 
+  def edit
+  end
+
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to posts_path, flash: { success: '投稿しました。' }
+      redirect_to posts_path, flash: { success: t('.success') }
     else
-      flash.now[:error] = '投稿に失敗しました。'
+      flash.now[:error] = t('.error')
       render :new, status: :unprocessable_entity
     end
   end
 
   def update
     if @post.update(post_params)
-      redirect_to post_path(@post.id), flash: { success: '更新が完了しました。' }
+      redirect_to post_path(@post.id), flash: { success: t('.success') }
     else
-      flash.now[:error] = '更新に失敗しました。'
+      flash.now[:error] = t('.error')
       render :edit, status: :unprocessable_entity
     end
   end
 
-  def edit
-  end
-
   def destroy
-    if @post.destroy!
-      redirect_to posts_path, status: :see_other, flash: { success: '投稿を削除しました。' }
-    end
+    redirect_to posts_path, status: :see_other, flash: { success: t('.success') } if @post.destory!
   end
 
   def rakuten_search
-    unless params[:keyword] == ""
-      @products = RakutenWebService::Ichiba::Product.search(keyword: params[:keyword])
-    end
+    return if params[:keyword] == ''
+
+    @items = RakutenWebService::Ichiba::Product.search(keyword: params[:keyword])
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:image, :content, gadgets_attributes: [:id, :name, :brand, :price, :image_url, :genre, :maker_name, :maker_code, :product_url, :product_id, :_destroy]).merge(user_id: current_user.id)
+    permitted_params = [
+      :image,
+      :content,
+      gadgets_attributes: [
+        :id,
+        :name,
+        :brand,
+        :price,
+        :image_url,
+        :genre,
+        :maker_name,
+        :maker_code,
+        :product_url,
+        :product_id,
+        :_destroy
+      ]
+    ]
+
+    params.require(:post).permit(permitted_params).merge(user_id: current_user.id)
   end
 
   def set_post
@@ -67,9 +86,8 @@ class PostsController < ApplicationController
   end
 
   def current_user_post
-    unless current_user.id == @post.user.id
-      redirect_to posts_path(@post.id), flash: { error: '他人の投稿は編集することができません。' }
-    end
-  end
+    return if current_user.id == @post.user.id
 
+    redirect_to posts_path(@post.id), flash: { error: t('posts.current_user_post.error') }
+  end
 end

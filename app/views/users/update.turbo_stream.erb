@@ -3,6 +3,6 @@
 <% else %>
   <%= turbo_stream.update 'error_message', '' %>
   <%= turbo_stream.update 'flash_messages', partial: 'shared/flash_message', locals: { flash: flash } %>
-  <%= turbo_stream.replace 'user-name', partial: 'users/user_name', locals: { user: @user } %>
-  <%= turbo_stream.replace 'user-email', partial: 'users/user_email', locals: { user: @user } %>
+  <%= turbo_stream.replace 'user-name', partial: 'users/after_name', locals: { user: @user } %>
+  <%= turbo_stream.replace 'user-email', partial: 'users/after_email', locals: { user: @user } %>
 <% end %>

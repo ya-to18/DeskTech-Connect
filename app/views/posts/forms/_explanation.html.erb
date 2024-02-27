@@ -1,0 +1,27 @@
+<i class="fa-regular fa-circle-question cursor-pointer text-xl text-gray-400 hover:text-blue-500" onclick="my_modal_2.showModal()"></i>
+<dialog id="my_modal_2" class="modal">
+  <div class="modal-box text-base">
+    <div class="my-5 border-b pb-3">
+      <h2 class="text-lg font-semibold"><%= t('.step1') %></h2>
+      <div class="ml-3">
+        <p><%= t('.subtitle1') %></p>
+        <p class="text-red-500"><%= t('.subtitle1_description') %></p>
+      </div>
+    </div>
+    <div class="border-b pb-3">
+      <h2 class="text-lg font-semibold"><%= t('.step2') %></h2>
+      <p class="ml-3"><%= t('.subtitle2') %></p>
+    </div>
+    <div class="my-5">
+      <h2 class="text-lg font-semibold"><%= t('.step3') %></h2>
+      <div class="ml-3">
+        <p><%= t('.subtitle3') %></p>
+        <p><%= t('.subtitle3_description1') %></p>
+        <p><%= t('.subtitle3_description2') %></p>
+      </div>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>

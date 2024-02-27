@@ -1,0 +1,19 @@
+<div id="card" class="border rounded-lg shadow-lg h-auto group transform hover:-translate-y-2 duration-200 bg-slate-50" >
+  <div id="header" class="flex justify-between p-2 bg-slate-100 font-bold rounded-t-lg">
+    <%= post_card.user.name %>
+    <p><%= l post_card.created_at %></p>
+  </div>
+  <div id="contents" class="flex flex-col">
+    <div id="main-image" class="relative overflow-hidden">
+      <%= link_to image_tag(main_image_existence(post_card), class: 'h-auto w-full object-contain cursor-pointer transition-transform group-hover:scale-110 duration-200'), post_path(post_card.id), data: { turbo_frame: "_top" } %>
+    </div>
+    <div id="brand" class="p-1">
+      <% brand_remove_duplicate(post_card.id).each do |brand| %>
+        <%= link_to brand, posts_path(q: { gadgets_brand_cont: brand }), class: "badge bg-slate-200 hover:bg-slate-300" %>
+      <% end %>
+    </div>
+  </div>
+  <div id="footer" class="pr-2 text-right">
+    <%= render 'posts/likes/like', post: post_card %>
+  </div>
+</div>

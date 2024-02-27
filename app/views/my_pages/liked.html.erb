@@ -1,0 +1,3 @@
+<%= turbo_frame_tag "content" do %>
+  <% render 'turbo_frame_content', posts: @posts, url: posts_path, pagy: @pagy %>
+<% end %>
