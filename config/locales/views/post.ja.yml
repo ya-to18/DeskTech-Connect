@@ -24,11 +24,25 @@ ja:
         image_upload: ここから画像をアップロードしてね！
         item_index: アイテム一覧
         extension_text: ※ jpeg jpg pngの拡張子がアップロード可能です。
+        placeholder: ここに自分のデスクのお勧めポイントを書いてね！
       modal_gadget:
         add_item: アイテム追加
         genre_select_sentence: 登録するアイテムのジャンルを選択しよう！
         selected_genre: 選択中のジャンル：
         search_item_sentence: アイテムを検索しよう！
         search: 検索
+      explanation:
+        step1: STEP1
+        step2: STEP2
+        step3: STEP3
+        subtitle1: 自分のデスク画像をアップロードしてください。
+        subtitle2: デスク画像のおすすめポイントを入力してください。
+        subtitle3: デスクに使用しているアイテムを検索して登録してください。
+        subtitle1_description: ※アップロードできる拡張子は、jpeg jpg png のみです。
+        subtitle3_description1: アイテム追加ボタンを押すと、検索画面が開きます。
+        subtitle3_description2: 検索後、アイテムをクリックorタップするとアイテムを追加することが可能です！
+    likes:
+      like:
+        tooltip: ログイン後に可能です
     no_keywords:
       attention: 検索キーワードを入力してください。
