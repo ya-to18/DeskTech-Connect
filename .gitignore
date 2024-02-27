@@ -41,7 +41,7 @@ tmp/cache/bootsnap/
 yarn.lock
 
 /app/assets/builds/*
-/app/assets/builds/application.css
+!/app/assets/builds/application.css
 !/app/assets/builds/.keep
 
 config/settings.local.yml
