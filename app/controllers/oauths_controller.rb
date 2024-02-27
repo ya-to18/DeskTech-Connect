@@ -8,7 +8,7 @@ class OauthsController < ApplicationController
     provider = auth_params[:provider]
 
     if auth_params[:denied].present?
-      redirect_to root_path, success: (t('.success'))
+      redirect_to root_path, falsh: { success: t('.success') }
       return
     end
 
