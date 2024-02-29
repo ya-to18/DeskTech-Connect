@@ -1,6 +1,6 @@
 ja:
   my_pages:
-    my_page:
+    home:
       title: '%{user_name}さんのマイページ'
       my_post: 自分の投稿
       like: いいね

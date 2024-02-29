@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   root 'tops#index'
-  get 'terms_of_service', to: 'tops#terms_of_service'
-  get 'privacy_policy', to: 'tops#privacy_policy'
+
+  resource :tops, only: [] do
+    collection do
+      get 'terms_of_service'
+      get 'privacy_policy'
+    end
+  end
+
+  resource :users, only: %i[new create show edit update]
 
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
@@ -11,28 +18,36 @@ Rails.application.routes.draw do
   get "oauth/callback", to: "oauths#callback"
   get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
 
-  get 'my_page', to: 'my_pages#my_page'
-  get 'my_page/posts', to: 'my_pages#my_posts'
-  get 'my_page/liked', to: 'my_pages#liked'
-
-  resources :password_resets, only: %i[ new create edit update ]
-  get 'sended_mail', to: 'password_resets#sended_mail'
-  get 'after_setting', to: 'password_resets#after_setting'
-
-  resources :autocomplete do
-    get :brand, on: :collection
-    get :name, on: :collection
+  resource :my_page, only: [] do
+    collection do
+      get 'home', as: ''
+      get 'liked'
+      get 'my_posts'
+    end
   end
 
-  resource :users, only: %i[new create show edit update]
+  resources :password_resets, only: %i[ new create edit update ] do
+    collection do
+      get 'sended_mail'
+      get 'after_setting'
+    end
+  end
 
-  get 'rank', to: 'posts#ranking'
   resources :posts do
     resources :gadgets
     resource :likes, only: %i[ create destroy ]
+    collection do
+      get 'ranking'
+      get 'rakuten_search'
+    end
   end
 
-  get 'rakuten_search', to: 'posts#rakuten_search'
+  resources :autocomplete do
+    collection do
+      get :brand
+      get :name
+    end
+  end
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end

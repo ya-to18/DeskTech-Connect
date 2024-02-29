@@ -48,7 +48,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    redirect_to posts_path, status: :see_other, flash: { success: t('.success') } if @post.destory!
+    redirect_to posts_path, status: :see_other, flash: { success: t('.success') } if @post.destroy!
   end
 
   def rakuten_search
@@ -63,7 +63,7 @@ class PostsController < ApplicationController
     permitted_params = [
       :image,
       :content,
-      gadgets_attributes: [
+      { gadgets_attributes: [
         :id,
         :name,
         :brand,
@@ -75,7 +75,7 @@ class PostsController < ApplicationController
         :product_url,
         :product_id,
         :_destroy
-      ]
+      ] }
     ]
 
     params.require(:post).permit(permitted_params).merge(user_id: current_user.id)

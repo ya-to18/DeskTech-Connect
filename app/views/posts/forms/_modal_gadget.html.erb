@@ -32,12 +32,12 @@
           <p id="selectedGenreKey"></p>
         </div>
         <h1 class="font-bold"><i class="fa-solid fa-magnifying-glass"></i><%= t('.search_item_sentence') %></h1>
-          <%= form_with url: rakuten_search_path, method: :get, local: false, html: { data: { turbo_frame: "search_results" } } do |f| %>
-            <div class="form-group flex justify-between items-center md:justify-start gap-4">
-              <%= f.text_field :keyword, value: params[:keyword], class: "form-control base-form-area w-2/3 md:2/3", id: "search_keyword" %>
-              <%= f.submit t('.search'), class: "form-control base-btn" %>
-            </div>
-          <% end %>
+        <%= form_with url: rakuten_search_posts_path, method: :get, local: false, html: { data: { turbo_frame: "search_results" } } do |f| %>
+          <div class="form-group flex justify-between items-center md:justify-start gap-4">
+            <%= f.text_field :keyword, value: params[:keyword], class: "form-control base-form-area w-2/3 md:2/3", id: "search_keyword" %>
+            <%= f.submit t('.search'), class: "form-control base-btn" %>
+          </div>
+        <% end %>
         <%= turbo_frame_tag "search_results" %>
       </div>
   </div>
