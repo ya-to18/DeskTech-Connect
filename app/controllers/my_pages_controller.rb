@@ -1,5 +1,5 @@
 class MyPagesController < ApplicationController
-  def my_page
+  def home
     @user = User.find(current_user.id)
     loado_my_posts
   end

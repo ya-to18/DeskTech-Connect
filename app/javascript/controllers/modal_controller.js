@@ -38,7 +38,7 @@ export default class extends Controller {
 
     this.toggleModal(true)
     event.preventDefault();
-    turboFrame.src = '/rakuten_search?keyword='; // 検索キーワードなしの場合のページのsrc属性を代入
+    turboFrame.src = '/posts/rakuten_search?keyword='; // 検索キーワードなしの場合のページのsrc属性を代入
     selectedGenreKey.innerText = ''; //選択中のジャンルを初期化
     keyword.value = ''; //検索キーワードの初期化
   };
