@@ -48,7 +48,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    redirect_to posts_path, status: :see_other, flash: { success: t('.success') } if @post.destory!
+    redirect_to posts_path, status: :see_other, flash: { success: t('.success') } if @post.destroy!
   end
 
   def rakuten_search
