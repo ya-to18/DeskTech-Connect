@@ -9,7 +9,7 @@
           <%= link_to edit_post_comment_path(comment.post, comment), data: { turbo_frame: dom_id(comment, :edit) }, class: "p-1 rounded-full hover:bg-slate-300 active:bg-slate-400" do %>
             <i class="fa-regular fa-pen-to-square"></i>
           <% end %>
-          <%= link_to post_comment_path(comment.post, comment), data: { turbo_method: :delete, turbo_confirm: "コメントを削除しますか？" }, class: "px-2 py-1 rounded-full hover:bg-slate-300 active:bg-slate-400" do %>
+          <%= link_to post_comment_path(comment.post, comment), data: { turbo_method: :delete, turbo_confirm: t('.delete_confirmation') }, class: "px-2 py-1 rounded-full hover:bg-slate-300 active:bg-slate-400" do %>
             <i class="fa-regular fa-trash-can"></i>
           <% end %>
         </div>

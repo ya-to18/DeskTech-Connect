@@ -5,7 +5,7 @@
         <%= current_user.name %>
       </p>
       <div class="flex gap-2">
-        <%= f.submit 'コメント', class: "border rounded-lg p-1 bg-gray-800 hover:bg-gray-600 active:bg-gray-500 text-sm text-white cursor-pointer font-semibold" %>
+        <%= f.submit class: "border rounded-lg p-1 bg-gray-800 hover:bg-gray-600 active:bg-gray-500 text-sm text-white cursor-pointer font-semibold" %>
         <%= link_to '#', class: "text-xl mr-3 px-2 rounded-full hover:bg-slate-300" do%>
           <i class="fa-solid fa-xmark"></i>
         <% end %>
