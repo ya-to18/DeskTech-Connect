@@ -129,6 +129,9 @@ ja:
       create: 投稿
       submit: 保存する
       update: 更新
+      comment:
+        create: コメント
+        update: 更新
   number:
     currency:
       format:

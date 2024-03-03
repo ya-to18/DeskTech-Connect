@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :gadgets
     resource :likes, only: %i[ create destroy ]
+    resources :comments
     collection do
       get 'ranking'
       get 'rakuten_search'
