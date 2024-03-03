@@ -4,6 +4,7 @@ ja:
       user: ユーザー
       post: 投稿
       gadget: アイテム
+      comment: コメント
     attributes:
       user:
         name: ユーザーネーム
@@ -24,6 +25,8 @@ ja:
         product_id: 商品ID
         maker_name: メーカー
         maker_code: メーカーコード
+      comment:
+        content: コメント
     errors:
       models:
         post:
@@ -32,6 +35,10 @@ ja:
               blank: をアップロードしてください。
             gadgets:
               blank: を１つ以上追加してください。
+        comment:
+          attributes:
+            content:
+              blank: は１文字以上入力してください。
   enums:
     gadget:
       genre:
