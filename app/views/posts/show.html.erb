@@ -60,7 +60,18 @@
     <% end %>
   </div>
 
-  <div class="flex justify-center">
+  <h2 class="md:text-lg font-bold">コメント</h2>
+  <div class="flex flex-col items-center">
+    <div class="w-full md:w-3/4">
+      <%= turbo_frame_tag "comments" do %>
+        <%= render partial: 'comments/comment', collection: @comments %>
+      <% end %>
+      <%= link_to "+", new_post_comment_path(@post), class: "block border rounded my-2 p-2 text-center font-bold cursor-pointer hover:bg-slate-100", data: { turbo_frame: "new_comment" } %>
+      <%= turbo_frame_tag "new_comment" %>
+    </div>
+  </div>
+
+  <div class="flex justify-center mt-10">
     <%= link_to t('.back_page'), 'javascript:history.back()', class: "btn" %>
   </div>
 </div>

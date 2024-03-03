@@ -1,0 +1,25 @@
+<%= turbo_frame_tag dom_id(comment, :edit) do %>
+  <div id="<%= dom_id(comment) %>" class="border rounded my-2">
+    <div class="flex justify-between items-center py-2 bg-slate-100">
+      <p class="pl-2">
+        <%= comment.user.name %>
+      </p>
+      <% if my_comment?(comment.user.id) %>
+        <div>
+          <%= link_to edit_post_comment_path(comment.post, comment), data: { turbo_frame: dom_id(comment, :edit) }, class: "p-1 rounded-full hover:bg-slate-300 active:bg-slate-400" do %>
+            <i class="fa-regular fa-pen-to-square"></i>
+          <% end %>
+          <%= link_to post_comment_path(comment.post, comment), data: { turbo_method: :delete, turbo_confirm: "コメントを削除しますか？" }, class: "px-2 py-1 rounded-full hover:bg-slate-300 active:bg-slate-400" do %>
+            <i class="fa-regular fa-trash-can"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <p class="p-2">
+      <%= safe_join(comment.content.split("\n"),tag(:br)) %>
+    </p>
+    <p class="px-2 mt-3 text-sm text-end">
+      <%= l(comment.created_at, format: :long) %>
+    </p>
+  </div>
+<% end %>
