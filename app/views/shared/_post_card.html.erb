@@ -7,13 +7,17 @@
     <div id="main-image" class="relative overflow-hidden">
       <%= link_to image_tag(main_image_existence(post_card), class: 'h-auto w-full object-contain cursor-pointer transition-transform group-hover:scale-110 duration-200'), post_path(post_card.id), data: { turbo_frame: "_top" } %>
     </div>
-    <div id="brand" class="p-1">
+    <div id="brand" class="p-1 min-h-10">
       <% brand_remove_duplicate(post_card.id).each do |brand| %>
         <%= link_to brand, posts_path(q: { gadgets_brand_cont: brand }), class: "badge bg-slate-200 hover:bg-slate-300" %>
       <% end %>
     </div>
   </div>
-  <div id="footer" class="pr-2 text-right">
+  <div id="footer" class="flex justify-end gap-2">
     <%= render 'posts/likes/like', post: post_card %>
+    <div class="flex items-center gap-1 mr-2">
+      <i class="fa-regular fa-comment"></i>
+      <%= post_card.comments.count %>
+    </div>
   </div>
 </div>
