@@ -6,6 +6,9 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.new(post_id: @post.id)
   end
 
+  def edit
+  end
+
   def create
     @comment = current_user.comments.new(comment_params)
     respond_to do |format|
@@ -15,9 +18,6 @@ class CommentsController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
       end
     end
-  end
-
-  def edit
   end
 
   def update
