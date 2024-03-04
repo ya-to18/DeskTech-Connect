@@ -8,10 +8,18 @@
       <p class=""><%= l @post.created_at %></p>
     </div>
   </div>
-  <div class="flex justify-end gap-2">
+  <div class="flex justify-between items-center">
+    <div class="flex items-center gap-2">
+      <%= link_to t('.x'), "https://twitter.com/share?url=#{post_url(@post)}&text= #{@post.user.name}さんの投稿をシェアしました。", class: "bg-black text-white text-lg px-2 rounded-md hover:opacity-80", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア"%>
+      <%= link_to "http://line.me/R/msg/text/?#{@post.user.name}さんの投稿をシェアしました%0a#{request.url}", target: '_blank' do %>
+        <i class="fa-brands fa-line fa-2xl hover:opacity-80" style="color: #01c101;"></i>
+      <% end %>
+    </div>
     <% if my_post?(@post) %>
-      <%= link_to t('defaults.edit'), edit_post_path(@post.id), class: "base-btn" %>
-      <%= link_to t('defaults.delete'), post_path(@post.id), data: { turbo_method: :delete, turbo_confirm: t('.delete_confirmation') }, class: "cancel-btn" %>
+      <div class="flex gap-2">
+        <%= link_to t('defaults.edit'), edit_post_path(@post.id), class: "base-btn" %>
+        <%= link_to t('defaults.delete'), post_path(@post.id), data: { turbo_method: :delete, turbo_confirm: t('.delete_confirmation') }, class: "cancel-btn" %>
+      </div>
     <% end %>
   </div>
   <div class="flex flex-col gap-3 my-5">
