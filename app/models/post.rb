@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
-  has_many :gadgets, dependent: :destroy
+  has_many :post_gadgets
+  has_many :gadgets, through: :post_gadgets
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   belongs_to :user

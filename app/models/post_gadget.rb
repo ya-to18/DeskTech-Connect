@@ -1,0 +1,2 @@
+class PostGadget < ApplicationRecord
+end
