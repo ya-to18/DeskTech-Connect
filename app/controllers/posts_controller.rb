@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :require_login
   skip_before_action :require_login, only: %i[index]
   before_action :set_post, only: %i[show edit update destroy]
   before_action :current_user_post, only: %i[edit update destroy]
@@ -10,42 +9,44 @@ class PostsController < ApplicationController
     render 'index' if params[:page]
   end
 
-  def ranking
-  end
-
-  def liked_posts
-    @posts = Post.likes
-  end
-
   def show
     @comments = @post.comments.order(created_at: :asc)
   end
 
   def new
     @post = Post.new
-    @post.gadgets.build
   end
 
   def edit
   end
 
   def create
-    @post = Post.new(post_params)
-    if @post.save
-      redirect_to posts_path, flash: { success: t('.success') }
-    else
-      flash.now[:error] = t('.error')
-      render :new, status: :unprocessable_entity
+    @post = Post.new(post_params.except(:gadgets_attributes))
+
+    ActiveRecord::Base.transaction do
+      @post.add_or_update_gadgets(post_params[:gadgets_attributes])
+      @post.save!
     end
+
+    redirect_to posts_path, flash: { success: t('.success') }
+  rescue StandardError
+    # @post.errors.add(:base, e.message)
+    flash.now[:error] = t('.error')
+    render :new, status: :unprocessable_entity
   end
 
   def update
-    if @post.update(post_params)
-      redirect_to post_path(@post.id), flash: { success: t('.success') }
-    else
-      flash.now[:error] = t('.error')
-      render :edit, status: :unprocessable_entity
+    ActiveRecord::Base.transaction do
+      @post.assign_attributes(post_params.except(:gadgets_attributes))
+      @post.add_or_update_gadgets(post_params[:gadgets_attributes])
+      @post.save!
     end
+
+    redirect_to post_path(@post), flash: { success: t('.success') }
+  rescue StandardError
+    # @post.errors.add(:base, e.message)
+    flash.now[:error] = t('.error')
+    redirect_to edit_post_path(@post), flash: { error: t('.error') }
   end
 
   def destroy
@@ -56,6 +57,13 @@ class PostsController < ApplicationController
     return if params[:keyword] == ''
 
     @items = RakutenWebService::Ichiba::Product.search(keyword: params[:keyword])
+  end
+
+  def ranking
+  end
+
+  def liked_posts
+    @posts = Post.likes
   end
 
   private
@@ -70,12 +78,14 @@ class PostsController < ApplicationController
         :brand,
         :price,
         :image_url,
-        :genre,
-        :maker_name,
-        :maker_code,
         :product_url,
         :product_id,
-        :_destroy
+        :genre_id,
+        :_destroy,
+        { maker_attributes: [
+          :name,
+          :code
+        ] }
       ] }
     ]
 

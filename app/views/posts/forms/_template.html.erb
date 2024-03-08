@@ -18,15 +18,18 @@
 <template id="gadget-hidden-template">
   <%= form.fields_for :gadgets, Gadget.new, child_index: "index" do |gadget_form| %>
     <div id="gadget-hidden-index" class="hidden">
-      <%= gadget_form.text_field :genre, id: 'hidden_genre_index' %>
+      <%= gadget_form.number_field :genre_id, id: 'hidden_genre_index' %>
       <%= gadget_form.url_field :image_url, id: 'hidden_imageUrl_index' %>
       <%= gadget_form.text_field :name, id: 'hidden_name_index' %>
       <%= gadget_form.text_field :brand, id: 'hidden_brand_index' %>
       <%= gadget_form.number_field :price, id: 'hidden_price_index' %>
-      <%= gadget_form.text_field :maker_name, id: 'hidden_makerName_index' %>
-      <%= gadget_form.text_field :maker_code, id: 'hidden_makerCode_index' %>
       <%= gadget_form.url_field :product_url, id: 'hidden_productUrl_index' %>
       <%= gadget_form.text_field :product_id, id: 'hidden_productId_index' %>
+
+      <%= gadget_form.fields_for :maker, Maker.new do |maker_form| %>
+        <%= maker_form.text_field :name, id: 'hidden_makerName_index' %>
+        <%= maker_form.text_field :code, id: 'hidden_makerCode_index' %>
+      <% end %>
     </div>
   <% end %>
 </template>

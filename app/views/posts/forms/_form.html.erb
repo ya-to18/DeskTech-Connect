@@ -64,7 +64,7 @@
                     <div class="flex-grow flex flex-col">
                       <p id="display_name" class="text-center p-2"><%= truncate_name(gadget.name) %></p>
                       <p id="display_price" class="text-right font-bold">¥<%= number_with_delimiter(gadget.price) %></p>
-                      <p id="display_genre" class="text-right border-t"><%= gadget.genre_i18n %></p>
+                      <p id="display_genre" class="text-right border-t"><%= gadget.genre.name %></p>
                       <div class="flex justify-end mt-1">
                         <button type="button" id="delete_btn_<%= index + 10000 %>" class="cancel-btn" data-controller="form-btn" data-action="click->form-btn#delete" data-form-btn-target="deleteBtn"><%= t('defaults.delete') %></button>
                       </div>
@@ -81,7 +81,7 @@
                 <% @post.gadgets.each_with_index do |gadget, index| %>
                   <%= form.fields_for :gadgets, gadget, child_index: index + 10000 do |gadget_form| %>
                     <div id="gadget-hidden-<%= index + 10000 %>" class="hidden">
-                      <%= gadget_form.text_field :genre %>
+                      <%= gadget_form.text_field :genre_id %>
                       <%= gadget_form.url_field :image_url %>
                       <%= gadget_form.text_field :name %>
                       <%= gadget_form.text_field :brand %>
@@ -91,6 +91,11 @@
                       <%= gadget_form.url_field :product_url %>
                       <%= gadget_form.text_field :product_id %>
                       <%= gadget_form.number_field :_destroy, id: "delete-flag-#{index + 10000}" %>
+
+                      <%= gadget_form.fields_for :maker do |maker_form| %>
+                        <%= maker_form.text_field :name %>
+                      <% end%>
+
                     </div>
                   <% end %>
                 <% end %>
