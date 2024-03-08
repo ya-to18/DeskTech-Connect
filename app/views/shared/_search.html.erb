@@ -12,7 +12,7 @@
         <div class="flex flex-col gap-5 mt-5">
           <div class="">
             <%= f.label t('search.genre') %>
-            <%= f.select :gadgets_genre_eq, Gadget.genres_i18n.invert.map{ |key, value| [key, Gadget.genres[value]] }, prompt: '指定なし', class: "form-controll border" %>
+            <%= f.select :gadgets_genre_eq, Genre.all.map{|genre|genre.name}, prompt: '指定なし', class: "form-controll border" %>
           </div>
           <div class="w-full" data-controller="autocomplete" data-autocomplete-url-value="/autocomplete/brand", role="combobox">
             <%= f.label t('search.brand') %>

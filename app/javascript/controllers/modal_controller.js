@@ -17,8 +17,8 @@ export default class extends Controller {
 
   connect() {
     this.gadgetIndex = 0;
-    this.selectedGenreItemKey = '';
     this.selectedGenreItemValue = '';
+    this.selectedGenreItemId = '';
   }
 
   toggleModal(show = true) {
@@ -51,10 +51,10 @@ export default class extends Controller {
     const clickedElement = event.target.closest('a');
     const pElements = clickedElement.querySelectorAll('p')
 
-    this.selectedGenreItemKey = pElements[0].innerText;
-    this.selectedGenreItemValue = pElements[1].innerText;
+    this.selectedGenreItemValue = pElements[0].innerText;
+    this.selectedGenreItemId = pElements[1].innerText;
     this.dialogTarget.close();
-    document.querySelector('#selectedGenreKey').innerText = this.selectedGenreItemKey;
+    document.querySelector('#selectedGenreKey').innerText = this.selectedGenreItemValue;
   }
 
   gadgetSelect(event) {
@@ -95,16 +95,16 @@ export default class extends Controller {
     document.querySelector(`#display_brand_${this.gadgetIndex}`).innerText = data.brand;
     document.querySelector(`#display_price_${this.gadgetIndex}`).innerText = '¥' + data.price;
     document.querySelector(`#display_imageUrl_${this.gadgetIndex}`).src = data.imageUrl;
-    document.querySelector(`#display_genre_${this.gadgetIndex}`).innerText = this.selectedGenreItemKey;
+    document.querySelector(`#display_genre_${this.gadgetIndex}`).innerText = this.selectedGenreItemValue;
     // 非表示用のフォームに代入
     document.querySelector(`#hidden_name_${this.gadgetIndex}`).value = data.name;
     document.querySelector(`#hidden_brand_${this.gadgetIndex}`).value = data.brand;
     document.querySelector(`#hidden_price_${this.gadgetIndex}`).value = data.noCommaPrice;
     document.querySelector(`#hidden_imageUrl_${this.gadgetIndex}`).value = data.imageUrl;
-    document.querySelector(`#hidden_genre_${this.gadgetIndex}`).value = this.selectedGenreItemValue;
-    document.querySelector(`#hidden_makerName_${this.gadgetIndex}`).value = data.makerName;
-    document.querySelector(`#hidden_makerCode_${this.gadgetIndex}`).value = data.makerCode;
+    document.querySelector(`#hidden_genre_${this.gadgetIndex}`).value = this.selectedGenreItemId;
     document.querySelector(`#hidden_productUrl_${this.gadgetIndex}`).value = data.productUrl;
     document.querySelector(`#hidden_productId_${this.gadgetIndex}`).value = data.productId;
+    document.querySelector(`#hidden_makerName_${this.gadgetIndex}`).value = data.makerName;
+    document.querySelector(`#hidden_makerCode_${this.gadgetIndex}`).value = data.makerCode;
   }
 };

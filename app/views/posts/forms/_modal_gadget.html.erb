@@ -9,10 +9,10 @@
     <form>
       <h2><i class="fa-regular fa-lightbulb pr-2"></i><%= t('.genre_select_sentence') %></h2>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-3 my-4" data-modal-target="genreSelectBox">
-        <% Gadget.genres_i18n.invert.each do |key, value| %>
+        <% Genre.all.each do |genre| %>
           <a data-action="click->modal#selectedGenre" class="cursor-pointer border shadow rounded-full text-center bg-blue-200 hover:bg-blue-300">
-            <p><%= key %></p>
-            <p class="hidden"><%= value %></p>
+            <p><%= genre.name %></p>
+            <p class="hidden"><%= genre.id %></p>
           </a>
         <% end %>
       </div>
