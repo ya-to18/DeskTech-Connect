@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_08_051451) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_08_072312) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,19 +39,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_08_051451) do
     t.string "brand"
     t.integer "price"
     t.string "image_url"
-    t.integer "genre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "post_id"
     t.string "product_url"
     t.string "product_id", default: "0", null: false
-    t.string "maker_name"
-    t.bigint "maker_code", default: 0, null: false
     t.bigint "genre_id"
     t.bigint "maker_id"
     t.index ["genre_id"], name: "index_gadgets_on_genre_id"
     t.index ["maker_id"], name: "index_gadgets_on_maker_id"
-    t.index ["post_id"], name: "index_gadgets_on_post_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -115,7 +110,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_08_051451) do
   add_foreign_key "comments", "users"
   add_foreign_key "gadgets", "genres"
   add_foreign_key "gadgets", "makers"
-  add_foreign_key "gadgets", "posts"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "post_gadgets", "gadgets"
