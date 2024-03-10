@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get 'my_desks/index'
-  get 'my_desks/new'
-  get 'my_desks/create'
-  get 'my_desks/edit'
-  get 'my_desks/update'
-  get 'my_desks/destroy'
   root 'tops#index'
 
   resource :tops, only: [] do
@@ -55,6 +49,8 @@ Rails.application.routes.draw do
       get :name
     end
   end
+
+  resources :my_desks
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
