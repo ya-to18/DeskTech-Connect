@@ -83,10 +83,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_10_060513) do
 
   create_table "my_desks", force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "users_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_my_desks_on_users_id"
+    t.index ["user_id"], name: "index_my_desks_on_user_id"
   end
 
   create_table "post_gadgets", force: :cascade do |t|
@@ -131,7 +131,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_10_060513) do
   add_foreign_key "likes", "users"
   add_foreign_key "my_desk_gadgets", "gadgets", column: "gadgets_id"
   add_foreign_key "my_desk_gadgets", "my_desks", column: "my_desks_id"
-  add_foreign_key "my_desks", "users", column: "users_id"
+  add_foreign_key "my_desks", "users"
   add_foreign_key "post_gadgets", "gadgets"
   add_foreign_key "post_gadgets", "posts"
   add_foreign_key "posts", "users"

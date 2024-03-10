@@ -1,6 +1,6 @@
 class MyDesksController < ApplicationController
   def index
-    @my_desk = MyDesk.all
+    @my_desk = current_user.my_desks
   end
 
   def new
