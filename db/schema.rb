@@ -73,12 +73,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_10_060513) do
   end
 
   create_table "my_desk_gadgets", force: :cascade do |t|
-    t.bigint "my_desks_id", null: false
-    t.bigint "gadgets_id", null: false
+    t.bigint "my_desk_id", null: false
+    t.bigint "gadget_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["gadgets_id"], name: "index_my_desk_gadgets_on_gadgets_id"
-    t.index ["my_desks_id"], name: "index_my_desk_gadgets_on_my_desks_id"
+    t.index ["gadget_id"], name: "index_my_desk_gadgets_on_gadget_id"
+    t.index ["my_desk_id"], name: "index_my_desk_gadgets_on_my_desk_id"
   end
 
   create_table "my_desks", force: :cascade do |t|
@@ -129,8 +129,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_10_060513) do
   add_foreign_key "gadgets", "makers"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
-  add_foreign_key "my_desk_gadgets", "gadgets", column: "gadgets_id"
-  add_foreign_key "my_desk_gadgets", "my_desks", column: "my_desks_id"
+  add_foreign_key "my_desk_gadgets", "gadgets"
+  add_foreign_key "my_desk_gadgets", "my_desks"
   add_foreign_key "my_desks", "users"
   add_foreign_key "post_gadgets", "gadgets"
   add_foreign_key "post_gadgets", "posts"
