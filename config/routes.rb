@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'my_desks/index'
+  get 'my_desks/new'
+  get 'my_desks/create'
+  get 'my_desks/edit'
+  get 'my_desks/update'
+  get 'my_desks/destroy'
   root 'tops#index'
 
   resource :tops, only: [] do

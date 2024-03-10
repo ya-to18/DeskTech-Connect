@@ -1,0 +1,2 @@
+module MyDesksHelper
+end
