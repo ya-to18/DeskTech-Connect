@@ -3,5 +3,5 @@ class MyDesk < ApplicationRecord
 
   has_many :gadgets, through: :my_desk_gadgets
 
-  blongs_to :user
+  belongs_to :user
 end

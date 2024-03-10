@@ -1,5 +1,6 @@
 class MyDesksController < ApplicationController
   def index
+    @my_desk = MyDesk.all
   end
 
   def new
