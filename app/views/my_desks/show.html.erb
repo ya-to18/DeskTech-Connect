@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "my-desk-content" do %>
-  <div class="grid grid-cols-3 gap-3">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
     <% @gadgets.each do |gadget| %>
       <div id="gadget-card" class="flex flex-col bg-white shadow rounded-lg text-base p-4">
         <% if gadget.brand.present? %>

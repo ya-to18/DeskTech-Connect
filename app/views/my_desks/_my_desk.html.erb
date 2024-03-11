@@ -1,12 +1,12 @@
 <%= turbo_frame_tag dom_id(my_desk) do %>
-  <li class="border-b">
+  <li class="border-b shadow">
     <div class="flex justify-between">
       <%= link_to my_desk.name, my_desk_path(my_desk.id), data: { turbo_frame: "my-desk-content" } %>
-      <div class="dropdown dropdown-right dropdown-end">
+      <div class="dropdown dropdown-bottom md:dropdown-right">
         <div tabindex="0" role="button" class="">
           <i class="fa-solid fa-ellipsis"></i>
         </div>
-        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-40">
+        <ul tabindex="0" class="dropdown-content z-[1] menu p-1 shadow rounded-box w-20 md:w-32">
           <li>
             <%= link_to t('.edit'), edit_my_desk_path(my_desk) %>
           </li>
