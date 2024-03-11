@@ -8,10 +8,10 @@
         </div>
         <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-40">
           <li>
-            <%= link_to "名前変更", edit_my_desk_path(my_desk) %>
+            <%= link_to t('.edit'), edit_my_desk_path(my_desk) %>
           </li>
           <li>
-            <%= link_to "削除", my_desk_path(my_desk), data: { turbo_method: :delete } %>
+            <%= link_to t('.destroy'), my_desk_path(my_desk), data: { turbo_method: :delete } %>
           </li>
         </ul>
       </div>

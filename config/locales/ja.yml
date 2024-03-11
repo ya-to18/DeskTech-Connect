@@ -132,6 +132,9 @@ ja:
       comment:
         create: コメント
         update: 更新
+      my_desk:
+        create: 追加
+        update: 更新
   number:
     currency:
       format:
