@@ -1,19 +1,26 @@
 <%= turbo_frame_tag "content" do %>
-  <div class="flex">
-    <ul class="menu menu-md w-44 rounded-box ">
-      <%= turbo_frame_tag "my_desks" do %>
-        <% @my_desks.each do |my_desk| %>
-          <%= render 'my_desk', my_desk: my_desk %>
-        <% end %>
-      <% end %>
-      <li class="text-center">
-        <%= link_to "＋", new_my_desk_path, data: { turbo_frame: "new_my_desk" } %>
+  <div class="flex flex-col items-center w-full gap-1">
+    <ul class="menu rounded-box w-2/3 md:w-2/5">
+      <li>
+        <details>
+          <summary class="shadow">マイデスク選択</summary>
+          <ul>
+            <%= turbo_frame_tag "my_desks" do %>
+              <% @my_desks.each do |my_desk| %>
+                <%= render 'my_desk', my_desk: my_desk %>
+              <% end %>
+            <% end %>
+            <li class="shadow bg-slate-50">
+              <%= link_to "＋", new_my_desk_path, data: { turbo_frame: "new_my_desk" } %>
+            </li>
+            <%= turbo_frame_tag "new_my_desk" %>
+          </ul>
+        </details>
       </li>
-      <%= turbo_frame_tag "new_my_desk" %>
     </ul>
 
     <%= turbo_frame_tag "my-desk-content" do %>
-      <div class="grid grid-cols-3 gap-3">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
         <% current_user.my_desks.first.gadgets.each do |gadget| %>
           <div id="gadget-card" class="flex flex-col bg-white shadow rounded-lg text-base p-4">
             <% if gadget.brand.present? %>
