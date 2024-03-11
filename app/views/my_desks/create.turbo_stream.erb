@@ -1,0 +1,2 @@
+<%= turbo_stream.append "my_desks", partial: 'my_desks/my_desk', locals: { my_desk: @my_desk } %>
+<%= turbo_stream.update MyDesk.new, "" %>

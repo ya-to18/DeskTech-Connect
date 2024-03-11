@@ -1,2 +1,3 @@
-<h1>MyDesks#edit</h1>
-<p>Find me in app/views/my_desks/edit.html.erb</p>
+<%= turbo_frame_tag dom_id(@my_desk) do %>
+  <%= render 'form' %>
+<% end %>
