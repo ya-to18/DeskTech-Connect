@@ -4,6 +4,7 @@
   <div class="flex gap-5 my-10 border-b-2" data-controller="link-activator">
     <%= link_to t('.my_post'), my_posts_my_page_path, data: { turbo_frame: "content", link_activator_target: "link", action: "click->link-activator#activate" }, class: "hover:text-blue-500 active:text-blue-500" %>
     <%= link_to t('.like'), liked_my_page_path, data: {turbo_frame: "content", link_activator_target: "link", action: "click->link-activator#activate" }, class: "hover:text-blue-500 active:text-blue-500" %>
+    <%= link_to t('.my_desk'), my_desks_path, data: { turbo_frame: "content", link_activator_target: "link", action: "click->link-activator#activate" }, class: "hover:text-blue-500 active:text-blue-500" %>
     <%= link_to t('.setting'), users_path, data: { turbo_frame: "content", link_activator_target: "link", action: "click->link-activator#activate" }, class: "hover:text-blue-500 active:text-blue-500" %>
   </div>
 

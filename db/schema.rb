@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_08_072312) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_10_060513) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,6 +72,23 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_08_072312) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "my_desk_gadgets", force: :cascade do |t|
+    t.bigint "my_desk_id", null: false
+    t.bigint "gadget_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gadget_id"], name: "index_my_desk_gadgets_on_gadget_id"
+    t.index ["my_desk_id"], name: "index_my_desk_gadgets_on_my_desk_id"
+  end
+
+  create_table "my_desks", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_my_desks_on_user_id"
+  end
+
   create_table "post_gadgets", force: :cascade do |t|
     t.bigint "post_id", null: false
     t.bigint "gadget_id", null: false
@@ -112,6 +129,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_08_072312) do
   add_foreign_key "gadgets", "makers"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
+  add_foreign_key "my_desk_gadgets", "gadgets"
+  add_foreign_key "my_desk_gadgets", "my_desks"
+  add_foreign_key "my_desks", "users"
   add_foreign_key "post_gadgets", "gadgets"
   add_foreign_key "post_gadgets", "posts"
   add_foreign_key "posts", "users"

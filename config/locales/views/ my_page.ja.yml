@@ -4,4 +4,5 @@ ja:
       title: '%{user_name}さんのマイページ'
       my_post: 自分の投稿
       like: いいね
+      my_desk: マイデスク
       setting: 個人設定
