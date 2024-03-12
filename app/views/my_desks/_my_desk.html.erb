@@ -1,9 +1,9 @@
 <%= turbo_frame_tag dom_id(my_desk) do %>
   <li class="border-b shadow">
-    <div class="flex justify-between">
-      <%= link_to my_desk.name, my_desk_path(my_desk.id), data: { turbo_frame: "my-desk-content" } %>
-      <div class="dropdown dropdown-bottom md:dropdown-right">
-        <div tabindex="0" role="button" class="">
+    <div class="flex p-0">
+      <%= link_to my_desk.name, my_desk_path(my_desk.id), data: { turbo_frame: "my-desk-content" }, class: "w-full block hover:text-blue-500 p-2" %>
+      <div class="dropdown dropdown-bottom md:dropdown-right p-2">
+        <div tabindex="0" role="button" class="hover:text-blue-500">
           <i class="fa-solid fa-ellipsis"></i>
         </div>
         <ul tabindex="0" class="dropdown-content z-[1] menu p-1 shadow rounded-box w-20 md:w-32">
@@ -11,7 +11,7 @@
             <%= link_to t('.edit'), edit_my_desk_path(my_desk) %>
           </li>
           <li>
-            <%= link_to t('.destroy'), my_desk_path(my_desk), data: { turbo_method: :delete } %>
+            <%= link_to t('.destroy'), my_desk_path(my_desk), data: { turbo_method: :delete, turbo_confirm: t('.delete_confirmation') } %>
           </li>
         </ul>
       </div>

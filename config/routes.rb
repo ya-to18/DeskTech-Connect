@@ -50,7 +50,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :my_desks
+  resources :my_desks do
+    member do
+      post 'add_gadget'
+      delete 'remove_gadget'
+    end
+  end
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
