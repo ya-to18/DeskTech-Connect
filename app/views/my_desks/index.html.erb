@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "content" do %>
-  <div class="flex flex-col items-center w-full gap-1">
+  <div class="flex flex-col items-center gap-1 w-full">
     <ul class="menu rounded-box w-2/3 md:w-2/5">
       <li>
         <details>
@@ -20,36 +20,7 @@
     </ul>
 
     <%= turbo_frame_tag "my-desk-content" do %>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 px-2">
-        <% current_user.my_desks.first.gadgets.order(created_at: :desc).each do |gadget| %>
-          <%= turbo_frame_tag dom_id(gadget) do %>
-            <div id="gadget-card" class="flex flex-col bg-white shadow rounded-lg text-base p-4">
-              <div class="flex justify-end">
-                <%= link_to remove_gadget_my_desk_path(current_user.my_desks.first, gadget_id: gadget.id), data: { turbo_method: :delete } do %>
-                  <i class="fa-solid fa-circle-xmark hover:text-blue-500 active:text-blue-700"></i>
-                <% end %>
-              </div>
-              <% if gadget.brand.present? %>
-                <p class="badge bg-slate-200 min-h-6"><%= gadget.brand %></p>
-              <% else %>
-                <div class="min-h-6"></div>
-              <% end %>
-              <div class="flex justify-center py-2">
-                <%= image_tag gadget.image_url, class: "shadow h-24 w-32 object-contain" %>
-              </div>
-              <div class="flex-grow flex flex-col">
-                <%= link_to truncate_name(gadget.name), gadget.product_url, target: :_blank, rel: "noopener noreferrer", class: "text-center p-2 md:h-16 hover:text-blue-500" %>
-                <p class="text-right font-bold text-lg md:p-2">¥<%= number_with_delimiter(gadget.price) %></p>
-                <div class="flex flex-col md:flex-row justify-between my-2 text-sm border-t md:border-none pt-3 md:pt-0">
-                  <p><%= Gadget.human_attribute_name :maker_name %></p>
-                  <p ><%= gadget.maker.name %></p>
-                </div>
-                <p class="text-right text-sm border-t pt-3"><%= gadget.genre.name %></p>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+      <%= my_desk_gadgets_present?(@default_my_desk, @default_my_desk_gadgets) %>
     <% end %>
   </div>
 <% end %>

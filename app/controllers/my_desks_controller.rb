@@ -4,6 +4,8 @@ class MyDesksController < ApplicationController
 
   def index
     @my_desks = current_user.my_desks
+    @default_my_desk = current_user.my_desks.first
+    @default_my_desk_gadgets = current_user.my_desks.first.gadgets
   end
 
   def show
