@@ -42,11 +42,12 @@
 - 本リリース
     - マイデスク機能
     - ジャンル別人気ランキング
-    - 投稿シェア機能（X）
+    - 投稿シェア機能（X,LINE）
     - コメント機能
 ## 機能の実装方針予定
   - Ruby3系
   - Ruby on Rails7系
+  - HotWire
   - TailwindCSS
   - daisyUI
   - PostgreSQL
@@ -60,7 +61,6 @@
     - MiniMagick
     - rakuten_web_service
     - dotenv-rails
-    - enum_help
     - rails-i18n
     - ransack
     - pagy
@@ -78,4 +78,4 @@ Youtubeやガジェット紹介サイトは、単一の商品を紹介してい�
 Figma：https://www.figma.com/file/1ykhFs9VneuzQD1Nb06XT3/Web%E3%82%A2%E3%83%97%E3%83%AA_%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?type=design&node-id=0%3A1&mode=design&t=sCeXxhnOsxsjeQ4d-1
 ## ER図
 
-![ER図](https://i.gyazo.com/78b7c9d1f2a86183d02e6d2e7374deca.png)
+![ER図](https://i.gyazo.com/bf2f88ad6a3b741f076c1e5487854fe4.webp)
