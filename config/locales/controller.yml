@@ -1,6 +1,10 @@
 ja:
   application:
     danger: ログインしてください
+  my_desks:
+    registered: 'そのアイテムは「%{my_desk_name}」に登録済みです。'
+    new_register: 'マイデスク「%{my_desk_name}」に追加しました。'
+    fail: 登録に失敗しました。
   oauths:
     callback:
       success: Twitterでログインしました。

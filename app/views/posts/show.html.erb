@@ -47,12 +47,12 @@
   <div id="gadget-content" class="grid grid-cols-2 gap-4 mb-10 md:grid-cols-3">
     <% @post.gadgets.each do |gadget| %>
       <div id="gadget-card" class="flex flex-col bg-white shadow rounded-lg text-base p-4">
-        <div class="dropdown md:dropdown-right mb-2">
-          <div tabindex="0" role="button" class="hover:text-blue-500 active:text-blue-700 text-right text-sm">＋マイデスクに追加</div>
+        <div class="dropdown md:dropdown-right mb-2 text-right">
+          <div tabindex="0" role="button" class="hover:text-blue-500 active:text-blue-700 text-right text-sm inline-block"><i class="fa-solid fa-circle-plus"></i>マイデスクに追加</div>
           <ul tabindex="0" class="dropdown-content z-[1] menu shadow bg-base-100 rounded-box w-40">
             <% current_user.my_desks.each do |my_desk| %>
               <li>
-                <%= link_to my_desk.name, "#" %>
+                <%= link_to my_desk.name, add_gadget_my_desk_path(my_desk, gadget_id: gadget.id), data: { turbo_method: :post } %>
               </li>
             <% end %>
           </ul>
