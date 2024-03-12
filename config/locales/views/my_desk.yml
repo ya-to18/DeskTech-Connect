@@ -3,3 +3,4 @@ ja:
     my_desk:
       edit: 名前変更
       destroy: 削除
+      delete_confirmation: 削除するとこのマイデスクに登録されているアイテムも削除されますが、よろしいですか？
