@@ -53,6 +53,11 @@
               <% if @post.gadgets.ids.present? %>
                 <% @post.gadgets.each_with_index do |gadget, index| %>
                   <div id="gadget-display-<%= index + 10000 %>" class="flex flex-col bg-white shadow rounded-lg text-base p-4 relative">
+                    <div class="flex justify-end">
+                      <button type="button" id="delete_btn_<%= index + 10000 %>" data-controller="form-btn" data-action="click->form-btn#delete" data-form-btn-target="deleteBtn">
+                        <i class="fa-solid fa-circle-xmark hover:text-blue-500 active:text-blue-700 transition hover:rotate-180"></i>
+                      </button>
+                    </div>
                     <% if gadget.brand.present? %>
                       <p id="display_brand" class="badge bg-slate-200 min-h-6"><%= gadget.brand %></p>
                     <% else %>
@@ -64,9 +69,8 @@
                     <div class="flex-grow flex flex-col">
                       <p id="display_name" class="text-center p-2"><%= truncate_name(gadget.name) %></p>
                       <p id="display_price" class="text-right font-bold">¥<%= number_with_delimiter(gadget.price) %></p>
-                      <p id="display_genre" class="text-right border-t"><%= gadget.genre.name %></p>
                       <div class="flex justify-end mt-1">
-                        <button type="button" id="delete_btn_<%= index + 10000 %>" class="cancel-btn" data-controller="form-btn" data-action="click->form-btn#delete" data-form-btn-target="deleteBtn"><%= t('defaults.delete') %></button>
+                        <p id="display_genre" class="badge bg-slate-200"><%= gadget.genre.name %></p>
                       </div>
                     </div>
                   </div>

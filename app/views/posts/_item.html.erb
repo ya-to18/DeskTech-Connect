@@ -6,7 +6,7 @@
           <div class="flex justify-center">
             <%= image_tag(item['mediumImageUrl'], data: { modal_target: 'imageUrl'}, class: "h-24 object-contain") %>
           </div>
-          <p class="my-2 h-16 md:h-24 overflow-clip" data-modal-target="name"><%= truncate_name(item['productName']) %></p>
+          <p class="my-2 h-16 md:h-24 overflow-clip" data-modal-target="name"><%= item['productName'] %></p>
           <div class="flex justify-center text-lg font-bold">
             <p>¥</p>
             <p data-modal-target="price"><%= number_with_delimiter(item['usedExcludeSalesMinPrice']) %></p>

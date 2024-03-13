@@ -34,7 +34,6 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
-    resources :gadgets
     resource :likes, only: %i[ create destroy ]
     resources :comments
     collection do
@@ -42,6 +41,8 @@ Rails.application.routes.draw do
       get 'rakuten_search'
     end
   end
+
+  resources :gadgets
 
   resources :autocomplete do
     collection do

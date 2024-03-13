@@ -4,7 +4,7 @@
       <div id="gadget-card" class="flex flex-col bg-white shadow rounded-lg text-base p-4">
         <div class="flex justify-end">
           <%= link_to remove_gadget_my_desk_path(my_desk, gadget_id: gadget.id), data: { turbo_method: :delete } do %>
-            <i class="fa-solid fa-circle-xmark hover:text-blue-500 active:text-blue-700"></i>
+            <i class="fa-solid fa-circle-xmark hover:text-blue-500 active:text-blue-700 transition hover:rotate-180"></i>
           <% end %>
         </div>
         <% if gadget.brand.present? %>
@@ -15,13 +15,8 @@
         <div class="flex justify-center py-2">
           <%= image_tag gadget.image_url, class: "shadow h-24 w-32 object-contain" %>
         </div>
-        <div class="flex-grow flex flex-col">
-          <%= link_to truncate_name(gadget.name), gadget.product_url, target: :_blank, rel: "noopener noreferrer", class: "text-center p-2 md:h-16 hover:text-blue-500" %>
-          <p class="text-right font-bold text-lg md:p-2">¥<%= number_with_delimiter(gadget.price) %></p>
-          <div class="flex flex-col md:flex-row justify-between my-2 text-sm border-t md:border-none pt-3 md:pt-0">
-            <p><%= Gadget.human_attribute_name :maker_name %></p>
-            <p ><%= gadget.maker.name %></p>
-          </div>
+        <div class="flex flex-col">
+          <%= link_to truncate_name(gadget.name), gadget_path(gadget), data: { turbo_frame: "modal_frame" }, class: "modal-trigger text-center p-2 hover:text-blue-500" %>
           <p class="text-right text-sm border-t pt-3"><%= gadget.genre.name %></p>
         </div>
       </div>

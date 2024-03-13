@@ -1,0 +1,33 @@
+<%= turbo_frame_tag "modal_frame" do %>
+  <div class="w-full flex justify-center">
+    <div class="w-2/3 flex flex-col items-center gap-3">
+      <div class="w-full text-left">
+        <p class="badge bg-slate-200">
+          <%= @gadget.genre.name %>
+        </p>
+      </div>
+      <h1 class="text-center font-bold md:text-lg">
+        <%= @gadget.name %>
+      </h1>
+      <%= image_tag @gadget.image_url %>
+      <div class="w-full flex justify-end gap-3 mt-3">
+        <p><%= t('.maker') %></p>
+        <p>
+          <%= no_maker(@gadget) %>
+        </p>
+      </div>
+      <div class="w-full flex justify-end gap-3 items-end border-b-2 border-spacing-3">
+        <p><%= t('.price') %></p>
+        <p class="md:text-xl font-bold">
+          <%= number_with_delimiter(@gadget.price) %>
+        </p>
+      </div>
+      <div class="w-full flex justify-end items-center">
+        <%= link_to @gadget.product_url, target: :_blank, rel: "noopener noreferrer", class: "transform hover:-translate-y-1 hover:text-blue-500 duration-200" do %>
+          <%= t('.sales_site') %>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
