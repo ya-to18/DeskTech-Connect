@@ -11,20 +11,20 @@
       </h1>
       <%= image_tag @gadget.image_url %>
       <div class="w-full flex justify-end gap-3 mt-3">
-        <p>メーカー：</p>
+        <p><%= t('.maker') %></p>
         <p>
           <%= no_maker(@gadget) %>
         </p>
       </div>
       <div class="w-full flex justify-end gap-3 items-end border-b-2 border-spacing-3">
-        <p>参考価格：</p>
+        <p><%= t('.price') %></p>
         <p class="md:text-xl font-bold">
           <%= number_with_delimiter(@gadget.price) %>
         </p>
       </div>
       <div class="w-full flex justify-end items-center">
         <%= link_to @gadget.product_url, target: :_blank, rel: "noopener noreferrer", class: "transform hover:-translate-y-1 hover:text-blue-500 duration-200" do %>
-          販売サイト
+          <%= t('.sales_site') %>
           <i class="fa-solid fa-arrow-up-right-from-square"></i>
         <% end %>
       </div>
