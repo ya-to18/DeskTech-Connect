@@ -26,9 +26,13 @@
     <div id="modal" class="hidden fixed w-screen h-screen top-0 left-0 bg-gray-700/50 z-10 ">
       <div class="modal-background w-screen h-screen cursor-pointer"></div>
       <div class="absolute top-1/4 left-5 md:left-1/3 -translate-x-1/2 -translate-y-1/2 w-11/12 md:w-4/12 bg-white p-2 md:p-5 rounded shadow overflow-auto animate-fade-in-fwd">
+        <div class="flex justify-end">
+          <button class="modal-close">
+            <i class="fa-solid fa-circle-xmark transition hover:rotate-180 hover:text-blue-500 active:text-blue-700"></i>
+          </button>
+        </div>
         <%= turbo_frame_tag "modal_frame" do %>
         <% end %>
-        <button class="modal-close hover:text-blue-500">Close</button>
       </div>
     </div>
   </body>
