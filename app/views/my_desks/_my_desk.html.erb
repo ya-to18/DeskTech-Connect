@@ -10,9 +10,11 @@
           <li>
             <%= link_to t('.edit'), edit_my_desk_path(my_desk) %>
           </li>
-          <li>
-            <%= link_to t('.destroy'), my_desk_path(my_desk), data: { turbo_method: :delete, turbo_confirm: t('.delete_confirmation') } %>
-          </li>
+          <% unless current_user.my_desks.count == 1 %>
+            <li>
+              <%= link_to t('.destroy'), my_desk_path(my_desk), data: { turbo_method: :delete, turbo_confirm: t('.delete_confirmation') } %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>
