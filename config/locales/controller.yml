@@ -7,8 +7,9 @@ ja:
     fail: 登録に失敗しました。
   oauths:
     callback:
-      success: Twitterでログインしました。
-      error: Twitterでのログインに失敗しました。
+      success: Xでログインしました。
+      error: Xでのログインに失敗しました。
+      cancel: Xでのログインをキャンセルしました。
   password_resets:
     create:
       success: メールを送信しました。
