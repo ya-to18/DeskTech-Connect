@@ -1,8 +1,12 @@
 class Post < ApplicationRecord
   has_many :post_gadgets, dependent: :destroy
   has_many :gadgets, through: :post_gadgets
+
   has_many :likes, dependent: :destroy
+  has_many :liked_users, through: :likes, source: :user
+
   has_many :comments, dependent: :destroy
+
   belongs_to :user
   accepts_nested_attributes_for :gadgets, allow_destroy: true, reject_if: :all_blank
 

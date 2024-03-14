@@ -1,6 +1,9 @@
 class LikesController < ApplicationController
-  before_action :require_login
-  before_action :set_post
+  before_action :set_post, only: %i[index create destroy]
+
+  def index
+    @liked_users = @post.liked_users
+  end
 
   def create
     like = current_user.likes.new(post_id: @post.id)

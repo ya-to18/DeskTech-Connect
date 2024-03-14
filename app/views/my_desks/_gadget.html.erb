@@ -17,7 +17,9 @@
         </div>
         <div class="flex flex-col">
           <%= link_to truncate_name(gadget.name), gadget_path(gadget), data: { turbo_frame: "modal_frame" }, class: "modal-trigger text-center p-2 hover:text-blue-500" %>
-          <p class="text-right text-sm border-t pt-3"><%= gadget.genre.name %></p>
+          <div class="flex justify-end">
+            <p class="badge bg-slate-200 text-sm"><%= gadget.genre.name %></p>
+          </div>
         </div>
       </div>
     <% end %>

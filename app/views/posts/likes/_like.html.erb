@@ -4,12 +4,12 @@
       <%= link_to post_likes_path(post.id), data: { turbo_method: :delete, turbo_fram: "like_button_#{post.id}" } do %>
         <i class="fa-solid fa-heart" style="color: #fa0019"></i>
       <% end %>
-      <%= post.likes.count %>
+      <%= link_to post.likes.count, post_likes_path(post.id), data: { turbo_frame: "modal_frame" }, class: "modal-trigger hover:text-blue-500" %>
     <% else %>
       <%= link_to post_likes_path(post.id), data: { turbo_method: :post, turbo_fram: "like_button_#{post.id}" } do %>
         <i class="fa-regular fa-heart"></i>
       <% end %>
-      <%= post.likes.count %>
+      <%= link_to post.likes.count, post_likes_path(post.id), data: { turbo_frame: "modal_frame" }, class: "modal-trigger hover:text-blue-500" %>
     <% end %>
   <% end %>
 <%else%>
