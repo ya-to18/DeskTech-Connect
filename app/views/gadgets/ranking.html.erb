@@ -1,0 +1,13 @@
+<div class="mx-auto max-w-screen-md">
+  <h1 class="font-bold text-xl md:text-2xl">ジャンル別人気アイテム</h1>
+  <%= link_to "全体", ranking_gadgets_path, data: { turbo_frame: "genre_result" }, class: "badge bg-slate-200" %>
+  <% Genre.all.each do |genre| %>
+    <%= link_to genre.name , ranking_gadgets_path(genre_id: genre.id), data: { turbo_frame: "genre_result" }, class: "badge bg-slate-200" %>
+  <% end %>
+
+  <%= turbo_frame_tag "genre_result" do %>
+    <% @gadgets.each do |gadget| %>
+      <%= gadget.name %>
+    <% end %>
+  <% end %>
+</div>

@@ -43,7 +43,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :gadgets
+  resources :gadgets do
+    collection do
+      get 'ranking'
+    end
+  end
 
   resources :autocomplete do
     collection do
