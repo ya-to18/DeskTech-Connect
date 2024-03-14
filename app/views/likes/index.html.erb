@@ -1,0 +1,13 @@
+<%= turbo_frame_tag "modal_frame" do %>
+  <div class="flex flex-col items-center gap-3">
+    <div class="flex items-center gap-1">
+      <i class="fa-solid fa-heart"></i>
+      <h1>いいねしたユーザー</h1>
+    </div>
+    <% @liked_users.each do |user| %>
+      <p class="w-2/3 text-center border-b">
+        <%= user.name %>
+      </p>
+    <% end %>
+  </div>
+<% end %>

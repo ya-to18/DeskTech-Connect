@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   has_many :gadgets, through: :post_gadgets
 
   has_many :likes, dependent: :destroy
-  has_many :liked_users, through: :likes
+  has_many :liked_users, through: :likes, source: :user
 
   has_many :comments, dependent: :destroy
 
