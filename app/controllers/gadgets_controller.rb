@@ -5,9 +5,19 @@ class GadgetsController < ApplicationController
 
   def ranking
     if params[:genre_id]
-      @gadgets = Gadget.joins(:genre).where(genre: { id: params[:genre_id] })
+      @gadgets = Gadget.joins(:posts).joins(:genre)
+      .select('gadgets.*, COUNT(posts.id) AS posts_count')
+      .where(genres: {id: params[:genre_id]})
+      .group('gadgets.id')
+      .order('posts_count DESC')
+      .limit(10)
+
     else
-      @gadgets = Gadget.all
+      @gadgets = Gadget.joins(:posts).joins(:genre)
+      .select('gadgets.*, COUNT(posts.id) AS posts_count')
+      .group('gadgets.id')
+      .order('posts_count DESC')
+      .limit(10)
     end
   end
 end
