@@ -7,7 +7,9 @@ ja:
     my_page: マイページ
     new_post: 新規投稿
     index: みんなの投稿
-    ranking: 人気ランキング
+    ranking: ランキング
+    post_ranking: 人気投稿
+    gadget_ranking: 人気アイテム
     login: ログイン
     logout: ログアウト
     sign_up: アカウント登録

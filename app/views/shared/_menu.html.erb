@@ -26,10 +26,23 @@
           <% end %>
         </li>
         <li>
-          <%= link_to ranking_posts_path do %>
-            <i class="fa-solid fa-crown"></i>
-            <%= t('menu.ranking') %>
-          <% end %>
+          <details open>
+            <summary><i class="fa-solid fa-crown"></i><%= t('menu.ranking') %></summary>
+            <ul>
+              <li>
+                <%= link_to ranking_posts_path do %>
+                  <i class="fa-solid fa-ranking-star"></i>
+                  <%= t('menu.post_ranking') %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to ranking_gadgets_path do %>
+                  <i class="fa-regular fa-keyboard"></i>
+                  <%= t('menu.gadget_ranking') %>
+                <% end %>
+              </li>
+            </ul>
+          </details>
         </li>
         <li class="mt-5">
           <%= link_to logout_path, data: { turbo_method: :delete } do %>
