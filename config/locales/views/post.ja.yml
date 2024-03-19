@@ -3,7 +3,7 @@ ja:
     index:
       title: みんなの投稿
     ranking:
-      title: 人気ランキング
+      title: 人気の投稿
     show:
       title: '%{user_name}さんの投稿'
       posted_date: 投稿日
