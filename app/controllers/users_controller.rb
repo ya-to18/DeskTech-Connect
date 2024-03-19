@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      @user.my_desks.create!(name: "Default")
+      @user.my_desks.create!(name: 'Default')
       redirect_to root_path, flash: { success: t('.success') }
     else
       flash.now[:error] = t('.error')
