@@ -6,10 +6,10 @@
       </div>
       <h1 class="absolute font-semibold shadow-lg border border-slate-300 py-2 px-8 rounded-full bg-slate-100 "><%= t('.title') %></h1>
     </div>
-    <div class="text-center mt-5">
-      <%= link_to t('.all'), ranking_gadgets_path, data: { turbo_frame: "genre_result" }, class: "badge p-3 md:p-5 shadow-lg bg-white hover:bg-slate-200" %>
+    <div class="text-center mt-5 leading-loose" data-controller="gadget">
+      <%= link_to t('.all'), ranking_gadgets_path, data: { turbo_frame: "genre_result", gadget_target: "btn", action: "click->gadget#activate" }, class: "badge p-3 md:p-5 shadow-lg bg-white hover:bg-slate-200 active:bg-slate-300" %>
       <% Genre.all.each do |genre| %>
-        <%= link_to genre.name , ranking_gadgets_path(genre_id: genre.id), data: { turbo_frame: "genre_result" }, class: "badge p-3 md:p-5 shadow-lg bg-white hover:bg-slate-200" %>
+        <%= link_to genre.name , ranking_gadgets_path(genre_id: genre.id), data: { turbo_frame: "genre_result", gadget_target: "btn", action: "click->gadget#activate" }, class: "badge p-3 md:p-5 shadow-lg bg-white hover:bg-slate-200 active:bg-slate-300" %>
       <% end %>
     </div>
 
