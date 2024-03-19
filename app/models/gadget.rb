@@ -11,6 +11,10 @@ class Gadget < ApplicationRecord
   validates :name, :price, :image_url, presence: true
 
   def self.ransackable_attributes(*)
-    %w[brand genre name]
+    %w[brand name]
+  end
+
+  def self.ransackable_associations(*)
+    ['genre']
   end
 end
