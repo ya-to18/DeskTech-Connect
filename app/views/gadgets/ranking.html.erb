@@ -4,10 +4,10 @@
       <div class="border rounded-full bg-white py-3 px-4 relative right-28 md:right-32 z-10">
         <i class="fa-regular fa-keyboard"></i>
       </div>
-      <h1 class="absolute font-semibold shadow-lg border border-slate-300 py-2 px-8 rounded-full bg-slate-100 ">人気のアイテム</h1>
+      <h1 class="absolute font-semibold shadow-lg border border-slate-300 py-2 px-8 rounded-full bg-slate-100 "><%= t('.title') %></h1>
     </div>
     <div class="text-center mt-5">
-      <%= link_to "全体", ranking_gadgets_path, data: { turbo_frame: "genre_result" }, class: "badge p-3 md:p-5 shadow-lg bg-white hover:bg-slate-200" %>
+      <%= link_to t('.all'), ranking_gadgets_path, data: { turbo_frame: "genre_result" }, class: "badge p-3 md:p-5 shadow-lg bg-white hover:bg-slate-200" %>
       <% Genre.all.each do |genre| %>
         <%= link_to genre.name , ranking_gadgets_path(genre_id: genre.id), data: { turbo_frame: "genre_result" }, class: "badge p-3 md:p-5 shadow-lg bg-white hover:bg-slate-200" %>
       <% end %>
