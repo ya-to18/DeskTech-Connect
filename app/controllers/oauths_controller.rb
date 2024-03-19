@@ -14,9 +14,7 @@ class OauthsController < ApplicationController
 
     begin
       create_user_from(provider) unless (@user = login_from(provider))
-      if @user.my_desks.empty?
-        @user.my_desks.create!(name: "Default")
-      end
+      @user.my_desks.create!(name: 'Default') if @user.my_desks.empty?
 
       redirect_to my_page_path, flash: { success: t('.success') }
     rescue StandardError => e
