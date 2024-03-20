@@ -1,14 +1,29 @@
-<div class="carousel w-full h-screen">
-  <div id="slide1" class="carousel-item relative w-full">
-    <%= render 'slide1' %>
+<div class="mx-5 text-sm font-semibold">
+  <div id="header" class="flex flex-col items-center gap-4">
+    <h1 id="welcome" class="text-4xl md:text-8xl text-center font-bold my-6 animate-tracking-in-expand"><%= t('.title_html') %></h1>
+    <%= image_tag 'top_page/logo.png', class: "h-28 md:h-44" %>
   </div>
-  <div id="slide2" class="carousel-item relative w-full">
-    <%= render 'slide2' %>
+
+  <div class="md:text-xl">
+    <h2 class="text-center underline decoration-dotted decoration-2 underline-offset-8 pt-8"><%= t('.heading1') %></h2>
+    <h2 class="text-center underline decoration-dotted decoration-2 underline-offset-8 py-8"><%= t('.heading2') %></h2>
+    <h2 class="text-center underline decoration-dotted decoration-2 underline-offset-8"><%= t('.heading3') %></h2>
   </div>
-  <div id="slide3" class="carousel-item relative w-full">
-    <%= render 'slide3' %>
+
+  <div class="flex flex-col items-center md:text-base">
+    <div class="flex justify-center items-center gap-5 mt-10 mb-3 font-normal">
+      <%= link_to t('.sign_up'), new_users_path, class: "border rounded-xl p-2 text-white bg-blue-700 hover:bg-blue-800 active:bg-blue-900" %>
+      <p>or</p>
+      <%= link_to t('defaults.login'), login_path, class: "border rounded-xl p-2 text-white bg-slate-700 hover:bg-slate-800 active:bg-slate-900" %>
+    </div>
+    <div class="flex items-center gap-3">
+      <i class="fa-regular fa-lightbulb"></i>
+      <p><%= t('.x_login_info') %></p>
+    </div>
   </div>
-  <div id="slide4" class="carousel-item relative w-full">
-    <%= render 'slide4' %>
-  </div>
+
+  <div class="border border-slate-300 my-10 mx-5"></div>
+  <%= render 'new_post_content' %>
+  <div class="border border-slate-300 my-10 mx-5"></div>
+  <%= render 'logged_functions_content' %>
 </div>
