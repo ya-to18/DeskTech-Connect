@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 @import 'my_page';
 @import 'flash_message';
+@import 'top_page';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
