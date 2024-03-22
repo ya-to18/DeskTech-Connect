@@ -49,9 +49,9 @@
       <div id="gadget-card" class="flex flex-col bg-white shadow rounded-lg text-base p-4">
         <div class="dropdown md:dropdown-right mb-2 text-right">
           <div tabindex="0" role="button" class="group hover:text-blue-500 active:text-blue-700 text-right text-sm inline-block"><i class="fa-solid fa-plus transition group-hover:rotate-180"></i>マイデスクに追加</div>
-          <ul tabindex="0" class="dropdown-content z-[1] menu shadow bg-base-100 rounded-box w-40">
+          <ul tabindex="0" class="dropdown-content z-[1] menu shadow bg-base-100 rounded w-40 p-0">
             <% current_user.my_desks.each do |my_desk| %>
-              <li>
+              <li class="border-b">
                 <%= link_to my_desk.name, add_gadget_my_desk_path(my_desk, gadget_id: gadget.id), data: { turbo_method: :post } %>
               </li>
             <% end %>
