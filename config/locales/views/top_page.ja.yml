@@ -1,37 +1,32 @@
 ja:
   tops:
-    slide1:
+    index:
       title_html: Welcome to<br>DeskTech-Connect!!
       heading1: あなたはどんなデスクで仕事や趣味を楽しんでいますか？
-      heading2: 他の人はどんなデスクで仕事や趣味をしているのだろう、と思ったことはありませんか？
-      heading3: 自分のデスク写真や実際に使用しているアイテムを登録して、共有することができるアプリです。
+      heading2: 他の人はどんなデスク環境で仕事や趣味をしているのか気になりませんか？
+      heading3: 自慢のデスクをみんなに気軽に見てほしい！
+      heading4: そんな方に向けて・・・
+      heading5: 本サービスはデスク環境を簡単に投稿・共有することができるサービスです。
       sign_up: アカウント作成
       x_login_info: X（旧Twitter）でログインも可能です
-    slide2:
-      actual_post_info: 実際に投稿されてるデスクはこちら！
-      login_info: ログインすると、もっと詳細な情報を見ることができます！
-      checkout_everyone_post: まずはみんなの投稿を見てみる？
-      checkout_btn: みんなの投稿を見る
-    slide3:
-      how_to_post: 投稿は簡単３STEP！
-      step1: STEP1
-      step2: STEP2
-      step3: STEP3
-      step1_title: 自分のデスク画像をアップロード
-      step2_title: デスクのおすすめポイントを書く
-      step3_title: アップしたデスクで使用しているアイテムを追加する
-    slide4:
-      other_features: 他にも以下の機能があります！
-      like_function: いいね機能
-      like_function_detail: 他の人の投稿にいいねができる。
-      popular_post_ranking_function: 人気の投稿ランキング
-      popular_post_ranking_function_detail: いいね数が多い投稿をランキング形式でみる事ができます。
-      popular_ranking_by_genre_function: ジャンル別人気ランキング
-      popular_ranking_by_genre_function_detail: PCやマウス、キーボードといったジャンルごとのランキングをみる事ができます。
-      my_desk_function: マイデスク機能
-      my_desk_function_detail: アイテムをマイデスクという専用の場所に追加できます。今後買いたいアイテム等を備忘として残しておく事ができます。
-      released_at_a_later_date: (後日リリース)
-      share_info: さあ、自分のデスクを共有しよう！
-      or: or
-      x_login_info: X（旧Twitter）でログインも可能です
-      sign_up: アカウント作成
+      prompt_message: \　自分のデスクを共有しよう　/
+    new_post_content:
+      new_post: 新着の投稿
+      posts_index_link: みんなの投稿一覧へ
+      login_info: ログインすると、使用されているアイテムの詳細情報の閲覧が可能です。
+    logged_functions_content:
+      logged_functions: ログイン後に利用できる機能
+      post: 投稿
+      post_content_1: 投稿機能を利用することができます。
+      post_content_2: たったの3STEPで投稿することが可能です。
+      like_and_comment: いいねとコメント
+      like_content: 他の投稿にいいねをすることができます。
+      comment_content: 投稿詳細画面ではコメントをすることが可能です。
+      my_desk: マイデスク
+      my_desk_content_1: 他の投稿で気になったアイテムをマイデスクという場所に保存することができます。
+      my_desk_content_2: 一度保存したアイテムはマイページから閲覧でき、削除することも可能です。
+      ranking: ランキング
+      post_rank: 投稿ランキング
+      post_rank_content: いいね数の多い投稿を10位まで掲載しています。
+      item_rank: アイテムランキング
+      item_rank_content: 投稿に使用されているアイテムが多いアイテムをジャンル別に10位まで掲載しています。

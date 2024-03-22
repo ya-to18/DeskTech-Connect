@@ -1,0 +1,13 @@
+.style-mobile {
+  display: none;
+}
+
+/* 例えば768px以下の画面サイズでスマホと見なす */
+@media (max-width: 768px) {
+  .style-pc {
+    display: none;
+  }
+  .style-mobile {
+    display: block;
+  }
+}
