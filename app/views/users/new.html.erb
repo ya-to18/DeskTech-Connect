@@ -1,8 +1,8 @@
 <% set_meta_tags title: t('.title') %>
-<div class="flex justify-center mt-10 md:mt-5 h-full">
-  <div class="bg-white w-4/4 md:w-2/3 p-5 md:p-0 border rounded-xl text-base md:text-lg">
+<div class="flex justify-center my-10 md:my-5 h-full">
+  <div class="bg-white w-4/4 md:w-2/3 p-5 border rounded-xl text-base md:text-lg">
     <h1 class="text-center m-6 text-xl md:text-2xl font-bold"><i class="fa-solid fa-user-plus mr-2"></i><%= t('.title') %></h1>
-    <div class="flex justify-center w-full">
+    <div class="flex justify-center">
       <%= form_with model: @user, local: true do |f| %>
         <%= render 'shared/error_message', object: f.object %>
         <div class="form-group">
@@ -27,12 +27,14 @@
       <% end %>
     </div>
 
-    <div class="flex justify-center my-10">
-      <%= link_to image_tag('sign-in-with-twitter-gray.png'), auth_at_provider_path(provider: :twitter) %>
+    <div class="flex items-center justify-center space-x-2 my-5">
+      <div class="flex-1 md:flex-none md:w-1/5 h-0.5 bg-slate-200"></div>
+      <span class="px-2">or</span>
+      <div class="flex-1 md:flex-none md:w-1/5 h-0.5 bg-slate-200"></div>
     </div>
 
-    <div class='text-center m-5'>
-      <%= link_to t('defaults.login'), login_path, class: 'link hover:text-blue-500' %>
+    <div class="flex justify-center">
+      <%= link_to t('.x_login'), auth_at_provider_path(provider: :twitter), class: "base-btn"%>
     </div>
   </div>
 </div>

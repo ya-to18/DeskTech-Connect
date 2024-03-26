@@ -2,6 +2,7 @@ ja:
   users:
     new:
       title: アカウント登録
+      x_login: 𝕏 アカウントで登録
     show:
       title: 個人設定
       x_login_now: X（Twitter）でログイン中
