@@ -15,8 +15,8 @@
         <div class="flex justify-center py-2">
           <%= image_tag gadget.image_url, class: "shadow h-24 w-32 object-contain" %>
         </div>
-        <div class="flex flex-col">
-          <%= link_to truncate_name(gadget.name), gadget_path(gadget), data: { turbo_frame: "modal_frame" }, class: "modal-trigger text-center p-2 hover:text-blue-500" %>
+        <div class="flex flex-col h-full">
+          <%= link_to truncate_name(gadget.name), gadget_path(gadget), data: { turbo_frame: "modal_frame" }, class: "modal-trigger text-center p-2 h-full hover:text-blue-500" %>
           <div class="flex justify-end">
             <p class="badge bg-slate-200 text-sm"><%= gadget.genre.name %></p>
           </div>

@@ -46,32 +46,7 @@
 
   <div id="gadget-content" class="grid grid-cols-2 gap-4 mb-10 md:grid-cols-3">
     <% @post.gadgets.each do |gadget| %>
-      <div id="gadget-card" class="flex flex-col bg-white shadow rounded-lg text-base p-4">
-        <div class="dropdown md:dropdown-right mb-2 text-right">
-          <div tabindex="0" role="button" class="group hover:text-blue-500 active:text-blue-700 text-right text-sm inline-block"><i class="fa-solid fa-plus transition group-hover:rotate-180"></i>マイデスクに追加</div>
-          <ul tabindex="0" class="dropdown-content z-[1] menu shadow bg-base-100 rounded w-40 p-0">
-            <% current_user.my_desks.each do |my_desk| %>
-              <li class="border-b">
-                <%= link_to my_desk.name, add_gadget_my_desk_path(my_desk, gadget_id: gadget.id), data: { turbo_method: :post } %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-        <% if gadget.brand.present? %>
-          <p class="badge bg-slate-200 min-h-6"><%= gadget.brand %></p>
-        <% else %>
-          <div class="min-h-6"></div>
-        <% end %>
-        <div class="flex justify-center py-2">
-          <%= image_tag gadget.image_url, class: "shadow h-24 w-32 object-contain" %>
-        </div>
-        <div class="flex-grow flex flex-col">
-          <%= link_to truncate_name(gadget.name), gadget_path(gadget), data: { turbo_frame: "modal_frame" }, class: "modal-trigger text-center p-2 md:h-16 hover:text-blue-500" %>
-          <div class="flex justify-end">
-            <p class="badge bg-slate-200 text-sm"><%= gadget.genre.name %></p>
-          </div>
-        </div>
-      </div>
+      <%= render 'gadgets/gadget', gadget: gadget, index: nil %>
     <% end %>
   </div>
 
