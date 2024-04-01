@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      auto_login(@user)
       @user.my_desks.create!(name: 'Default')
       redirect_to root_path, flash: { success: t('.success') }
     else
